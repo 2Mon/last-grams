@@ -188,16 +188,12 @@
 </main>
 
 <!-- Footer -->
-<footer class="w-full grid grid-cols-1 md:grid-cols-3 items-center text-center p-8 gap-4 bg-primary border-t-4 border-on-surface">
-  <div class="font-label font-bold uppercase text-sm text-on-primary border-r-4 border-on-surface last:border-r-0 h-full flex items-center justify-center">
+<footer class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-8 gap-4 bg-primary dark:bg-secondary border-t-4 border-on-surface dark:border-background">
+  <div class="font-label font-bold uppercase text-sm text-on-primary border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center">
     Built by 1Mon for Hack Club 2026
   </div>
-  <div class="flex justify-center gap-6 border-r-4 border-on-surface last:border-r-0 h-full items-center">
-    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface transition-colors p-2" href="{base}/#">Discord</a>
-    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface transition-colors p-2" href="{base}/#">GitHub</a>
-    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface transition-colors p-2" href="{base}/#">Hack Club HQ</a>
-  </div>
-  <div class="font-label font-bold uppercase text-sm text-on-primary flex items-center justify-center">
-    STATUS: 142 ORIGINALS LOGGED
+  <div class="flex justify-center gap-6 border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center">
+    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2" href="https://github.com/2Mon/last-grams" target="_blank">GitHub</a>
+    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2" href="https://hackclub.com" target="_blank">Hack Club HQ</a>
   </div>
 </footer>
