@@ -31,7 +31,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -f package-lock.json
+          npm install
+          npm install @rollup/rollup-linux-x64-gnu --save-optional
 
       - name: Build
         run: npm run build
