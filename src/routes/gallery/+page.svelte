@@ -14,12 +14,12 @@
     }
 
     const creations: Creation[] = [
-        { title: 'Project 1', id: '#0001', weight: '0.82g', material: 'PLA',   maker: '@user_1', image: 'https://placehold.co/600x400/e8e8e4/2e2f2d?text=Project+1' },
-        { title: 'Project 2', id: '#0002', weight: '1.15g', material: 'Resin', maker: '@user_2', image: 'https://placehold.co/600x400/e8e8e4/2e2f2d?text=Project+2' },
-        { title: 'Project 3', id: '#0003', weight: '0.45g', material: 'TPU',   maker: '@user_3', image: 'https://placehold.co/600x400/e8e8e4/2e2f2d?text=Project+3' },
-        { title: 'Project 4', id: '#0004', weight: '0.68g', material: 'Nylon', maker: '@user_4', image: 'https://placehold.co/600x400/e8e8e4/2e2f2d?text=Project+4' },
-        { title: 'Project 5', id: '#0005', weight: '1.02g', material: 'PETG',  maker: '@user_5', image: 'https://placehold.co/600x400/e8e8e4/2e2f2d?text=Project+5' },
-        { title: 'Project 6', id: '#0006', weight: '0.24g', material: 'ABS',   maker: '@user_6', image: 'https://placehold.co/600x400/e8e8e4/2e2f2d?text=Project+6' },
+        { title: 'Your Color Change Buddy', id: '#204388', weight: '3.00g',  material: 'PLA',  maker: '@Clement',          image: 'https://media.printables.com/media/prints/204388/images/1886602_65b50415-f71b-4420-88d8-20ee4afd71ad/thumbs/inside/1600x1200/jpg/color-change-buddy4.webp' },
+        { title: 'Cable Labels',            id: '#207466', weight: '1.00g',  material: 'PLA',  maker: '@FishboneWorkshop', image: 'https://media.printables.com/media/prints/207466/images/1907670_0741c15a-73a4-404d-8d11-b953692b5bdf/thumbs/inside/1600x1200/png/zawieszkanakable.webp' },
+        { title: 'Cyclo Valve Cover',       id: '#208673', weight: '1.00g',  material: 'PLA',  maker: '@ThorinOakenshield',image: 'https://media.printables.com/media/prints/208673/images/1916044_8f1cf666-a118-4a49-b79e-9e2408b1ecac/thumbs/inside/1600x1200/jpg/dscn1037.webp' },
+        { title: 'Book-Style SD Card Case', id: '#210458', weight: '8.00g',  material: 'PETG', maker: '@XavierFaraudo',    image: 'https://media.printables.com/media/prints/210458/images/1936578_3da808f8-3072-4946-88c6-efbc3e89be7d/thumbs/inside/1600x1200/jpg/1-portada-amb-marques.webp' },
+        { title: 'Itty Bitty Fidget',       id: '#205599', weight: '12.0g', material: 'PLA',  maker: '@3DPrinty',         image: 'https://storage.googleapis.com/production-thangs-public/uploads/attachments/f43800bd-7954-4926-9f80-a20f142ce988/square-thumbnail-1.jpg' },
+        { title: 'Reusable Flossholder',    id: '#205005', weight: '4.00g',  material: 'PETG', maker: '@Saccy',            image: 'https://media.printables.com/media/prints/205005/images/1884641_904530a3-fabc-495b-8687-226b9b4389de/thumbs/inside/1600x1200/jpg/280533793_1934515593604035_2533210206350668186_n.webp' },
     ];
 </script>
 

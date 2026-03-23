@@ -7,14 +7,13 @@
     page.url.pathname === (base + path) || (path === '/' && (page.url.pathname === base + '/' || page.url.pathname === base));
 
   const projects = [
-    { user: 'user_1', name: 'Project 1', weight: '4.20g', rotate: '-1deg', img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+1' },
-    { user: 'user_2', name: 'Project 2', weight: '8.15g', rotate: '2deg',  img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+2' },
-    { user: 'user_3', name: 'Project 3', weight: '2.45g', rotate: '-2deg', img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+3' },
-    { user: 'user_4', name: 'Project 4', weight: '0.95g', rotate: '1deg',  img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+4' },
-    { user: 'user_5', name: 'Project 5', weight: '12.3g', rotate: '-1deg', img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+5' },
-    { user: 'user_6', name: 'Project 6', weight: '6.77g', rotate: '2deg',  img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+6' },
-    { user: 'user_7', name: 'Project 7', weight: '18.9g', rotate: '-2deg', img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+7' },
-    { user: 'user_8', name: 'Project 8', weight: '3.14g', rotate: '1deg',  img: 'https://placehold.co/280x160/e8e8e4/2e2f2d?text=Project+8' },
+    { user: 'Clement', name: 'Your Color Change Buddy', weight: '4.20g', rotate: '-1deg', img: 'https://media.printables.com/media/prints/204388/images/1886602_65b50415-f71b-4420-88d8-20ee4afd71ad/thumbs/inside/640x480/jpg/color-change-buddy4.webp' },
+    { user: 'FishboneWorkshop', name: 'Cable labels', weight: '8.15g', rotate: '2deg',  img: 'https://media.printables.com/media/prints/207466/images/1907670_0741c15a-73a4-404d-8d11-b953692b5bdf/thumbs/inside/640x480/png/zawieszkanakable.webp' },
+    { user: 'ThorinOakenshield', name: 'Cyclo valve cover', weight: '2.45g', rotate: '-2deg', img: 'https://media.printables.com/media/prints/208673/images/1916044_8f1cf666-a118-4a49-b79e-9e2408b1ecac/thumbs/inside/640x480/jpg/dscn1037.webp' },
+    { user: 'XavierFaraudo', name: 'Book-style SD card case', weight: '0.95g', rotate: '1deg',  img: 'https://media.printables.com/media/prints/210458/images/1936578_3da808f8-3072-4946-88c6-efbc3e89be7d/thumbs/inside/640x480/jpg/1-portada-amb-marques.webp' },
+    { user: 'XavierFaraudo', name: 'Remaining filament scales', weight: '12.3g', rotate: '-1deg', img: 'https://media.printables.com/media/prints/205435/images/2590817_eca96780-9b60-412d-989a-67d2d8916eef/thumbs/inside/1600x1200/jpg/1-portada-medodors.webp' },
+    { user: '3DPrinty', name: 'Itty Bitty Fidget', weight: '6.77g', rotate: '2deg',  img: 'https://storage.googleapis.com/production-thangs-public/uploads/attachments/f43800bd-7954-4926-9f80-a20f142ce988/square-thumbnail-1.jpg' },
+    { user: 'Saccy', name: 'Reusable Flossholder', weight: '18.9g', rotate: '-2deg', img: 'https://media.printables.com/media/prints/205005/images/1884641_904530a3-fabc-495b-8687-226b9b4389de/thumbs/inside/1600x1200/jpg/280533793_1934515593604035_2533210206350668186_n.webp' },
   ];
 </script>
 
