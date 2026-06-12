@@ -34,8 +34,18 @@
 
 	// Easter egg: Konami code → everything shrinks to 25g size
 	let konamiProgress = $state(0);
-	let konamiActive = $state(false);
 	let konamiShowBanner = $state(false);
+	let konamiBannerText = $state('');
+	const konamiZoomLevels = [1, 0.5, 0.25, 0.1, 0.05];
+	let konamiLevel = $state(0);
+	let konamiZoom = $derived(konamiZoomLevels[konamiLevel]);
+	const konamiBannerMessages = [
+		'', // level 0 = normal, no message
+		'Everything just got lighter.',
+		'Getting pretty small in here...',
+		'Can you even read this?',
+		'🔬 MOLECULAR SCALE ACHIEVED'
+	];
 	const konamiCode = [
 		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
 		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
@@ -46,17 +56,22 @@
 		if (e.key === konamiCode[konamiProgress]) {
 			konamiProgress++;
 			if (konamiProgress === konamiCode.length) {
-				konamiActive = !konamiActive;
-				konamiShowBanner = konamiActive;
+				konamiLevel = (konamiLevel + 1) % konamiZoomLevels.length;
 				konamiProgress = 0;
-				if (konamiActive) {
+				if (konamiLevel !== 0) {
+					konamiBannerText = konamiBannerMessages[konamiLevel];
+					konamiShowBanner = true;
 					confetti({
-						particleCount: 200,
+						particleCount: 100 + konamiLevel * 50,
 						spread: 160,
 						origin: { y: 0.5 },
 						colors: ['#803F9B', '#39FF14', '#FF928B']
 					});
 					setTimeout(() => { konamiShowBanner = false; }, 3000);
+				} else {
+					konamiBannerText = 'Back to normal. For now.';
+					konamiShowBanner = true;
+					setTimeout(() => { konamiShowBanner = false; }, 2000);
 				}
 			}
 		} else {
@@ -154,15 +169,15 @@
 {#if konamiShowBanner}
 	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
 		<div class="pointer-events-auto bg-on-surface text-surface border-4 border-primary px-8 py-6 hard-shadow text-center animate-in visible" style="animation: fade-in-up 0.3s ease-out forwards;">
-			<p class="font-headline font-black text-3xl uppercase tracking-tighter text-primary">⚖️ 25g MODE</p>
-			<p class="font-body font-bold text-lg mt-2">Everything just got lighter.</p>
-			<p class="font-label text-xs uppercase mt-3 text-surface/50">press konami again to undo</p>
+			<p class="font-headline font-black text-3xl uppercase tracking-tighter text-primary">⚖️ {konamiLevel === 0 ? 'NORMAL' : konamiZoom * 100 + '% MODE'}</p>
+			<p class="font-body font-bold text-lg mt-2">{konamiBannerText}</p>
+			<p class="font-label text-xs uppercase mt-3 text-surface/50">{konamiLevel === 0 ? '' : 'press konami again to go smaller'}</p>
 		</div>
 	</div>
 {/if}
 
 <!-- Nav -->
-<div style:zoom={konamiActive ? 0.4 : 1} style:transition="zoom 0.7s ease">
+<div style:zoom={konamiZoom} style:transition="zoom 0.7s ease">
 <nav
 	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
 >
