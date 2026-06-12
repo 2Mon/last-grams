@@ -95,9 +95,9 @@
 	</a>
 </nav>
 
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 	<!-- Hero -->
-	<section class="flex flex-col items-center text-center space-y-10 py-20">
+	<section class="flex flex-col items-center text-center space-y-8 py-12">
 		<div class="space-y-4">
 			<h1
 				class="font-headline font-black text-7xl md:text-9xl uppercase tracking-tighter text-on-surface dark:text-background leading-none"
@@ -405,7 +405,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -426,12 +426,12 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> WHAT EVEN IS LAST GRAMS?
+				<span class="text-primary">Q:</span> WHAT IS LAST GRAMS?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
@@ -442,7 +442,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -458,7 +458,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -473,7 +473,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -489,7 +489,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -505,7 +505,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -521,7 +521,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -538,13 +538,9 @@
 
 	<!-- Call to Action -->
 	<section
-		class="bg-on-surface dark:bg-background p-12 text-center border-4 border-on-surface dark:border-background relative"
+		class="bg-on-surface dark:bg-background p-12 text-center border-4 border-on-surface dark:border-background"
 	>
-		<div
-			class="absolute inset-0 opacity-10"
-			style="background-image: radial-gradient(#F7F6F2 2px, transparent 2px); background-size: 20px 20px;"
-		></div>
-		<div class="relative z-10 space-y-8">
+		<div class="space-y-8">
 			<h2
 				class="font-headline font-black text-5xl md:text-7xl uppercase text-surface dark:text-on-surface leading-none tracking-tighter"
 			>
