@@ -119,7 +119,7 @@
 		z-index: -1;
 		opacity: 0.2;
 		pointer-events: none;
-		background-image: radial-gradient(#3a3f3d 1.5px, transparent 1.5px);
+		background-image: radial-gradient(#4E6157 1.5px, transparent 1.5px);
 		background-size: 28px 28px;
 	}
 
