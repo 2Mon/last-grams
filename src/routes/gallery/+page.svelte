@@ -50,16 +50,16 @@
                         COMMUNITY<br/>ORIGINAL CREATIONS
                     </h1>
                     <p class="max-w-xl text-xl font-medium font-body text-on-surface-variant">
-                        A showcase of unique models designed by the community to rescue the last grams of their spools.
+                        A showcase of tiny projects designed and built by the community.
                     </p>
                 </div>
                 <div class="flex gap-4">
                     <div class="p-4 border-4 border-on-surface bg-primary-container hard-shadow">
-                        <span class="block text-xs font-bold uppercase font-label">Total Ships</span>
+                        <span class="block text-xs font-bold uppercase font-label">Ships</span>
                         <span class="text-4xl italic font-black font-headline">142</span>
                     </div>
                     <div class="p-4 border-4 border-on-surface bg-surface-container-lowest hard-shadow">
-                        <span class="block text-xs font-bold uppercase font-label">Record Min</span>
+                        <span class="block text-xs font-bold uppercase font-label">Lightest</span>
                         <span class="text-4xl italic font-black font-headline text-primary">4g</span>
                     </div>
                 </div>

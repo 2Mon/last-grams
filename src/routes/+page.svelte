@@ -115,11 +115,12 @@
 		<div class="flex flex-col md:flex-row gap-4 items-center">
 			<a
 				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-				href="https://forms.hackclub.com">Submit a Project</a
+				href="{base}/submission">Read the Guidelines</a
 			>
 			<a
 				class="font-label font-bold uppercase text-sm text-on-surface dark:text-background underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
-				href="{base}/submission">Read the guidelines →</a
+				href="https://forms.hackclub.com"
+				target="_blank">Submit a Project →</a
 			>
 		</div>
 
@@ -133,7 +134,7 @@
 			<p
 				class="font-headline font-black text-2xl leading-none text-on-surface dark:text-background"
 			>
-				{gramsUsed}g USED SO FAR
+				{gramsUsed}g SHIPPED
 			</p>
 		</div>
 	</section>
@@ -393,7 +394,7 @@
 	</section>
 
 	<!-- FAQ -->
-	<section class="space-y-6">
+	<section id="faq" class="space-y-6">
 		<div class="flex items-center gap-4">
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 			<h2
@@ -546,20 +547,21 @@
 			<h2
 				class="font-headline font-black text-5xl md:text-7xl uppercase text-surface dark:text-on-surface leading-none tracking-tighter"
 			>
-				EVERY GRAM COUNTS.
+				READY TO BUILD?
 			</h2>
 			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
 				<a
-					href="https://forms.hackclub.com"
+					href="{base}/submission"
 					class="bg-success-neon text-on-surface border-4 border-surface px-10 py-5 text-2xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] transition-all inline-block"
 				>
-					Submit a Project
+					Read the Guidelines
 				</a>
 				<a
-					href="{base}/submission"
+					href="https://forms.hackclub.com"
+					target="_blank"
 					class="font-label font-bold uppercase text-sm text-surface dark:text-on-surface underline decoration-2 underline-offset-4"
 				>
-					Read the guidelines →
+					Submit a Project →
 				</a>
 			</div>
 		</div>

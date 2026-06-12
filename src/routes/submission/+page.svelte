@@ -24,7 +24,7 @@
         'No AI-generated designs. You must have made it yourself',
         'Must weigh strictly under 25g, verified in slicer or on a physical scale',
       ],
-      warning: '25.01g is an automatic disqualification. No exceptions.',
+      warning: "Anything over 25g won't be approved. Double-check before submitting.",
     },
     {
       number: '02',
