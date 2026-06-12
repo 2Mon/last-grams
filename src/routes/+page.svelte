@@ -68,11 +68,12 @@
 <nav
 	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
 >
-	<div
+	<a
+		href="{base}/"
 		class="text-2xl font-headline font-black uppercase italic tracking-tighter text-on-surface dark:text-background"
 	>
 		LAST GRAMS
-	</div>
+	</a>
 	<div class="hidden md:flex gap-8 items-center">
 		<a
 			class="font-label font-bold uppercase text-sm {isActive('/')

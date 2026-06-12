@@ -67,9 +67,9 @@
 
 <!-- Nav -->
 <nav class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background border-b-4 border-on-surface">
-  <div class="text-2xl font-headline font-black uppercase italic tracking-tighter text-on-surface">
+  <a href="{base}/" class="text-2xl font-headline font-black uppercase italic tracking-tighter text-on-surface">
     LAST GRAMS
-  </div>
+  </a>
   <div class="hidden md:flex gap-8 items-center">
     <a class="font-label font-bold uppercase text-sm {isActive('/') ? 'text-primary underline decoration-4 underline-offset-4' : 'text-on-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="{base}/">Home</a>
     <a class="font-label font-bold uppercase text-sm {isActive('/gallery') ? 'text-primary underline decoration-4 underline-offset-4' : 'text-on-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="{base}/gallery">Gallery</a>
