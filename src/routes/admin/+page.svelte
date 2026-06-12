@@ -40,12 +40,12 @@
 </script>
 
 <svelte:head>
-	<title>Admin | LAST GRAMS</title>
+	<title>Admin | WISP</title>
 </svelte:head>
 
 <main class="max-w-3xl mx-auto px-4 py-12 space-y-8">
 	<a href="{base}/" class="font-headline font-black text-2xl uppercase italic tracking-tighter text-on-surface">
-		LAST GRAMS
+		WISP
 	</a>
 
 	{#if !loggedIn}

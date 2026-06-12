@@ -4,7 +4,7 @@ import type { Cookies } from '@sveltejs/kit';
 const SESSION_COOKIE = 'admin_session';
 
 export function getSessionToken(): string {
-	return env.ADMIN_SESSION_SECRET || 'last-grams-secret';
+	return env.ADMIN_SESSION_SECRET || 'wisp-secret';
 }
 
 export function isValidSession(cookies: Cookies): boolean {
