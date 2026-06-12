@@ -46,6 +46,14 @@
 		'Can you even read this?',
 		'🔬 MOLECULAR SCALE ACHIEVED'
 	];
+	// Gravity drop easter egg
+	let gravityDrop = $state(false);
+	function triggerGravityDrop() {
+		if (gravityDrop) return;
+		gravityDrop = true;
+		setTimeout(() => { gravityDrop = false; }, 3000);
+	}
+
 	const konamiCode = [
 		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
 		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
@@ -177,7 +185,7 @@
 {/if}
 
 <!-- Nav -->
-<div style:zoom={konamiZoom} style:transition="zoom 0.7s ease">
+<div style:zoom={konamiZoom} style:transition="zoom 0.7s ease" class:gravity-drop={gravityDrop}>
 <nav
 	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
 >
@@ -771,6 +779,12 @@
 		class="font-label font-bold uppercase text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center"
 	>
 		Built by 1Mon for Hack Club 2026
+		<button
+			onclick={triggerGravityDrop}
+			class="ml-2 opacity-30 hover:opacity-100 transition-opacity cursor-pointer"
+			title="What does this do?"
+			aria-label="Easter egg"
+		>🪂</button>
 	</div>
 	<div
 		class="flex justify-center gap-6 md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center"

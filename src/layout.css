@@ -161,6 +161,33 @@
   }
 }
 
+@keyframes gravity-drop {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  20% { transform: translateY(60vh) rotate(8deg); opacity: 1; }
+  35% { transform: translateY(50vh) rotate(-4deg); opacity: 1; }
+  50% { transform: translateY(60vh) rotate(3deg); opacity: 1; }
+  65% { transform: translateY(55vh) rotate(-1deg); opacity: 1; }
+  80% { transform: translateY(60vh) rotate(0deg); opacity: 1; }
+  90% { transform: translateY(60vh) rotate(0deg); opacity: 0; }
+  91% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+.gravity-drop > section,
+.gravity-drop > main > section {
+  animation: gravity-drop 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.gravity-drop > main > section:nth-child(2) { animation-delay: 0.05s; }
+.gravity-drop > main > section:nth-child(3) { animation-delay: 0.1s; }
+.gravity-drop > main > section:nth-child(4) { animation-delay: 0.15s; }
+.gravity-drop > main > section:nth-child(5) { animation-delay: 0.2s; }
+.gravity-drop > main > section:nth-child(6) { animation-delay: 0.25s; }
+.gravity-drop > main > section:nth-child(7) { animation-delay: 0.3s; }
+.gravity-drop > main > section:nth-child(8) { animation-delay: 0.35s; }
+.gravity-drop > main > section:nth-child(9) { animation-delay: 0.4s; }
+.gravity-drop nav { animation: gravity-drop 2.5s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards; }
+
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid #803F9B;
