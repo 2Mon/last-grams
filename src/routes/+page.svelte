@@ -377,6 +377,36 @@
 					</p>
 				</div>
 			</div>
+
+			<!-- Tier 3: 4 Ships -->
+			<div
+				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
+			>
+				<div
+					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
+				>
+					4 Approved Ships
+				</div>
+				<div class="p-6 space-y-4 flex-1">
+					<div>
+						<h3
+							class="font-headline font-black text-3xl uppercase leading-none text-on-surface dark:text-background"
+						>
+							Hack Club Shirt
+						</h3>
+						<p
+							class="font-body text-lg mt-2 font-bold text-on-surface dark:text-background opacity-80"
+						>
+							An exclusive Hack Club t-shirt to rep your builds.
+						</p>
+					</div>
+				</div>
+				<div
+					class="border-t-4 border-on-surface dark:border-background p-4 bg-surface-container dark:bg-surface-container-highest"
+				>
+					<p class="font-label font-bold text-xs uppercase text-primary">Tier 3</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
