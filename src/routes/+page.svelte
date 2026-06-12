@@ -155,7 +155,7 @@
 		<!-- Email signup -->
 		<div class="w-full max-w-md">
 			{#if emailStatus === 'success'}
-				<p class="font-label font-bold uppercase text-sm text-primary text-center">You're on the list.</p>
+				<p class="font-label font-bold uppercase text-sm text-primary text-center">We'll be in touch!</p>
 			{:else}
 				<form
 					onsubmit={(e) => { e.preventDefault(); subscribe(); }}

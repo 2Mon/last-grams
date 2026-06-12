@@ -22,8 +22,7 @@ export const GET: RequestHandler = async ({ cookies }) => {
 
 	do {
 		const params = new URLSearchParams({
-			'sort[0][field]': 'Number',
-			'sort[0][direction]': 'asc',
+			
 			pageSize: '100'
 		});
 		if (offset) params.set('offset', offset);
@@ -39,7 +38,7 @@ export const GET: RequestHandler = async ({ cookies }) => {
 		const data = await res.json();
 		for (const record of data.records) {
 			subscribers.push({
-				number: record.fields.Number ?? 0,
+				number: subscribers.length + 1,
 				email: record.fields.Email ?? '',
 				createdAt: record.createdTime ?? ''
 			});

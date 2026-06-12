@@ -22,26 +22,11 @@ export const POST: RequestHandler = async ({ request }) => {
 		'Content-Type': 'application/json'
 	};
 
-	// Get current max number
-	const listRes = await fetch(
-		`${tableUrl}?sort%5B0%5D%5Bfield%5D=Number&sort%5B0%5D%5Bdirection%5D=desc&maxRecords=1`,
-		{ headers }
-	);
-
-	let nextNumber = 1;
-	if (listRes.ok) {
-		const data = await listRes.json();
-		if (data.records?.length > 0 && data.records[0].fields?.Number) {
-			nextNumber = data.records[0].fields.Number + 1;
-		}
-	}
-
-	// Create record with email and number
 	const res = await fetch(tableUrl, {
 		method: 'POST',
 		headers,
 		body: JSON.stringify({
-			records: [{ fields: { Email: email, Number: nextNumber } }]
+			records: [{ fields: { Email: email } }]
 		})
 	});
 
@@ -51,5 +36,5 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: 'Failed to subscribe. Try again later.' }, { status: 502 });
 	}
 
-	return json({ success: true, number: nextNumber });
+	return json({ success: true });
 };
