@@ -2,11 +2,67 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { inview } from '$lib';
+	import confetti from 'canvas-confetti';
 	const gramsUsed = 142; // TODO: make dynamic
 
 	let email = $state('');
 	let emailStatus = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
 	let emailError = $state('');
+
+	function fireConfetti() {
+		const duration = 2000;
+		const end = Date.now() + duration;
+		const colors = ['#803F9B', '#E39AFE', '#39FF14', '#FF928B', '#FFBCFC'];
+		(function frame() {
+			confetti({
+				particleCount: 3,
+				angle: 60,
+				spread: 55,
+				origin: { x: 0, y: 0.7 },
+				colors
+			});
+			confetti({
+				particleCount: 3,
+				angle: 120,
+				spread: 55,
+				origin: { x: 1, y: 0.7 },
+				colors
+			});
+			if (Date.now() < end) requestAnimationFrame(frame);
+		})();
+	}
+
+	// Easter egg: Konami code → everything shrinks to 25g size
+	let konamiProgress = $state(0);
+	let konamiActive = $state(false);
+	let konamiShowBanner = $state(false);
+	const konamiCode = [
+		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+		'b', 'a'
+	];
+
+	function handleKonami(e: KeyboardEvent) {
+		if (e.key === konamiCode[konamiProgress]) {
+			konamiProgress++;
+			if (konamiProgress === konamiCode.length) {
+				konamiActive = !konamiActive;
+				konamiShowBanner = konamiActive;
+				konamiProgress = 0;
+				if (konamiActive) {
+					confetti({
+						particleCount: 200,
+						spread: 160,
+						origin: { y: 0.5 },
+						colors: ['#803F9B', '#39FF14', '#FF928B']
+					});
+					setTimeout(() => { konamiShowBanner = false; }, 3000);
+				}
+			}
+		} else {
+			konamiProgress = e.key === konamiCode[0] ? 1 : 0;
+		}
+	}
 
 	async function subscribe() {
 		if (!email) return;
@@ -21,6 +77,7 @@
 			if (res.ok) {
 				emailStatus = 'success';
 				email = '';
+				fireConfetti();
 			} else {
 				emailStatus = 'error';
 				emailError = data.error || 'Something went wrong.';
@@ -92,7 +149,20 @@
 	<title>Last Grams — A Hack Club YSWS</title>
 </svelte:head>
 
+<svelte:window onkeydown={handleKonami} />
+
+{#if konamiShowBanner}
+	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
+		<div class="pointer-events-auto bg-on-surface text-surface border-4 border-primary px-8 py-6 hard-shadow text-center animate-in visible" style="animation: fade-in-up 0.3s ease-out forwards;">
+			<p class="font-headline font-black text-3xl uppercase tracking-tighter text-primary">⚖️ 25g MODE</p>
+			<p class="font-body font-bold text-lg mt-2">Everything just got lighter.</p>
+			<p class="font-label text-xs uppercase mt-3 text-surface/50">press konami again to undo</p>
+		</div>
+	</div>
+{/if}
+
 <!-- Nav -->
+<div class="transition-transform duration-700 origin-center" style:transform={konamiActive ? 'scale(0.4)' : 'scale(1)'}>
 <nav
 	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
 >
@@ -702,3 +772,4 @@
 		>
 	</div>
 </footer>
+</div>
