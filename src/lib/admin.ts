@@ -15,14 +15,20 @@ export function setSession(cookies: Cookies): void {
 	cookies.set(SESSION_COOKIE, getSessionToken(), {
 		path: '/',
 		httpOnly: true,
-		sameSite: 'strict',
+		sameSite: 'lax',
+		secure: true,
 		maxAge: 60 * 60 * 24 * 7 // 1 week
 	});
 }
 
-export function getAdminCredentials() {
+export function clearSession(cookies: Cookies): void {
+	cookies.delete(SESSION_COOKIE, { path: '/' });
+}
+
+export function getHCAConfig() {
 	return {
-		username: env.ADMIN_USERNAME || 'admin',
-		password: env.ADMIN_PASSWORD || 'lastgrams2026'
+		clientId: env.HCA_CLIENT_ID || '',
+		clientSecret: env.HCA_CLIENT_SECRET || '',
+		redirectUri: env.HCA_REDIRECT_URI || 'https://rxs0o9.k.hackclub.dev/api/auth/callback'
 	};
 }
