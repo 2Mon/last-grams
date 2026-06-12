@@ -1,6 +1,7 @@
 <script lang="ts">
     import { base } from '$app/paths';
     import { page } from '$app/state';
+    import { inview } from '$lib';
 
     const isActive = (path: string) => page.url.pathname === (base + path) || (path === '/' && (page.url.pathname === base + '/' || page.url.pathname === base));
 
@@ -54,11 +55,11 @@
                     </p>
                 </div>
                 <div class="flex gap-4">
-                    <div class="p-4 border-4 border-on-surface bg-primary-container hard-shadow">
+                    <div use:inview class="animate-in stagger-1 p-4 border-4 border-on-surface bg-primary-container hard-shadow">
                         <span class="block text-xs font-bold uppercase font-label">Ships</span>
                         <span class="text-4xl italic font-black font-headline">142</span>
                     </div>
-                    <div class="p-4 border-4 border-on-surface bg-surface-container-lowest hard-shadow">
+                    <div use:inview class="animate-in stagger-2 p-4 border-4 border-on-surface bg-surface-container-lowest hard-shadow">
                         <span class="block text-xs font-bold uppercase font-label">Lightest</span>
                         <span class="text-4xl italic font-black font-headline text-primary">4g</span>
                     </div>
@@ -71,7 +72,7 @@
     <!-- Gallery Grid -->
     <section class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {#each creations as item}
-            <div class="group border-4 border-on-surface bg-surface-container-lowest transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden">
+            <div use:inview class="animate-in group border-4 border-on-surface bg-surface-container-lowest transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden">
                 <div class="h-64 border-b-4 border-on-surface bg-surface-variant">
                     <img class="object-cover w-full h-full" alt={item.title} src={item.image} loading="lazy"/>
                 </div>

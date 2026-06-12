@@ -1,6 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import { page } from '$app/state';
+  import { inview } from '$lib';
 
   const isActive = (path: string): boolean =>
     page.url.pathname === (base + path) || (path === '/' && (page.url.pathname === base + '/' || page.url.pathname === base));
@@ -101,7 +102,7 @@
   <!-- Requirements -->
   <section class="space-y-8">
     {#each requirements as req}
-      <div class="border-4 border-on-surface bg-surface-container-lowest hard-shadow">
+      <div use:inview class="animate-in border-4 border-on-surface bg-surface-container-lowest hard-shadow">
 
         <!-- Header bar -->
         <div class="bg-on-surface text-surface px-6 py-5 flex items-center gap-6">
@@ -142,22 +143,22 @@
 
   <!-- How to Submit -->
   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="border-4 border-on-surface bg-surface-container-lowest p-6 hard-shadow">
+    <div use:inview class="animate-in stagger-1 border-4 border-on-surface bg-surface-container-lowest p-6 hard-shadow">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4">1</div>
       <h3 class="font-headline font-black text-xl uppercase mb-3">JOIN SLACK</h3>
       <p class="font-body font-bold text-base text-on-surface-variant">Join <span class="text-primary">#last-grams</span> on Hack Club Slack. Not on Slack yet? Sign up at hackclub.com/slack.</p>
     </div>
-    <div class="border-4 border-on-surface bg-surface-container-lowest p-6 hard-shadow">
+    <div use:inview class="animate-in stagger-2 border-4 border-on-surface bg-surface-container-lowest p-6 hard-shadow">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4">2</div>
       <h3 class="font-headline font-black text-xl uppercase mb-3">POST YOUR SHIP</h3>
       <p class="font-body font-bold text-base text-on-surface-variant">Share your GitHub repo link with all four requirements. Include your weight photo directly in the message.</p>
     </div>
-    <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary">
+    <div use:inview class="animate-in stagger-3 border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary">
       <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4">3</div>
       <h3 class="font-headline font-black text-xl uppercase mb-3">SUBMIT MODEL</h3>
       <p class="font-body font-bold text-base">Fill out the submission form. Every project is reviewed by a real person.</p>
     </div>
-    <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary">
+    <div use:inview class="animate-in stagger-4 border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary">
       <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4">4</div>
       <h3 class="font-headline font-black text-xl uppercase mb-3">GET APPROVED</h3>
       <p class="font-body font-bold text-base">Once approved, your ship counts toward rewards and shows up in the gallery.</p>

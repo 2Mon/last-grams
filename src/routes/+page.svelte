@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
+	import { inview } from '$lib';
 	const gramsUsed = 142; // TODO: make dynamic
 
 	let email = $state('');
@@ -128,19 +129,21 @@
 	<section class="flex flex-col items-center text-center space-y-8 py-12">
 		<div class="space-y-4">
 			<h1
-				class="font-headline font-black text-7xl md:text-9xl uppercase tracking-tighter text-on-surface dark:text-background leading-none"
+				use:inview
+				class="animate-in font-headline font-black text-7xl md:text-9xl uppercase tracking-tighter text-on-surface dark:text-background leading-none"
 			>
 				LAST<br /><span class="text-primary italic">GRAMS</span>
 			</h1>
 			<p
-				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
+				use:inview
+				class="animate-in stagger-1 font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
 				Design something small and creative — a 3D print under 25g, a tiny PCB, a
 				pocket-sized gadget. We'll cover your materials and send you some cool rewards.
 			</p>
 		</div>
 
-		<div class="flex flex-col md:flex-row gap-4 items-center">
+		<div use:inview class="animate-in stagger-2 flex flex-col md:flex-row gap-4 items-center">
 			<a
 				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
 				href="{base}/submission">Read the Guidelines</a
@@ -185,7 +188,7 @@
 		</div>
 
 		<div
-			class="flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow"
+			class="animate-pulse-subtle flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow"
 		>
 			<span
 				class="material-symbols-outlined text-primary text-3xl" role="img" aria-label="Scale icon"
@@ -320,7 +323,8 @@
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 			<!-- Tier 1: 1 Ship -->
 			<div
-				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
+				use:inview
+				class="animate-in stagger-1 hover-lift bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
@@ -350,7 +354,8 @@
 
 			<!-- Tier 2: 3 Ships -->
 			<div
-				class="bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative overflow-hidden"
+				use:inview
+				class="animate-in stagger-2 hover-lift bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative overflow-hidden"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
@@ -380,7 +385,8 @@
 
 			<!-- Tier 3: 4 Ships -->
 			<div
-				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
+				use:inview
+				class="animate-in stagger-3 hover-lift bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
@@ -423,7 +429,8 @@
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				use:inview
+				class="animate-in stagger-1 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
@@ -439,7 +446,8 @@
 				</p>
 			</div>
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				use:inview
+				class="animate-in stagger-2 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
@@ -455,7 +463,8 @@
 				</p>
 			</div>
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				use:inview
+				class="animate-in stagger-3 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
@@ -471,7 +480,8 @@
 				</p>
 			</div>
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
+				use:inview
+				class="animate-in stagger-4 p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
@@ -498,7 +508,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -521,7 +532,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -537,7 +549,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -553,7 +566,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -568,7 +582,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -584,7 +599,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -600,7 +616,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
@@ -616,7 +633,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
 		>
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
