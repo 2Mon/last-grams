@@ -78,7 +78,7 @@
 
 		<div class="flex flex-col md:flex-row gap-4 items-center">
 			<a
-				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
 				href="{base}/submission">Read the Guidelines</a
 			>
 			<a
@@ -89,7 +89,7 @@
 		</div>
 
 		<div
-			class="flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow"
+			class="flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow rounded-full"
 		>
 			<span
 				class="material-symbols-outlined text-primary text-3xl"
@@ -126,12 +126,12 @@
 				<div class="flex gap-6">
 					{#each projects as p}
 						<div
-							class="inline-block bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-3 hard-shadow min-w-[280px]"
+							class="inline-block bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-3 hard-shadow min-w-[280px] rounded-xl"
 							style="transform: rotate({p.rotate})"
 						>
 							<img
 								alt={p.name}
-								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3"
+								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3 rounded-lg"
 								src={p.img}
 							/>
 							<div class="flex justify-between items-end">
@@ -146,7 +146,7 @@
 									</h4>
 								</div>
 								<div
-									class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-2 py-1 font-label font-bold text-sm"
+									class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-2 py-1 font-label font-bold text-sm rounded-full"
 								>
 									{p.weight}
 								</div>
@@ -159,12 +159,12 @@
 				<div class="flex gap-6" aria-hidden="true">
 					{#each projects as p}
 						<div
-							class="inline-block bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-3 hard-shadow min-w-[280px]"
+							class="inline-block bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-3 hard-shadow min-w-[280px] rounded-xl"
 							style="transform: rotate({p.rotate})"
 						>
 							<img
 								alt={p.name}
-								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3"
+								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3 rounded-lg"
 								src={p.img}
 							/>
 							<div class="flex justify-between items-end">
@@ -179,7 +179,7 @@
 									</h4>
 								</div>
 								<div
-									class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-2 py-1 font-label font-bold text-sm"
+									class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-2 py-1 font-label font-bold text-sm rounded-full"
 								>
 									{p.weight}
 								</div>
@@ -222,7 +222,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 			<!-- Tier 1: 1 Ship -->
 			<div
-				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
+				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
@@ -252,7 +252,7 @@
 
 			<!-- Tier 2: 3 Ships -->
 			<div
-				class="bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
+				class="bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
@@ -298,7 +298,7 @@
 				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
+					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
 					>01</span
 				>
 				<h4
@@ -314,7 +314,7 @@
 				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
+					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
 					>02</span
 				>
 				<h4
@@ -330,7 +330,7 @@
 				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
+					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
 					>03</span
 				>
 				<h4
@@ -346,7 +346,7 @@
 				class="p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
+					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
 					>04</span
 				>
 				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
@@ -370,7 +370,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -386,7 +386,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -402,7 +402,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -417,7 +417,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -433,7 +433,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -449,7 +449,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -465,7 +465,7 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -482,7 +482,7 @@
 
 	<!-- Call to Action -->
 	<section
-		class="bg-on-surface dark:bg-background p-6 md:p-12 text-center border-4 border-on-surface dark:border-background relative"
+		class="bg-on-surface dark:bg-background p-6 md:p-12 text-center border-4 border-on-surface dark:border-background relative rounded-2xl overflow-hidden"
 	>
 		<div
 			class="absolute inset-0 opacity-10"
@@ -497,7 +497,7 @@
 			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
 				<a
 					href="{base}/submission"
-					class="bg-success-neon text-on-surface border-4 border-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-block"
+					class="bg-success-neon text-on-surface border-4 border-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-block rounded-xl"
 				>
 					Read the Guidelines
 				</a>

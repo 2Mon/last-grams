@@ -63,7 +63,7 @@
 
   <!-- Header -->
   <header class="space-y-6">
-    <div class="inline-block bg-success-neon dark:bg-success-neon border-4 border-on-surface px-4 py-2 hard-shadow rotate-[-1deg]">
+    <div class="inline-block bg-success-neon dark:bg-success-neon border-4 border-on-surface px-4 py-2 hard-shadow rotate-[-1deg] rounded-full">
       <p class="font-label font-bold uppercase text-xs text-on-surface">Ready to Ship?</p>
     </div>
     <h1 class="font-headline font-black text-6xl md:text-8xl tracking-tighter leading-none dark:text-background">
@@ -84,7 +84,7 @@
   <!-- Requirements -->
   <section class="space-y-8">
     {#each requirements as req}
-      <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow hover-lift transition-all">
+      <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow hover-lift transition-all rounded-xl overflow-hidden">
 
         <!-- Header bar -->
         <div class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-6 py-5 flex items-center gap-6">
@@ -99,13 +99,13 @@
         <div class="p-6 space-y-3">
           {#each req.items as item}
             <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-primary mt-2 shrink-0"></div>
+              <div class="w-2 h-2 bg-primary mt-2 shrink-0 rounded-full"></div>
               <p class="font-body font-bold text-lg text-on-surface dark:text-background">{item}</p>
             </div>
           {/each}
 
           {#if req.warning}
-            <div class="mt-6 border-4 border-primary bg-primary/10 px-4 py-3 flex items-center gap-4">
+            <div class="mt-6 border-4 border-primary bg-primary/10 px-4 py-3 flex items-center gap-4 rounded-lg">
               <span class="font-headline font-black text-primary text-2xl shrink-0 leading-none">!</span>
               <p class="font-label font-black uppercase text-sm text-primary">{req.warning}</p>
             </div>
@@ -125,23 +125,23 @@
 
   <!-- How to Submit -->
   <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
-    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest p-6 hard-shadow hover-lift transition-all">
-      <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4">1</div>
+    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest p-6 hard-shadow hover-lift transition-all rounded-xl">
+      <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">1</div>
       <h3 class="font-headline font-black text-xl mb-3 dark:text-background">Join Slack</h3>
       <p class="font-body font-bold text-base text-on-surface-variant dark:text-background/70">Head to <span class="text-primary">#last-grams</span> on the Hack Club Slack. Sign up free at hackclub.com/slack if you're not already there.</p>
     </div>
-    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest p-6 hard-shadow hover-lift transition-all">
-      <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4">2</div>
+    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest p-6 hard-shadow hover-lift transition-all rounded-xl">
+      <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">2</div>
       <h3 class="font-headline font-black text-xl mb-3 dark:text-background">Post Your Ship</h3>
       <p class="font-body font-bold text-base text-on-surface-variant dark:text-background/70">Share your GitHub repo link with all four requirements included. Weight photo must be in the message directly.</p>
     </div>
-    <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary hover-lift transition-all">
-      <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4">3</div>
+    <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary hover-lift transition-all rounded-xl">
+      <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">3</div>
       <h3 class="font-headline font-black text-xl mb-3">Submit Model</h3>
       <p class="font-body font-bold text-base">Submit your model to the submission form. Our review team will review each project manually.</p>
     </div>
-    <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary hover-lift transition-all">
-      <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4">4</div>
+    <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary hover-lift transition-all rounded-xl">
+      <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">4</div>
       <h3 class="font-headline font-black text-xl mb-3">Get Verified</h3>
       <p class="font-body font-bold text-base">A reviewer will check your submission and mark it approved. Once verified, your ship counts toward rewards and joins the gallery.</p>
     </div>
@@ -151,7 +151,7 @@
   <div class="text-center space-y-4">
     <p class="font-body font-bold text-lg text-on-surface-variant dark:text-background/70">
       Got everything? Submit your project on the
-      <a href="https://forms.hackclub.com" target="_blank" class="text-primary underline decoration-4 underline-offset-4 hover:bg-primary hover:text-on-primary transition-colors px-1">Submission Form</a>.
+      <a href="https://forms.hackclub.com" target="_blank" class="text-primary underline decoration-4 underline-offset-4 hover:bg-primary hover:text-on-primary transition-colors px-1 rounded">Submission Form</a>.
     </p>
   </div>
 

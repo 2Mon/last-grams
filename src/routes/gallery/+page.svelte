@@ -27,7 +27,7 @@
 
     <!-- Header -->
     <header class="mb-16 relative">
-        <div class="border-4 border-on-surface dark:border-background p-8 md:p-12 bg-surface-container-lowest dark:bg-surface-container-highest relative z-10 hard-shadow">
+        <div class="border-4 border-on-surface dark:border-background p-8 md:p-12 bg-surface-container-lowest dark:bg-surface-container-highest relative z-10 hard-shadow rounded-2xl">
             <div class="flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
                     <h1 class="font-headline font-black text-6xl md:text-8xl tracking-tighter leading-none mb-4 dark:text-background">
@@ -38,24 +38,24 @@
                     </p>
                 </div>
                 <div class="flex gap-4">
-                    <div class="border-4 border-on-surface dark:border-background p-4 bg-primary-container dark:bg-surface-container-highest hard-shadow">
+                    <div class="border-4 border-on-surface dark:border-background p-4 bg-primary-container dark:bg-surface-container-highest hard-shadow rounded-xl">
                         <span class="font-label font-bold uppercase block text-xs dark:text-background/70">Ships</span>
                         <span class="font-headline font-black text-4xl italic dark:text-background">142</span>
                     </div>
-                    <div class="border-4 border-on-surface dark:border-background p-4 bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow">
+                    <div class="border-4 border-on-surface dark:border-background p-4 bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow rounded-xl">
                         <span class="font-label font-bold uppercase block text-xs dark:text-background/70">Lightest</span>
                         <span class="font-headline font-black text-4xl italic text-primary">4g</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="absolute -top-4 -left-4 w-full h-full border-4 border-primary -z-10 opacity-20"></div>
+        <div class="absolute -top-4 -left-4 w-full h-full border-4 border-primary -z-10 opacity-20 rounded-2xl"></div>
     </header>
 
     <!-- Gallery Grid -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
         {#each creations as item}
-            <div class="group border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden">
+            <div class="group border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden rounded-xl">
                 <div class="h-64 border-b-4 border-on-surface dark:border-background bg-surface-variant">
                     <img class="w-full h-full object-cover" alt={item.title} src={item.image}/>
                 </div>
@@ -64,7 +64,7 @@
                         <h3 class="font-headline font-black text-2xl leading-tight text-on-surface dark:text-background">
                             {item.title}
                         </h3>
-                        <span class="font-label text-xs border-2 border-on-surface dark:border-background px-2 py-1 text-on-surface dark:text-background shrink-0">ID: {item.id}</span>
+                        <span class="font-label text-xs border-2 border-on-surface dark:border-background px-2 py-1 text-on-surface dark:text-background shrink-0 rounded-full">ID: {item.id}</span>
                     </div>
                     <div class="mb-6">
                         <span class="font-label text-xs uppercase text-on-surface-variant dark:text-background/70 block mb-1">Printed Weight</span>
@@ -86,9 +86,9 @@
     </section>
 
     <!-- CTA -->
-    <section class="border-8 border-on-surface dark:border-background p-12 bg-primary-container dark:bg-on-primary-container relative hard-shadow-primary overflow-hidden">
+    <section class="border-8 border-on-surface dark:border-background p-12 bg-primary-container dark:bg-on-primary-container relative hard-shadow-primary overflow-hidden rounded-2xl">
         <div class="absolute top-0 right-0 w-32 h-32 bg-primary opacity-20 -rotate-45 translate-x-16 -translate-y-16"></div>
-        <div class="absolute -top-6 left-12 bg-on-surface text-surface px-6 py-2 font-headline font-black italic tracking-tighter shadow-lg">
+        <div class="absolute -top-6 left-12 bg-on-surface text-surface px-6 py-2 font-headline font-black italic tracking-tighter shadow-lg rounded-full">
             Design Hub
         </div>
         <div class="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
@@ -100,18 +100,18 @@
                     Got an idea for a design that could save the last grams on your spool?
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow">
+                    <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">1 Ship</div>
                         <div class="font-label font-bold uppercase text-xs text-on-surface-variant">Official Stickers</div>
                     </div>
-                    <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow">
+                    <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">3 Ships</div>
                         <div class="font-label font-bold uppercase text-xs text-on-surface-variant">Hack Club Filament</div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col gap-4 shrink-0">
-                <a href="https://forms.hackclub.com" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center">
+                <a href="https://forms.hackclub.com" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center rounded-xl">
                     Submit Your Build
                 </a>
                 <a class="font-label font-bold text-sm text-center text-on-primary-container dark:text-background underline decoration-2 underline-offset-4" href="{base}/submission">View Guidelines</a>

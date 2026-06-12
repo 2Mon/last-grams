@@ -37,7 +37,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="{darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-on-surface transition-colors">
+<div class={darkMode ? 'dark' : ''}>
 <div class="dot-bg" bind:this={dotBg}></div>
 
 <!-- Nav -->
@@ -66,7 +66,7 @@
 	<div class="flex items-center gap-4">
 		<button
 			onclick={() => (darkMode = !darkMode)}
-			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors"
+			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors rounded-xl"
 			aria-label="Toggle dark mode"
 		>
 			<span class="material-symbols-outlined text-xl">
@@ -74,7 +74,7 @@
 			</span>
 		</button>
 		<a
-			class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+			class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
 			href="{base}/submission"
 		>
 			Submit
@@ -95,13 +95,13 @@
 	</div>
 	<div class="flex justify-center gap-6 h-full items-center">
 		<a
-			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2"
+			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
 			href="https://github.com/2Mon/last-grams"
 			target="_blank"
 			rel="noopener noreferrer">GitHub</a
 		>
 		<a
-			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2"
+			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
 			href="https://hackclub.com"
 			target="_blank"
 			rel="noopener noreferrer">Hack Club HQ</a
