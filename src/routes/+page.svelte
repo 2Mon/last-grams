@@ -107,7 +107,7 @@
 			<p
 				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Make something tiny. 3D prints under 25g, or a miniature hardware project — a
+				Make something tiny. 3D prints under 25g, or a miniature hardware project. Think a
 				pocket-sized PCB, a compact gadget. We'll fund your materials and send you rewards.
 			</p>
 		</div>
@@ -302,7 +302,7 @@
 							1kg Hack Club Filament
 						</h3>
 						<p class="font-body text-lg mt-2 font-bold text-on-primary-container">
-							Custom Hack Club spool — red PLA with white glitter.
+							Custom Hack Club spool. Red PLA with white glitter.
 						</p>
 					</div>
 				</div>
@@ -374,7 +374,7 @@
 					BUILD IT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Print, solder, assemble — whatever your project needs. Keep it tiny. No printer? Try #printing-legion on Slack.
+					Print, solder, assemble. Whatever your project needs. Keep it tiny. No printer? Try #printing-legion on Slack.
 				</p>
 			</div>
 			<div
@@ -437,7 +437,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Last Grams is a Hack Club YSWS — You Ship, We Ship. Build an original project
+					Last Grams is a Hack Club (You Ship, We Ship) program. Build an original project
 					under 25g, or a miniature hardware project. We'll send you real prizes.
 				</p>
 			</div>
@@ -500,8 +500,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For prints: PLA, ABS, PETG, TPU, Nylon, resin — anything under 25g. For hardware:
-					PCBs, components, enclosures — just keep the whole thing small and compact.
+					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all under 25g. For hardware:
+					PCBs, components, enclosures. Just keep the whole thing small and compact.
 				</p>
 			</div>
 		</div>
@@ -516,7 +516,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes — every unique original design is a new ship. At 3 approved ships, you unlock custom
+					Yes! Every unique original design is a new ship. At 3 approved ships, you unlock custom
 					Hack Club filament.
 				</p>
 			</div>

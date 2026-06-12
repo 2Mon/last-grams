@@ -20,9 +20,9 @@
       description: 'Your complete design files in a standard format.',
       items: [
         'For 3D prints: export as .STEP. For PCBs: include Gerbers and schematics',
-        'Must be your original design — no downloaded models, no remixes',
-        'No AI-generated designs — you must have made it yourself',
-        'Must weigh strictly under 25g — verified in slicer or on a physical scale',
+        'Must be your original design. No downloaded models, no remixes',
+        'No AI-generated designs. You must have made it yourself',
+        'Must weigh strictly under 25g, verified in slicer or on a physical scale',
       ],
       warning: '25.01g is an automatic disqualification. No exceptions.',
     },
