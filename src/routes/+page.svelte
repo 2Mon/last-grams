@@ -417,10 +417,10 @@
 					<a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is a
 					501(c)(3) nonprofit that helps teens learn to code, make, and build. Check out some
 					of our other programs:
-					<a href="https://boba-drops.hackclub.com" class="underline text-primary">Boba Drops</a>,
-					<a href="https://cider.hackclub.com" class="underline text-primary">Cider</a>,
-					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>, and
-					<a href="https://undercity.hackclub.com" class="underline text-primary">Undercity</a>.
+					<a href="https://infill.hackclub.com" class="underline text-primary">Infill</a>,
+					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>,
+					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>, and
+					<a href="https://stasis.hackclub.com" class="underline text-primary">Stasis</a>.
 				</p>
 			</div>
 		</div>
