@@ -115,14 +115,18 @@
                 <p class="mb-8 text-xl font-bold font-body text-on-primary-container">
                     Have an idea for a tiny project? We'd love to see what you come up with.
                 </p>
-                <div class="grid grid-cols-1 gap-6 mb-8 sm:grid-cols-2">
+                <div class="grid grid-cols-1 gap-6 mb-8 sm:grid-cols-3">
                     <div class="p-4 border-4 bg-surface-container-lowest border-on-surface hard-shadow">
                         <div class="mb-1 text-2xl font-black uppercase font-headline text-primary">1 SHIP</div>
                         <div class="text-xs font-bold uppercase font-label text-on-surface-variant">Official Stickers</div>
                     </div>
                     <div class="p-4 border-4 bg-surface-container-lowest border-on-surface hard-shadow">
-                        <div class="mb-1 text-2xl font-black uppercase font-headline text-primary">3 SHIPS</div>
+                        <div class="mb-1 text-2xl font-black uppercase font-headline text-primary">2 SHIPS</div>
                         <div class="text-xs font-bold uppercase font-label text-on-surface-variant">Hack Club Filament</div>
+                    </div>
+                    <div class="p-4 border-4 bg-surface-container-lowest border-on-surface hard-shadow">
+                        <div class="mb-1 text-2xl font-black uppercase font-headline text-primary">4 SHIPS</div>
+                        <div class="text-xs font-bold uppercase font-label text-on-surface-variant">Hack Club Shirt</div>
                     </div>
                 </div>
             </div>

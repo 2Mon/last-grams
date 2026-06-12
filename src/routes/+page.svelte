@@ -317,7 +317,7 @@
 				We'll cover your build costs and send you bonus rewards when your project is approved.
 			</p>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 			<!-- Tier 1: 1 Ship -->
 			<div
 				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
@@ -355,7 +355,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
 				>
-					3 Approved Ships
+					2 Approved Ships
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -373,7 +373,7 @@
 					class="border-t-4 border-on-surface dark:border-background p-4 bg-on-primary-container/10"
 				>
 					<p class="font-label font-bold text-xs uppercase text-on-primary-container">
-						Tier 2 Reward
+						Tier 2
 					</p>
 				</div>
 			</div>
@@ -579,8 +579,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes! Every unique original design is a new ship. At 3 approved ships, you unlock custom
-					Hack Club filament.
+					Yes! Every unique original design is a new ship. At 2 approved ships you unlock custom
+					Hack Club filament, and at 4 you get an exclusive Hack Club shirt.
 				</p>
 			</div>
 		</div>
