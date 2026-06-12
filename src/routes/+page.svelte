@@ -410,12 +410,33 @@
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
 			>
+				<span class="text-primary">Q:</span> WHAT IS HACK CLUB?
+			</h3>
+			<div class="mt-4 pl-10 border-l-4 border-primary">
+				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+					<a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is a
+					501(c)(3) nonprofit that helps teens learn to code, make, and build. Check out some
+					of our other programs:
+					<a href="https://boba-drops.hackclub.com" class="underline text-primary">Boba Drops</a>,
+					<a href="https://cider.hackclub.com" class="underline text-primary">Cider</a>,
+					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>, and
+					<a href="https://undercity.hackclub.com" class="underline text-primary">Undercity</a>.
+				</p>
+			</div>
+		</div>
+
+		<div
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+		>
+			<h3
+				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+			>
 				<span class="text-primary">Q:</span> WHAT EVEN IS LAST GRAMS?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
 					Last Grams is a Hack Club YSWS — You Ship, We Ship. Design and 3D print an original object
-					using less than 25g of filament, and we'll send you real prizes.
+					using less than 25g of filament, and we’ll send you real prizes.
 				</p>
 			</div>
 		</div>
