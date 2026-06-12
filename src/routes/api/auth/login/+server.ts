@@ -8,8 +8,7 @@ export const GET: RequestHandler = async () => {
 	const params = new URLSearchParams({
 		client_id: clientId,
 		redirect_uri: redirectUri,
-		response_type: 'code',
-		scope: 'read'
+		response_type: 'code'
 	});
 
 	redirect(302, `https://auth.hackclub.com/oauth/authorize?${params}`);
