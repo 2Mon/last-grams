@@ -107,8 +107,8 @@
 			<p
 				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Build something that weighs under 25g — a 3D print, a tiny PCB, a small hardware project.
-				We'll fund your materials and send you rewards on top.
+				Make something tiny. 3D prints under 25g, or a miniature hardware project — a
+				pocket-sized PCB, a compact gadget. We'll fund your materials and send you rewards.
 			</p>
 		</div>
 
@@ -342,7 +342,7 @@
 					DESIGN YOUR PROJECT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Design something that weighs under 25g — a print, a PCB, any hardware.
+					For prints: design under 25g. For hardware: build the smallest version of your idea.
 				</p>
 			</div>
 			<div
@@ -374,7 +374,7 @@
 					BUILD IT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Print, solder, assemble — whatever your project needs. Confirm it's under 25g. No printer? Try #printing-legion on Slack.
+					Print, solder, assemble — whatever your project needs. Keep it tiny. No printer? Try #printing-legion on Slack.
 				</p>
 			</div>
 			<div
@@ -438,7 +438,7 @@
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
 					Last Grams is a Hack Club YSWS — You Ship, We Ship. Build an original project
-					under 25g (3D prints, PCBs, small hardware) and we'll send you real prizes.
+					under 25g, or a miniature hardware project. We'll send you real prizes.
 				</p>
 			</div>
 		</div>
@@ -500,8 +500,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For prints: PLA, ABS, PETG, TPU, Nylon, resin, etc. For hardware: PCBs, components, and
-					enclosures all count toward the 25g total.
+					For prints: PLA, ABS, PETG, TPU, Nylon, resin — anything under 25g. For hardware:
+					PCBs, components, enclosures — just keep the whole thing small and compact.
 				</p>
 			</div>
 		</div>
