@@ -92,7 +92,7 @@
 	<div
 		class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex items-center justify-center"
 	>
-		Built by 2Mon for Hack Club 2026
+		Built by 1Mon for Hack Club 2026
 	</div>
 	<div class="flex justify-center gap-6 h-full items-center">
 		<a
