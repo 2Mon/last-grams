@@ -11,7 +11,7 @@
 	function fireConfetti() {
 		const duration = 2000;
 		const end = Date.now() + duration;
-		const colors = ['#6AA189', '#C8E8DA', '#8b4563', '#d4564e', '#E6C8D6'];
+		const colors = ['#D44D2C', '#DEAF36', '#389C47', '#344680', '#E5CFC9'];
 		(function frame() {
 			confetti({
 				particleCount: 3,
@@ -70,7 +70,7 @@
 				if (partyMode) {
 					konamiBannerText = '🪩 PARTY MODE ACTIVATED 🪩';
 					konamiShowBanner = true;
-					confetti({ particleCount: 200, spread: 180, origin: { y: 0.4 }, colors: ['#6AA189', '#8b4563', '#d4564e', '#C8E8DA', '#E6C8D6'] });
+					confetti({ particleCount: 200, spread: 180, origin: { y: 0.4 }, colors: ['#D44D2C', '#DEAF36', '#389C47', '#344680', '#E5CFC9'] });
 					spawnPartyEmojis();
 					partyInterval = setInterval(spawnPartyEmojis, 3000);
 					setTimeout(() => { konamiShowBanner = false; }, 2500);

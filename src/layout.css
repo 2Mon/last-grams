@@ -3,30 +3,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-on-primary-container: #2a3d34;
-  --color-background: #f5f4f0;
-  --color-error: #c0392b;
-  --color-on-surface-variant: #6b7872;
-  --color-outline: #8a9590;
-  --color-surface-variant: #D7D8D8;
-  --color-on-primary: #f5f4f0;
-  --color-surface-container: #dcddd9;
-  --color-surface: #f5f4f0;
-  --color-surface-container-lowest: #f5f5f5;
-  --color-on-background: #4E6157;
-  --color-surface-container-highest: #D7D8D8;
-  --color-secondary-container: #E6C8D6;
-  --color-primary: #6AA189;
-  --color-surface-container-high: #dddede;
-  --color-secondary: #8b4563;
-  --color-primary-container: #C8E8DA;
-  --color-on-surface: #4E6157;
-  --color-success-neon: #d4564e;
+  --color-on-primary-container: #8b2a15;
+  --color-background: #E5CFC9;
+  --color-error: #D44D2C;
+  --color-on-surface-variant: #3d5090;
+  --color-outline: #5060a0;
+  --color-surface-variant: #d4bbb4;
+  --color-on-primary: #E5CFC9;
+  --color-surface-container: #dcc8c2;
+  --color-surface: #E5CFC9;
+  --color-surface-container-lowest: #ede3df;
+  --color-on-background: #344680;
+  --color-surface-container-highest: #ccb0a8;
+  --color-secondary-container: #b8e0bd;
+  --color-primary: #D44D2C;
+  --color-surface-container-high: #d4bbb4;
+  --color-secondary: #389C47;
+  --color-primary-container: #f0c4b8;
+  --color-on-surface: #344680;
+  --color-success-neon: #DEAF36;
 
-  --color-dark-surface: #2a3230;
-  --color-dark-surface-dim: #222928;
-  --color-dark-container: #333d3a;
-  --color-dark-container-high: #3e4a46;
+  --color-dark-surface: #252960;
+  --color-dark-surface-dim: #1e2250;
+  --color-dark-container: #303470;
+  --color-dark-container-high: #3a3e7a;
 
   --font-headline: "Epilogue", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -48,18 +48,18 @@
 }
 
 @utility hard-shadow {
-  box-shadow: 3px 3px 0px 0px #4E6157;
+  box-shadow: 3px 3px 0px 0px #344680;
   border-radius: var(--radius-lg);
   .dark & {
-    box-shadow: 3px 3px 0px 0px #f5f4f0;
+    box-shadow: 3px 3px 0px 0px #E5CFC9;
   }
 }
 
 @utility hard-shadow-primary {
-  box-shadow: 3px 3px 0px 0px #6AA189;
+  box-shadow: 3px 3px 0px 0px #D44D2C;
   border-radius: var(--radius-lg);
   .dark & {
-    box-shadow: 3px 3px 0px 0px #C8E8DA;
+    box-shadow: 3px 3px 0px 0px #389C47;
   }
 }
 
@@ -73,28 +73,28 @@
 @utility active-press {
   &:active {
     transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0px 0px #4E6157;
+    box-shadow: 0px 0px 0px 0px #344680;
   }
   .dark &:active {
-    box-shadow: 0px 0px 0px 0px #f5f4f0;
+    box-shadow: 0px 0px 0px 0px #E5CFC9;
   }
 }
 
 @utility dot-grid {
-  background-image: radial-gradient(#4E6157 1px, transparent 1px);
+  background-image: radial-gradient(#344680 1px, transparent 1px);
   background-size: 32px 32px;
-  background-color: #f5f4f0;
+  background-color: #E5CFC9;
   background-attachment: fixed;
 }
 
 @utility card-glow {
   &:hover {
-    box-shadow: 0 0 20px rgba(106, 161, 137, 0.3), 0 0 40px rgba(139, 69, 99, 0.15);
-    border-color: #6AA189;
+    box-shadow: 0 0 20px rgba(212, 77, 44, 0.3), 0 0 40px rgba(222, 175, 54, 0.15);
+    border-color: #D44D2C;
   }
   .dark &:hover {
-    box-shadow: 0 0 20px rgba(200, 232, 218, 0.3), 0 0 40px rgba(139, 69, 99, 0.2);
-    border-color: #C8E8DA;
+    box-shadow: 0 0 20px rgba(56, 156, 71, 0.3), 0 0 40px rgba(222, 175, 54, 0.2);
+    border-color: #389C47;
   }
 }
 
@@ -154,7 +154,7 @@
 }
 
 .dark .dot-grid {
-  background-image: radial-gradient(#f5f4f0 1px, transparent 1px);
-  background-color: #2a3230;
+  background-image: radial-gradient(#E5CFC9 1px, transparent 1px);
+  background-color: #252960;
 }
 

@@ -119,11 +119,11 @@
 		z-index: -1;
 		opacity: 0.2;
 		pointer-events: none;
-		background-image: radial-gradient(#4E6157 1.5px, transparent 1.5px);
+		background-image: radial-gradient(#344680 1.5px, transparent 1.5px);
 		background-size: 28px 28px;
 	}
 
 	:global(.dark) .dot-bg {
-		background-image: radial-gradient(#f5f4f0 1.5px, transparent 1.5px);
+		background-image: radial-gradient(#E5CFC9 1.5px, transparent 1.5px);
 	}
 </style>
