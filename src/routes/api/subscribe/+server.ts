@@ -16,16 +16,32 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: 'Server misconfigured.' }, { status: 500 });
 	}
 
-	const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
+	const tableUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
+	const headers = {
+		Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+		'Content-Type': 'application/json'
+	};
 
-	const res = await fetch(url, {
+	// Get current max number
+	const listRes = await fetch(
+		`${tableUrl}?sort%5B0%5D%5Bfield%5D=Number&sort%5B0%5D%5Bdirection%5D=desc&maxRecords=1`,
+		{ headers }
+	);
+
+	let nextNumber = 1;
+	if (listRes.ok) {
+		const data = await listRes.json();
+		if (data.records?.length > 0 && data.records[0].fields?.Number) {
+			nextNumber = data.records[0].fields.Number + 1;
+		}
+	}
+
+	// Create record with email and number
+	const res = await fetch(tableUrl, {
 		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-			'Content-Type': 'application/json'
-		},
+		headers,
 		body: JSON.stringify({
-			records: [{ fields: { Email: email } }]
+			records: [{ fields: { Email: email, Number: nextNumber } }]
 		})
 	});
 
@@ -35,5 +51,5 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: 'Failed to subscribe. Try again later.' }, { status: 502 });
 	}
 
-	return json({ success: true });
+	return json({ success: true, number: nextNumber });
 };
