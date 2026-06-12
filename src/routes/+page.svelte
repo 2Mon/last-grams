@@ -1,111 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { page } from '$app/state';
-	import { inview } from '$lib';
-	import confetti from 'canvas-confetti';
 	const gramsUsed = 142; // TODO: make dynamic
-
-	let email = $state('');
-	let emailStatus = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
-	let emailError = $state('');
-
-	function fireConfetti() {
-		const duration = 2000;
-		const end = Date.now() + duration;
-		const colors = ['#803F9B', '#E39AFE', '#39FF14', '#FF928B', '#FFBCFC'];
-		(function frame() {
-			confetti({
-				particleCount: 3,
-				angle: 60,
-				spread: 55,
-				origin: { x: 0, y: 0.7 },
-				colors
-			});
-			confetti({
-				particleCount: 3,
-				angle: 120,
-				spread: 55,
-				origin: { x: 1, y: 0.7 },
-				colors
-			});
-			if (Date.now() < end) requestAnimationFrame(frame);
-		})();
-	}
-
-	// Easter egg: Konami code → everything shrinks to 25g size
-	let konamiProgress = $state(0);
-	let konamiShowBanner = $state(false);
-	let konamiBannerText = $state('');
-	const konamiZoomLevels = [1, 0.5, 0.25, 0.1, 0.05];
-	let konamiLevel = $state(0);
-	let konamiZoom = $derived(konamiZoomLevels[konamiLevel]);
-	const konamiBannerMessages = [
-		'', // level 0 = normal, no message
-		'Everything just got lighter.',
-		'Getting pretty small in here...',
-		'Can you even read this?',
-		'🔬 MOLECULAR SCALE ACHIEVED'
-	];
-	const konamiCode = [
-		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
-		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
-		'b', 'a'
-	];
-
-	function handleKonami(e: KeyboardEvent) {
-		if (e.key === konamiCode[konamiProgress]) {
-			konamiProgress++;
-			if (konamiProgress === konamiCode.length) {
-				konamiLevel = (konamiLevel + 1) % konamiZoomLevels.length;
-				konamiProgress = 0;
-				if (konamiLevel !== 0) {
-					konamiBannerText = konamiBannerMessages[konamiLevel];
-					konamiShowBanner = true;
-					confetti({
-						particleCount: 100 + konamiLevel * 50,
-						spread: 160,
-						origin: { y: 0.5 },
-						colors: ['#803F9B', '#39FF14', '#FF928B']
-					});
-					setTimeout(() => { konamiShowBanner = false; }, 3000);
-				} else {
-					konamiBannerText = 'Back to normal. For now.';
-					konamiShowBanner = true;
-					setTimeout(() => { konamiShowBanner = false; }, 2000);
-				}
-			}
-		} else {
-			konamiProgress = e.key === konamiCode[0] ? 1 : 0;
-		}
-	}
-
-	async function subscribe() {
-		if (!email) return;
-		emailStatus = 'loading';
-		try {
-			const res = await fetch(`${base}/api/subscribe`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ email })
-			});
-			const data = await res.json();
-			if (res.ok) {
-				emailStatus = 'success';
-				email = '';
-				fireConfetti();
-			} else {
-				emailStatus = 'error';
-				emailError = data.error || 'Something went wrong.';
-			}
-		} catch {
-			emailStatus = 'error';
-			emailError = 'Network error. Try again.';
-		}
-	}
-
-	const isActive = (path: string) =>
-		page.url.pathname === base + path ||
-		(path === '/' && (page.url.pathname === base + '/' || page.url.pathname === base));
 
 	const projects = [
 		{
@@ -161,128 +56,49 @@
 </script>
 
 <svelte:head>
-	<title>Last Grams — A Hack Club YSWS</title>
+	<title>LAST GRAMS | A Hack Club YSWS</title>
 </svelte:head>
 
-<svelte:window onkeydown={handleKonami} />
-
-{#if konamiShowBanner}
-	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
-		<div class="pointer-events-auto bg-on-surface text-surface border-4 border-primary px-8 py-6 hard-shadow text-center animate-in visible" style="animation: fade-in-up 0.3s ease-out forwards;">
-			<p class="font-headline font-black text-3xl uppercase tracking-tighter text-primary">⚖️ {konamiLevel === 0 ? 'NORMAL' : konamiZoom * 100 + '% MODE'}</p>
-			<p class="font-body font-bold text-lg mt-2">{konamiBannerText}</p>
-			<p class="font-label text-xs uppercase mt-3 text-surface/50">{konamiLevel === 0 ? '' : 'press konami again to go smaller'}</p>
-		</div>
-	</div>
-{/if}
-
-<!-- Nav -->
-<div style:zoom={konamiZoom} style:transition="zoom 0.7s ease">
-<nav
-	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
->
-	<a
-		href="{base}/"
-		class="text-2xl font-headline font-black uppercase italic tracking-tighter text-on-surface dark:text-background"
-	>
-		LAST GRAMS
-	</a>
-	<div class="hidden md:flex gap-8 items-center">
-		<a
-			class="font-label font-bold uppercase text-sm {isActive('/')
-				? 'text-primary underline decoration-4 underline-offset-4'
-				: 'text-on-background dark:text-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
-			href="{base}/">Home</a
-		>
-		<a
-			class="font-label font-bold uppercase text-sm {isActive('/gallery')
-				? 'text-primary underline decoration-4 underline-offset-4'
-				: 'text-on-background dark:text-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
-			href="{base}/gallery">Gallery</a
-		>
-	</div>
-	<a
-		class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-		href="{base}/submission"
-	>
-		SUBMIT
-	</a>
-</nav>
-
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
 	<!-- Hero -->
-	<section class="flex flex-col items-center text-center space-y-8 py-12">
+	<section class="flex flex-col items-center text-center space-y-10 py-20">
 		<div class="space-y-4">
 			<h1
-				use:inview
-				class="animate-in font-headline font-black text-7xl md:text-9xl uppercase tracking-tighter text-on-surface dark:text-background leading-none"
+				class="font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter text-on-surface dark:text-background leading-none"
 			>
-				LAST<br /><span class="text-primary italic">GRAMS</span>
+				Last<br /><span class="text-primary italic">Grams</span>
 			</h1>
 			<p
-				use:inview
-				class="animate-in stagger-1 font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
+				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Design something small and creative — a 3D print under 25g, a tiny PCB, a
-				pocket-sized gadget. We'll cover your materials and send you some cool rewards.
+				Got a spool with only a few grams left? Use less than 25g of filament to design and print
+				something original. We'll send you real rewards.
 			</p>
 		</div>
 
-		<div use:inview class="animate-in stagger-2 flex flex-col md:flex-row gap-4 items-center">
+		<div class="flex flex-col md:flex-row gap-4 items-center">
 			<a
-				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
 				href="{base}/submission">Read the Guidelines</a
 			>
 			<a
-				class="font-label font-bold uppercase text-sm text-on-surface dark:text-background underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
+				class="font-label font-bold text-sm text-on-surface dark:text-background underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
 				href="https://forms.hackclub.com"
-				target="_blank" rel="noopener noreferrer">Submit a Project →</a
+				target="_blank">Submit a Project →</a
 			>
 		</div>
 
-		<!-- Email signup -->
-		<div class="w-full max-w-md h-[58px] relative">
-			{#if emailStatus === 'success'}
-				<div class="absolute inset-0 flex items-center justify-center">
-					<p class="font-label font-bold uppercase text-sm text-primary text-center">We'll be in touch!</p>
-				</div>
-			{:else}
-				<form
-					onsubmit={(e) => { e.preventDefault(); subscribe(); }}
-					class="flex gap-0 h-full"
-				>
-					<input
-						type="email"
-						placeholder="your@email.com"
-						bind:value={email}
-						required
-						class="flex-grow border-4 border-on-surface border-r-0 px-4 py-3 font-body font-bold text-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none"
-					/>
-					<button
-						type="submit"
-						disabled={emailStatus === 'loading'}
-						class="bg-primary text-on-primary border-4 border-on-surface px-6 py-3 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50 whitespace-nowrap"
-					>
-						{emailStatus === 'loading' ? '...' : 'Notify Me'}
-					</button>
-				</form>
-				{#if emailStatus === 'error'}
-					<p class="font-label font-bold text-xs text-primary mt-2">{emailError}</p>
-				{/if}
-			{/if}
-		</div>
-
 		<div
-			class="animate-pulse-subtle flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow"
+			class="flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow"
 		>
 			<span
-				class="material-symbols-outlined text-primary text-3xl" role="img" aria-label="Scale icon"
+				class="material-symbols-outlined text-primary text-3xl"
 				style="font-variation-settings: 'FILL' 1;">scale</span
 			>
 			<p
 				class="font-headline font-black text-2xl leading-none text-on-surface dark:text-background"
 			>
-				{gramsUsed}g SHIPPED
+				{gramsUsed}g Shipped
 			</p>
 		</div>
 	</section>
@@ -291,9 +107,9 @@
 	<section class="space-y-8">
 		<div class="flex items-center gap-4 px-4">
 			<h2
-				class="font-headline font-black text-3xl uppercase tracking-tighter shrink-0 text-on-surface dark:text-background"
+				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				WHAT PEOPLE HAVE MADE
+				Shipped Creations
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -317,7 +133,6 @@
 								alt={p.name}
 								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3"
 								src={p.img}
-								loading="lazy"
 							/>
 							<div class="flex justify-between items-end">
 								<div>
@@ -325,7 +140,7 @@
 										By @{p.user}
 									</p>
 									<h4
-										class="font-headline font-black text-xl uppercase leading-tight text-on-surface dark:text-background"
+										class="font-headline font-black text-xl leading-tight text-on-surface dark:text-background"
 									>
 										{p.name}
 									</h4>
@@ -351,7 +166,6 @@
 								alt={p.name}
 								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3"
 								src={p.img}
-								loading="lazy"
 							/>
 							<div class="flex justify-between items-end">
 								<div>
@@ -359,7 +173,7 @@
 										By @{p.user}
 									</p>
 									<h4
-										class="font-headline font-black text-xl uppercase leading-tight text-on-surface dark:text-background"
+										class="font-headline font-black text-xl leading-tight text-on-surface dark:text-background"
 									>
 										{p.name}
 									</h4>
@@ -383,13 +197,13 @@
 		style="overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
 	>
 		<div
-			class="animate-marquee font-headline font-black text-4xl md:text-5xl uppercase italic tracking-tighter flex"
+			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
-			<span>DESIGN • BUILD • SHARE • </span>
-			<span>DESIGN • BUILD • SHARE • </span>
-			<span aria-hidden="true">DESIGN • BUILD • SHARE • </span>
-			<span aria-hidden="true">DESIGN • BUILD • SHARE • </span>
+			<span>Print It • Weigh It • Ship It • </span>
+			<span>Print It • Weigh It • Ship It • </span>
+			<span aria-hidden="true">Print It • Weigh It • Ship It • </span>
+			<span aria-hidden="true">Print It • Weigh It • Ship It • </span>
 		</div>
 	</section>
 
@@ -397,29 +211,28 @@
 	<section class="space-y-12">
 		<div class="text-center md:text-left max-w-2xl">
 			<h2
-				class="font-headline font-black text-5xl uppercase tracking-tighter leading-none mb-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-5xl tracking-tighter leading-none mb-4 text-on-surface dark:text-background"
 			>
-				REWARDS
+				Rewards
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
-				We'll cover your build costs and send you bonus rewards when your project is approved.
+				What you get for shipping.
 			</p>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 			<!-- Tier 1: 1 Ship -->
 			<div
-				use:inview
-				class="animate-in stagger-1 hover-lift bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
+				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
 			>
 				<div
-					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
+					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
 					1 Approved Ship
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
 						<h3
-							class="font-headline font-black text-3xl uppercase leading-none text-on-surface dark:text-background"
+							class="font-headline font-black text-3xl leading-none text-on-surface dark:text-background"
 						>
 							Sticker Pack
 						</h3>
@@ -439,23 +252,22 @@
 
 			<!-- Tier 2: 3 Ships -->
 			<div
-				use:inview
-				class="animate-in stagger-2 hover-lift bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative overflow-hidden"
+				class="bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
 			>
 				<div
-					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
+					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					2 Approved Ships
+					3 Approved Ships
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
 						<h3
-							class="font-headline font-black text-3xl uppercase leading-none text-on-primary-container"
+							class="font-headline font-black text-3xl leading-none text-on-primary-container"
 						>
 							1kg Hack Club Filament
 						</h3>
 						<p class="font-body text-lg mt-2 font-bold text-on-primary-container">
-							Custom Hack Club spool. Red PLA with white glitter.
+							Custom Hack Club spool — red PLA with white glitter.
 						</p>
 					</div>
 				</div>
@@ -463,39 +275,8 @@
 					class="border-t-4 border-on-surface dark:border-background p-4 bg-on-primary-container/10"
 				>
 					<p class="font-label font-bold text-xs uppercase text-on-primary-container">
-						Tier 2
+						Tier 2 Reward
 					</p>
-				</div>
-			</div>
-
-			<!-- Tier 3: 4 Ships -->
-			<div
-				use:inview
-				class="animate-in stagger-3 hover-lift bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative"
-			>
-				<div
-					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 uppercase italic tracking-tighter"
-				>
-					4 Approved Ships
-				</div>
-				<div class="p-6 space-y-4 flex-1">
-					<div>
-						<h3
-							class="font-headline font-black text-3xl uppercase leading-none text-on-surface dark:text-background"
-						>
-							Hack Club Shirt
-						</h3>
-						<p
-							class="font-body text-lg mt-2 font-bold text-on-surface dark:text-background opacity-80"
-						>
-							An exclusive Hack Club t-shirt to rep your builds.
-						</p>
-					</div>
-				</div>
-				<div
-					class="border-t-4 border-on-surface dark:border-background p-4 bg-surface-container dark:bg-surface-container-highest"
-				>
-					<p class="font-label font-bold text-xs uppercase text-primary">Tier 3</p>
 				</div>
 			</div>
 		</div>
@@ -506,75 +287,71 @@
 		<div class="flex items-center gap-4">
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 			<h2
-				class="font-headline font-black text-4xl uppercase tracking-tighter shrink-0 text-on-surface dark:text-background"
+				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				HOW IT WORKS
+				How It Works
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<div
-				use:inview
-				class="animate-in stagger-1 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
 					>01</span
 				>
 				<h4
-					class="font-headline font-black text-xl uppercase mt-4 text-on-surface dark:text-background"
+					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					DESIGN YOUR PROJECT
+					Design a Model
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
+					CAD something that weighs under 25g when sliced.
 				</p>
 			</div>
 			<div
-				use:inview
-				class="animate-in stagger-2 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
 					>02</span
 				>
 				<h4
-					class="font-headline font-black text-xl uppercase mt-4 text-on-surface dark:text-background"
+					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					DOCUMENT YOUR WORK
+					Document Your Work
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					Write a JOURNAL.md in your GitHub repo documenting your process.
 				</p>
 			</div>
 			<div
-				use:inview
-				class="animate-in stagger-3 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
 					>03</span
 				>
 				<h4
-					class="font-headline font-black text-xl uppercase mt-4 text-on-surface dark:text-background"
+					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					BUILD IT
+					Slice & Print
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Print, solder, or assemble — whatever your project needs. Don't have a printer? Check out #printing-legion on Slack.
+					Slice it, confirm the weight, and print. No printer? Use #printing-legion on Slack.
 				</p>
 			</div>
 			<div
-				use:inview
-				class="animate-in stagger-4 p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
+				class="p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center"
 					>04</span
 				>
-				<h4 class="font-headline font-black text-xl uppercase mt-4">SHIP YOUR PROJECT</h4>
+				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
 				<p class="font-body font-bold text-lg mt-4">
-					Submit your project for review. Once it's approved, we'll send your rewards!
+					Submit for review. Once approved, your rewards ship.
 				</p>
 			</div>
 		</div>
@@ -585,7 +362,7 @@
 		<div class="flex items-center gap-4">
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 			<h2
-				class="font-headline font-black text-4xl uppercase tracking-tighter shrink-0 text-on-surface dark:text-background"
+				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
 				FAQ
 			</h2>
@@ -593,54 +370,28 @@
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> IS THIS REAL?
+				<span class="text-primary">Q:</span> What Even Is Last Grams?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes. <a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is
-					a registered 501(c)(3) nonprofit with 50,000+ teen members worldwide, backed by
-					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
-					All programs are completely free. We've shipped
-					<a href="https://infill.hackclub.com" class="underline text-primary">Infill</a>,
-					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>,
-					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>,
-					<a href="https://stasis.hackclub.com" class="underline text-primary">Stasis</a>,
-					and more.
+					Last Grams is a Hack Club YSWS — You Ship, We Ship. Design and 3D print an original object
+					using less than 25g of filament, and we'll send you real prizes.
 				</p>
 			</div>
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> WHAT IS LAST GRAMS?
-			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Last Grams is a Hack Club (You Ship, We Ship) program. Build an original project
-					under 25g, or a miniature hardware project. We'll send you real prizes.
-				</p>
-			</div>
-		</div>
-
-		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
-		>
-			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
-			>
-				<span class="text-primary">Q:</span> WHO CAN PARTICIPATE?
+				<span class="text-primary">Q:</span> Who Can Participate?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
@@ -651,84 +402,79 @@
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> DOES MY DESIGN HAVE TO BE ORIGINAL?
+				<span class="text-primary">Q:</span> Does My Design Have to Be Original?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes — everything you submit should be your own original work.
+					Yes. All of your projects must be made entirely by you.
 				</p>
 			</div>
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> HOW DO I PROVE MY WEIGHT?
+				<span class="text-primary">Q:</span> How Do I Prove My Weight?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For 3D prints, submit a slicer screenshot or a photo on a scale. For PCBs and other
-					hardware, photo on a scale showing the weight.
+					For design submissions, submit a screenshot of your design in the slicer. For completed
+					builds, upload a picture of your print on a scale showing the weight.
 				</p>
 			</div>
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> WHAT MATERIALS ARE ALLOWED?
+				<span class="text-primary">Q:</span> What Materials Are Allowed?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all under 25g. For hardware:
-					PCBs, components, enclosures. Just keep the whole thing small and compact.
+					PLA, ABS, PETG, TPU, Nylon, resin, etc. Multi-material prints are fine as long as the
+					total is under 25g.
 				</p>
 			</div>
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> CAN I SUBMIT MORE THAN ONCE?
+				<span class="text-primary">Q:</span> Can I Submit More Than Once?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes! Every unique original design is a new ship. At 2 approved ships you unlock custom
-					Hack Club filament, and at 4 you get an exclusive Hack Club shirt.
+					Yes — every unique original design is a new ship. At 3 approved ships, you unlock custom
+					Hack Club filament.
 				</p>
 			</div>
 		</div>
 
 		<div
-			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-6 bg-surface-container-lowest dark:bg-surface-container-highest hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors"
+			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest"
 		>
 			<h3
-				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> HAVE A QUESTION?
+				<span class="text-primary">Q:</span> I Have a Question!
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Come say hi in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
+					Find us in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
 				</p>
 			</div>
 		</div>
@@ -736,25 +482,29 @@
 
 	<!-- Call to Action -->
 	<section
-		class="bg-on-surface dark:bg-background p-12 text-center border-4 border-on-surface dark:border-background"
+		class="bg-on-surface dark:bg-background p-6 md:p-12 text-center border-4 border-on-surface dark:border-background relative"
 	>
-		<div class="space-y-8">
+		<div
+			class="absolute inset-0 opacity-10"
+			style="background-image: radial-gradient(#F7F6F2 2px, transparent 2px); background-size: 20px 20px;"
+		></div>
+		<div class="relative z-10 space-y-8">
 			<h2
-				class="font-headline font-black text-5xl md:text-7xl uppercase text-surface dark:text-on-surface leading-none tracking-tighter"
+				class="font-headline font-black text-4xl md:text-5xl lg:text-7xl text-surface dark:text-on-surface leading-none tracking-tighter"
 			>
-				LET'S BUILD SOMETHING
+				Ready to Build?
 			</h2>
 			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
 				<a
 					href="{base}/submission"
-					class="bg-success-neon text-on-surface border-4 border-surface px-10 py-5 text-2xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] transition-all inline-block"
+					class="bg-success-neon text-on-surface border-4 border-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-block"
 				>
 					Read the Guidelines
 				</a>
 				<a
 					href="https://forms.hackclub.com"
-					target="_blank"
-					class="font-label font-bold uppercase text-sm text-surface dark:text-on-surface underline decoration-2 underline-offset-4"
+						target="_blank"
+					class="font-label font-bold text-sm text-surface dark:text-on-surface underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
 				>
 					Submit a Project →
 				</a>
@@ -762,29 +512,3 @@
 		</div>
 	</section>
 </main>
-
-<!-- Footer -->
-<footer
-	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-8 gap-4 bg-primary dark:bg-secondary border-t-4 border-on-surface dark:border-background"
->
-	<div
-		class="font-label font-bold uppercase text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center"
-	>
-		Built by 1Mon for Hack Club 2026
-	</div>
-	<div
-		class="flex justify-center gap-6 md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center"
-	>
-		<a
-			class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2"
-			href="https://github.com/2Mon/last-grams"
-			target="_blank" rel="noopener noreferrer">GitHub</a
-		>
-		<a
-			class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2"
-			href="https://hackclub.com"
-			target="_blank" rel="noopener noreferrer">Hack Club HQ</a
-		>
-	</div>
-</footer>
-</div>
