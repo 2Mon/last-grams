@@ -1,6 +1,106 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { inview } from '$lib';
+	import confetti from 'canvas-confetti';
 	const gramsUsed = 142; // TODO: make dynamic
+
+	let email = $state('');
+	let emailStatus = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
+	let emailError = $state('');
+
+	function fireConfetti() {
+		const duration = 2000;
+		const end = Date.now() + duration;
+		const colors = ['#9b59b6', '#e8b4f8', '#39FF14', '#FF928B', '#FFBCFC'];
+		(function frame() {
+			confetti({
+				particleCount: 3,
+				angle: 60,
+				spread: 55,
+				origin: { x: 0, y: 0.7 },
+				colors
+			});
+			confetti({
+				particleCount: 3,
+				angle: 120,
+				spread: 55,
+				origin: { x: 1, y: 0.7 },
+				colors
+			});
+			if (Date.now() < end) requestAnimationFrame(frame);
+		})();
+	}
+
+	// Easter egg: Konami code → everything shrinks to 25g size
+	let konamiProgress = $state(0);
+	let konamiShowBanner = $state(false);
+	let konamiBannerText = $state('');
+	const konamiZoomLevels = [1, 0.5, 0.25, 0.1, 0.05];
+	let konamiLevel = $state(0);
+	let konamiZoom = $derived(konamiZoomLevels[konamiLevel]);
+	const konamiBannerMessages = [
+		'', // level 0 = normal, no message
+		'Everything just got lighter.',
+		'Getting pretty small in here...',
+		'Can you even read this?',
+		'🔬 MOLECULAR SCALE ACHIEVED'
+	];
+	const konamiCode = [
+		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+		'b', 'a'
+	];
+
+	function handleKonami(e: KeyboardEvent) {
+		if (e.key === konamiCode[konamiProgress]) {
+			konamiProgress++;
+			if (konamiProgress === konamiCode.length) {
+				konamiLevel = (konamiLevel + 1) % konamiZoomLevels.length;
+				konamiProgress = 0;
+				if (konamiLevel !== 0) {
+					konamiBannerText = konamiBannerMessages[konamiLevel];
+					konamiShowBanner = true;
+					confetti({
+						particleCount: 100 + konamiLevel * 50,
+						spread: 160,
+						origin: { y: 0.5 },
+						colors: ['#9b59b6', '#39FF14', '#FF928B']
+					});
+					setTimeout(() => { konamiShowBanner = false; }, 3000);
+				} else {
+					konamiBannerText = 'Back to normal. For now.';
+					konamiShowBanner = true;
+					setTimeout(() => { konamiShowBanner = false; }, 2000);
+				}
+			}
+		} else {
+			konamiProgress = e.key === konamiCode[0] ? 1 : 0;
+		}
+	}
+
+	async function subscribe() {
+		if (!email) return;
+		emailStatus = 'loading';
+		try {
+			const res = await fetch(`${base}/api/subscribe`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email })
+			});
+			const data = await res.json();
+			if (res.ok) {
+				emailStatus = 'success';
+				email = '';
+				fireConfetti();
+			} else {
+				emailStatus = 'error';
+				emailError = data.error || 'Something went wrong.';
+			}
+		} catch {
+			emailStatus = 'error';
+			emailError = 'Network error. Try again.';
+		}
+	}
 
 	const projects = [
 		{
@@ -56,27 +156,42 @@
 </script>
 
 <svelte:head>
-	<title>LAST GRAMS | A Hack Club YSWS</title>
+	<title>Last Grams — A Hack Club YSWS</title>
 </svelte:head>
 
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+<svelte:window onkeydown={handleKonami} />
+
+{#if konamiShowBanner}
+	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
+		<div class="pointer-events-auto bg-on-surface text-surface border-4 border-primary px-8 py-6 hard-shadow text-center rounded-2xl" style="animation: fade-in-up 0.3s ease-out forwards;">
+			<p class="font-headline font-black text-3xl tracking-tighter text-primary">⚖️ {konamiLevel === 0 ? 'Normal' : konamiZoom * 100 + '% Mode'}</p>
+			<p class="font-body font-bold text-lg mt-2">{konamiBannerText}</p>
+			<p class="font-label text-xs uppercase mt-3 text-surface/50">{konamiLevel === 0 ? '' : 'press konami again to go smaller'}</p>
+		</div>
+	</div>
+{/if}
+
+<div style:zoom={konamiZoom} style:transition="zoom 0.7s ease">
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 	<!-- Hero -->
-	<section class="flex flex-col items-center text-center space-y-10 py-20">
+	<section class="flex flex-col items-center text-center space-y-8 py-12">
 		<div class="space-y-4">
 			<h1
-				class="font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter text-on-surface dark:text-background leading-none"
+				use:inview
+				class="animate-in font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter text-on-surface dark:text-background leading-none"
 			>
 				Last<br /><span class="text-primary italic">Grams</span>
 			</h1>
 			<p
-				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
+				use:inview
+				class="animate-in stagger-1 font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Got a spool with only a few grams left? Use less than 25g of filament to design and print
-				something original. We'll send you real rewards.
+				Design something small and creative — a 3D print under 25g, a tiny PCB, a
+				pocket-sized gadget. We'll cover your materials and send you some cool rewards.
 			</p>
 		</div>
 
-		<div class="flex flex-col md:flex-row gap-4 items-center">
+		<div use:inview class="animate-in stagger-2 flex flex-col md:flex-row gap-4 items-center">
 			<a
 				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
 				href="{base}/submission">Read the Guidelines</a
@@ -84,15 +199,47 @@
 			<a
 				class="font-label font-bold text-sm text-on-surface dark:text-background underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
 				href="https://forms.hackclub.com"
-				target="_blank">Submit a Project →</a
+				target="_blank" rel="noopener noreferrer">Submit a Project →</a
 			>
+		</div>
+
+		<!-- Email signup -->
+		<div class="w-full max-w-md h-[58px] relative">
+			{#if emailStatus === 'success'}
+				<div class="absolute inset-0 flex items-center justify-center">
+					<p class="font-label font-bold uppercase text-sm text-primary text-center">We'll be in touch!</p>
+				</div>
+			{:else}
+				<form
+					onsubmit={(e) => { e.preventDefault(); subscribe(); }}
+					class="flex gap-0 h-full"
+				>
+					<input
+						type="email"
+						placeholder="your@email.com"
+						bind:value={email}
+						required
+						class="flex-grow border-4 border-on-surface border-r-0 px-4 py-3 font-body font-bold text-lg bg-surface-container-lowest dark:bg-surface-container-highest dark:text-background dark:border-background text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none rounded-l-xl"
+					/>
+					<button
+						type="submit"
+						disabled={emailStatus === 'loading'}
+						class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-3 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50 whitespace-nowrap rounded-r-xl"
+					>
+						{emailStatus === 'loading' ? '...' : 'Notify Me'}
+					</button>
+				</form>
+				{#if emailStatus === 'error'}
+					<p class="font-label font-bold text-xs text-primary mt-2">{emailError}</p>
+				{/if}
+			{/if}
 		</div>
 
 		<div
 			class="flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow rounded-full"
 		>
 			<span
-				class="material-symbols-outlined text-primary text-3xl"
+				class="material-symbols-outlined text-primary text-3xl" role="img" aria-label="Scale icon"
 				style="font-variation-settings: 'FILL' 1;">scale</span
 			>
 			<p
@@ -109,7 +256,7 @@
 			<h2
 				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				Shipped Creations
+				What People Have Made
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -133,6 +280,7 @@
 								alt={p.name}
 								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3 rounded-lg"
 								src={p.img}
+								loading="lazy"
 							/>
 							<div class="flex justify-between items-end">
 								<div>
@@ -166,6 +314,7 @@
 								alt={p.name}
 								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3 rounded-lg"
 								src={p.img}
+								loading="lazy"
 							/>
 							<div class="flex justify-between items-end">
 								<div>
@@ -200,10 +349,10 @@
 			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
-			<span>Print It • Weigh It • Ship It • </span>
-			<span>Print It • Weigh It • Ship It • </span>
-			<span aria-hidden="true">Print It • Weigh It • Ship It • </span>
-			<span aria-hidden="true">Print It • Weigh It • Ship It • </span>
+			<span>Design • Build • Share • </span>
+			<span>Design • Build • Share • </span>
+			<span aria-hidden="true">Design • Build • Share • </span>
+			<span aria-hidden="true">Design • Build • Share • </span>
 		</div>
 	</section>
 
@@ -216,13 +365,14 @@
 				Rewards
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
-				What you get for shipping.
+				We'll cover your build costs and send you bonus rewards when your project is approved.
 			</p>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 			<!-- Tier 1: 1 Ship -->
 			<div
-				class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
+				use:inview
+				class="animate-in stagger-1 hover-lift bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
@@ -250,14 +400,15 @@
 				</div>
 			</div>
 
-			<!-- Tier 2: 3 Ships -->
+			<!-- Tier 2: 2 Ships -->
 			<div
-				class="bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
+				use:inview
+				class="animate-in stagger-2 hover-lift bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
 			>
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					3 Approved Ships
+					2 Approved Ships
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -267,7 +418,7 @@
 							1kg Hack Club Filament
 						</h3>
 						<p class="font-body text-lg mt-2 font-bold text-on-primary-container">
-							Custom Hack Club spool — red PLA with white glitter.
+							Custom Hack Club spool. Red PLA with white glitter.
 						</p>
 					</div>
 				</div>
@@ -275,8 +426,39 @@
 					class="border-t-4 border-on-surface dark:border-background p-4 bg-on-primary-container/10"
 				>
 					<p class="font-label font-bold text-xs uppercase text-on-primary-container">
-						Tier 2 Reward
+						Tier 2
 					</p>
+				</div>
+			</div>
+
+			<!-- Tier 3: 4 Ships -->
+			<div
+				use:inview
+				class="animate-in stagger-3 hover-lift bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
+			>
+				<div
+					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
+				>
+					4 Approved Ships
+				</div>
+				<div class="p-6 space-y-4 flex-1">
+					<div>
+						<h3
+							class="font-headline font-black text-3xl leading-none text-on-surface dark:text-background"
+						>
+							Hack Club Shirt
+						</h3>
+						<p
+							class="font-body text-lg mt-2 font-bold text-on-surface dark:text-background opacity-80"
+						>
+							An exclusive Hack Club t-shirt to rep your builds.
+						</p>
+					</div>
+				</div>
+				<div
+					class="border-t-4 border-on-surface dark:border-background p-4 bg-surface-container dark:bg-surface-container-highest"
+				>
+					<p class="font-label font-bold text-xs uppercase text-primary">Tier 3</p>
 				</div>
 			</div>
 		</div>
@@ -295,7 +477,8 @@
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				use:inview
+				class="animate-in stagger-1 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
@@ -304,14 +487,15 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Design a Model
+					Design Your Project
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					CAD something that weighs under 25g when sliced.
+					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
 				</p>
 			</div>
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				use:inview
+				class="animate-in stagger-2 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
@@ -327,7 +511,8 @@
 				</p>
 			</div>
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
+				use:inview
+				class="animate-in stagger-3 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
@@ -336,14 +521,15 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Slice & Print
+					Build It
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Slice it, confirm the weight, and print. No printer? Use #printing-legion on Slack.
+					Print, solder, or assemble — whatever your project needs. Don't have a printer? Check out #printing-legion on Slack.
 				</p>
 			</div>
 			<div
-				class="p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
+				use:inview
+				class="animate-in stagger-4 p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
 			>
 				<span
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
@@ -351,7 +537,7 @@
 				>
 				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
 				<p class="font-body font-bold text-lg mt-4">
-					Submit for review. Once approved, your rewards ship.
+					Submit your project for review. Once it's approved, we'll send your rewards!
 				</p>
 			</div>
 		</div>
@@ -370,23 +556,49 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> What Even Is Last Grams?
+				<span class="text-primary">Q:</span> Is This Real?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Last Grams is a Hack Club YSWS — You Ship, We Ship. Design and 3D print an original object
-					using less than 25g of filament, and we'll send you real prizes.
+					Yes. <a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is
+					a registered 501(c)(3) nonprofit with 50,000+ teen members worldwide, backed by
+					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
+					All programs are completely free. We've shipped
+					<a href="https://infill.hackclub.com" class="underline text-primary">Infill</a>,
+					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>,
+					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>,
+					<a href="https://stasis.hackclub.com" class="underline text-primary">Stasis</a>,
+					and more.
 				</p>
 			</div>
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+		>
+			<h3
+				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+			>
+				<span class="text-primary">Q:</span> What Is Last Grams?
+			</h3>
+			<div class="mt-4 pl-10 border-l-4 border-primary">
+				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+					Last Grams is a Hack Club (You Ship, We Ship) program. Build an original project
+					under 25g, or a miniature hardware project. We'll send you real prizes.
+				</p>
+			</div>
+		</div>
+
+		<div
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -402,7 +614,8 @@
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -411,13 +624,14 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes. All of your projects must be made entirely by you.
+					Yes — everything you submit should be your own original work.
 				</p>
 			</div>
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -426,14 +640,15 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For design submissions, submit a screenshot of your design in the slicer. For completed
-					builds, upload a picture of your print on a scale showing the weight.
+					For 3D prints, submit a slicer screenshot or a photo on a scale. For PCBs and other
+					hardware, photo on a scale showing the weight.
 				</p>
 			</div>
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -442,14 +657,15 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					PLA, ABS, PETG, TPU, Nylon, resin, etc. Multi-material prints are fine as long as the
-					total is under 25g.
+					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all under 25g. For hardware:
+					PCBs, components, enclosures. Just keep the whole thing small and compact.
 				</p>
 			</div>
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
@@ -458,23 +674,24 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes — every unique original design is a new ship. At 3 approved ships, you unlock custom
-					Hack Club filament.
+					Yes! Every unique original design is a new ship. At 2 approved ships you unlock custom
+					Hack Club filament, and at 4 you get an exclusive Hack Club shirt.
 				</p>
 			</div>
 		</div>
 
 		<div
-			class="border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
+			use:inview
+			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-surface-container-highest rounded-xl"
 		>
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> I Have a Question!
+				<span class="text-primary">Q:</span> Have a Question?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Find us in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
+					Come say hi in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
 				</p>
 			</div>
 		</div>
@@ -484,15 +701,11 @@
 	<section
 		class="bg-on-surface dark:bg-background p-6 md:p-12 text-center border-4 border-on-surface dark:border-background relative rounded-2xl overflow-hidden"
 	>
-		<div
-			class="absolute inset-0 opacity-10"
-			style="background-image: radial-gradient(#F7F6F2 2px, transparent 2px); background-size: 20px 20px;"
-		></div>
 		<div class="relative z-10 space-y-8">
 			<h2
 				class="font-headline font-black text-4xl md:text-5xl lg:text-7xl text-surface dark:text-on-surface leading-none tracking-tighter"
 			>
-				Ready to Build?
+				Let's Build Something
 			</h2>
 			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
 				<a
@@ -503,7 +716,7 @@
 				</a>
 				<a
 					href="https://forms.hackclub.com"
-						target="_blank"
+					target="_blank"
 					class="font-label font-bold text-sm text-surface dark:text-on-surface underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
 				>
 					Submit a Project →
@@ -512,3 +725,4 @@
 		</div>
 	</section>
 </main>
+</div>

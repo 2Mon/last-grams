@@ -31,7 +31,7 @@
             <div class="flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
                     <h1 class="font-headline font-black text-6xl md:text-8xl tracking-tighter leading-none mb-4 dark:text-background">
-                        Community<br/>Original Creations
+                        Community<br/>Creations
                     </h1>
                     <p class="font-body text-xl max-w-xl text-on-surface-variant dark:text-background/70 font-medium">
                         A showcase of tiny projects designed and built by the community.
@@ -94,10 +94,10 @@
         <div class="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
             <div class="max-w-2xl text-center md:text-left">
                 <h2 class="font-headline font-black text-4xl md:text-6xl tracking-tighter leading-none mb-4 text-on-primary-container dark:text-background">
-                    Small Prints.<br/>Big Rewards.
+                    Small Builds,<br/>Big Rewards
                 </h2>
                 <p class="font-body text-xl font-bold text-on-primary-container dark:text-background mb-8">
-                    Got an idea for a design that could save the last grams on your spool?
+                    Have an idea for a tiny project? We'd love to see what you come up with.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                     <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
@@ -112,7 +112,7 @@
             </div>
             <div class="flex flex-col gap-4 shrink-0">
                 <a href="https://forms.hackclub.com" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center rounded-xl">
-                    Submit Your Build
+                    Share Your Project
                 </a>
                 <a class="font-label font-bold text-sm text-center text-on-primary-container dark:text-background underline decoration-2 underline-offset-4" href="{base}/submission">View Guidelines</a>
             </div>

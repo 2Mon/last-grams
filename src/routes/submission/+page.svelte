@@ -10,26 +10,26 @@
   const requirements: Requirement[] = [
     {
       number: '01',
-      title: 'Complete CAD Model',
-      description: 'Your entire project in a standard format.',
+      title: 'Project Files',
+      description: 'Your complete design files in a standard format.',
       items: [
-        'Export your full project as a .STEP file',
-        'Must be your original design — no downloaded models, no remixes',
-        'No AI-generated geometry — you must have modeled it yourself',
-        'Must weigh strictly under 25g when printed — verified in slicer or on a physical scale',
+        'For 3D prints: export as .STEP. For PCBs: include Gerbers and schematics',
+        'Must be your original design. No downloaded models, no remixes',
+        'No AI-generated designs. You must have made it yourself',
+        'Must weigh strictly under 25g, verified in slicer or on a physical scale',
       ],
-      warning: "Anything over 25g won't be approved. Double-check before submitting.",
+      warning: "Projects over 25g can't be approved — please double-check your weight before submitting.",
     },
     {
       number: '02',
-      title: 'Readme.md',
+      title: 'Readme.md (No AI)',
       description: 'A complete project writeup. No AI writing allowed.',
       items: [
-        'Full image of your completed CAD model',
+        'Full image of your completed project',
         'Short description of your project and why you made it',
         'Wiring diagram for your full project (if applicable)',
       ],
-      warning: 'NO AI IN READMEs. AI-generated text will be rejected immediately.',
+      warning: 'Please write your README yourself — AI-generated text will be rejected.',
     },
     {
       number: '03',
@@ -41,7 +41,7 @@
         'Photos, screenshots, and sketches are encouraged',
         'Document challenges you hit and how you solved them',
       ],
-      warning: 'AI-generated journal entries will be rejected. Write in your own voice.',
+      warning: 'Write your journal in your own voice — AI-generated entries will be rejected.',
     },
     {
       number: '04',
@@ -70,7 +70,7 @@
       Submission<br/><span class="text-primary italic">Guidelines</span>
     </h1>
     <p class="font-body text-xl font-bold text-on-surface-variant dark:text-background/70 max-w-2xl">
-      Every approved ship needs to follow these guidelines. Read carefully, if you are missing any of these your submission will be rejected.
+      Here's everything we need from you. Make sure you have it all before submitting!
     </p>
   </header>
 
