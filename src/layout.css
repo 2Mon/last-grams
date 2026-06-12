@@ -3,30 +3,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-on-primary-container: #5c3d6e;
+  --color-on-primary-container: #1a4d3d;
   --color-background: #f5f4f0;
   --color-error: #c0392b;
   --color-on-surface-variant: #6b6b67;
   --color-outline: #8a8a86;
-  --color-surface-variant: #e5e5e0;
-  --color-on-primary: #faf5fc;
-  --color-surface-container: #eceae6;
+  --color-surface-variant: #e2e6e4;
+  --color-on-primary: #f0faf5;
+  --color-surface-container: #e8ece9;
   --color-surface: #f5f4f0;
-  --color-surface-container-lowest: #fafaf8;
-  --color-on-background: #444440;
-  --color-surface-container-highest: #e0dfdb;
-  --color-secondary-container: #e8c8e6;
-  --color-primary: #7c6b8a;
-  --color-surface-container-high: #e6e5e1;
-  --color-secondary: #6e5477;
-  --color-primary-container: #d4c0de;
-  --color-on-surface: #444440;
-  --color-success-neon: #5ec269;
+  --color-surface-container-lowest: #fafbf9;
+  --color-on-background: #3a3f3d;
+  --color-surface-container-highest: #dce1de;
+  --color-secondary-container: #e8c8d6;
+  --color-primary: #2d8a6e;
+  --color-surface-container-high: #e3e7e5;
+  --color-secondary: #8b4563;
+  --color-primary-container: #c8e6d8;
+  --color-on-surface: #3a3f3d;
+  --color-success-neon: #d4564e;
 
-  --color-dark-surface: #2a2a28;
-  --color-dark-surface-dim: #232321;
-  --color-dark-container: #353533;
-  --color-dark-container-high: #404040;
+  --color-dark-surface: #242a28;
+  --color-dark-surface-dim: #1e2422;
+  --color-dark-container: #2e3633;
+  --color-dark-container-high: #384240;
 
   --font-headline: "Epilogue", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -48,7 +48,7 @@
 }
 
 @utility hard-shadow {
-  box-shadow: 3px 3px 0px 0px #444440;
+  box-shadow: 3px 3px 0px 0px #3a3f3d;
   border-radius: var(--radius-lg);
   .dark & {
     box-shadow: 3px 3px 0px 0px #f5f4f0;
@@ -56,10 +56,10 @@
 }
 
 @utility hard-shadow-primary {
-  box-shadow: 3px 3px 0px 0px #7c6b8a;
+  box-shadow: 3px 3px 0px 0px #2d8a6e;
   border-radius: var(--radius-lg);
   .dark & {
-    box-shadow: 3px 3px 0px 0px #d4c0de;
+    box-shadow: 3px 3px 0px 0px #c8e6d8;
   }
 }
 
@@ -73,7 +73,7 @@
 @utility active-press {
   &:active {
     transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0px 0px #444440;
+    box-shadow: 0px 0px 0px 0px #3a3f3d;
   }
   .dark &:active {
     box-shadow: 0px 0px 0px 0px #f5f4f0;
@@ -81,7 +81,7 @@
 }
 
 @utility dot-grid {
-  background-image: radial-gradient(#444440 1px, transparent 1px);
+  background-image: radial-gradient(#3a3f3d 1px, transparent 1px);
   background-size: 32px 32px;
   background-color: #f5f4f0;
   background-attachment: fixed;
@@ -89,12 +89,12 @@
 
 @utility card-glow {
   &:hover {
-    box-shadow: 0 0 20px rgba(124, 107, 138, 0.3), 0 0 40px rgba(94, 194, 105, 0.15);
-    border-color: #7c6b8a;
+    box-shadow: 0 0 20px rgba(45, 138, 110, 0.3), 0 0 40px rgba(139, 69, 99, 0.15);
+    border-color: #2d8a6e;
   }
   .dark &:hover {
-    box-shadow: 0 0 20px rgba(212, 192, 222, 0.3), 0 0 40px rgba(94, 194, 105, 0.2);
-    border-color: #d4c0de;
+    box-shadow: 0 0 20px rgba(200, 230, 216, 0.3), 0 0 40px rgba(139, 69, 99, 0.2);
+    border-color: #c8e6d8;
   }
 }
 
@@ -155,6 +155,6 @@
 
 .dark .dot-grid {
   background-image: radial-gradient(#f5f4f0 1px, transparent 1px);
-  background-color: #2a2a28;
+  background-color: #242a28;
 }
 
