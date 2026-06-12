@@ -199,7 +199,7 @@
 				use:inview
 				class="animate-in font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter text-on-surface dark:text-background leading-none"
 			>
-				Last<br /><span class="text-primary italic">Grams</span>
+				Wisp
 			</h1>
 			<p
 				use:inview
