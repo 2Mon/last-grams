@@ -47,7 +47,7 @@
 	<div
 		class="text-2xl font-headline font-black italic tracking-tighter text-on-surface dark:text-background"
 	>
-		<a href="{base}/">Last Grams</a>
+		<a href="{base}/">Wisp</a>
 	</div>
 	<div class="hidden md:flex gap-8 items-center mr-auto ml-8">
 		<a
@@ -96,7 +96,7 @@
 	<div class="flex justify-center gap-6 h-full items-center">
 		<a
 			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
-			href="https://github.com/2Mon/last-grams"
+			href="https://github.com/2Mon/wisp"
 			target="_blank"
 			rel="noopener noreferrer">GitHub</a
 		>

@@ -57,7 +57,7 @@
 </script>
 
 <svelte:head>
-  <title>Submit | LAST GRAMS</title>
+  <title>Submit | WISP</title>
 </svelte:head>
 
 <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
@@ -129,7 +129,7 @@
     <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container p-6 hard-shadow hover-lift transition-all rounded-xl">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">1</div>
       <h3 class="font-headline font-black text-xl mb-3 dark:text-background">Join Slack</h3>
-      <p class="font-body font-bold text-base text-on-surface-variant dark:text-background/70">Head to <span class="text-primary">#last-grams</span> on the Hack Club Slack. Sign up free at hackclub.com/slack if you're not already there.</p>
+      <p class="font-body font-bold text-base text-on-surface-variant dark:text-background/70">Head to <span class="text-primary">#wisp</span> on the Hack Club Slack. Sign up free at hackclub.com/slack if you're not already there.</p>
     </div>
     <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container p-6 hard-shadow hover-lift transition-all rounded-xl">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">2</div>

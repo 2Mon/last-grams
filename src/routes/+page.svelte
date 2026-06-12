@@ -165,7 +165,7 @@
 </script>
 
 <svelte:head>
-	<title>Last Grams — A Hack Club YSWS</title>
+	<title>Wisp — A Hack Club YSWS</title>
 </svelte:head>
 
 <svelte:window onkeydown={handleKonami} />
@@ -411,7 +411,7 @@
 						<p
 							class="font-body text-lg mt-2 font-bold text-on-surface dark:text-background opacity-80"
 						>
-							Custom Last Grams stickers for your projects.
+							Custom Wisp stickers for your projects.
 						</p>
 					</div>
 				</div>
@@ -610,11 +610,11 @@
 			<h3
 				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> What Is Last Grams?
+				<span class="text-primary">Q:</span> What Is Wisp?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Last Grams is a Hack Club (You Ship, We Ship) program. Build an original project
+					Wisp is a Hack Club (You Ship, We Ship) program. Build an original project
 					under 25g, or a miniature hardware project. We'll send you real prizes.
 				</p>
 			</div>
@@ -631,7 +631,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Teens aged 13–18 of all experience levels can participate in Last Grams! Guided projects
+					Teens aged 13–18 of all experience levels can participate in Wisp! Guided projects
 					are available.
 				</p>
 			</div>
@@ -715,7 +715,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Come say hi in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
+					Come say hi in <span class="text-primary font-black">#wisp</span> on the Hack Club Slack.
 				</p>
 			</div>
 		</div>
