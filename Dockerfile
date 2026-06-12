@@ -1,8 +1,10 @@
 FROM node:22-slim AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --include=dev && npm install @rollup/rollup-linux-x64-gnu --save-optional
+RUN npm ci --include=dev \
+    && npm install @rollup/rollup-linux-x64-gnu lightningcss-linux-x64-gnu --save-optional
 COPY . .
+RUN npx svelte-kit sync
 RUN npm run build
 RUN npm prune --omit=dev
 
