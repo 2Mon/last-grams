@@ -37,7 +37,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class={darkMode ? 'dark' : ''}>
+<div class="{darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
 <div class="dot-bg" bind:this={dotBg}></div>
 
 <!-- Nav -->
@@ -119,11 +119,11 @@
 		z-index: -1;
 		opacity: 0.2;
 		pointer-events: none;
-		background-image: radial-gradient(#3d3d3a 1.5px, transparent 1.5px);
+		background-image: radial-gradient(#444440 1.5px, transparent 1.5px);
 		background-size: 28px 28px;
 	}
 
 	:global(.dark) .dot-bg {
-		background-image: radial-gradient(#f7f6f2 1.5px, transparent 1.5px);
+		background-image: radial-gradient(#f5f4f0 1.5px, transparent 1.5px);
 	}
 </style>
