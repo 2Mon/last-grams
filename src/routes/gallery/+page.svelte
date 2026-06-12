@@ -100,14 +100,18 @@
                 <p class="font-body text-xl font-bold text-on-primary-container dark:text-background mb-8">
                     Have an idea for a tiny project? We'd love to see what you come up with.
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
                     <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">1 Ship</div>
-                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">Official Stickers</div>
+                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">Sticker Pack</div>
                     </div>
                     <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
-                        <div class="font-headline font-black text-2xl text-primary mb-1">3 Ships</div>
-                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">Hack Club Filament</div>
+                        <div class="font-headline font-black text-2xl text-primary mb-1">2 Ships</div>
+                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">1kg Hack Club Filament</div>
+                    </div>
+                    <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
+                        <div class="font-headline font-black text-2xl text-primary mb-1">4 Ships</div>
+                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">Hack Club Shirt</div>
                     </div>
                 </div>
             </div>
