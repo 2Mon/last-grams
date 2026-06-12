@@ -28,7 +28,7 @@
 <style>
 	.dot-bg {
 		position: fixed;
-		inset: -30%;
+		inset: -50%;
 		z-index: -1;
 		opacity: 0.2;
 		pointer-events: none;
