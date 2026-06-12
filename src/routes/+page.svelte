@@ -153,13 +153,15 @@
 		</div>
 
 		<!-- Email signup -->
-		<div class="w-full max-w-md">
+		<div class="w-full max-w-md h-[58px] relative">
 			{#if emailStatus === 'success'}
-				<p class="font-label font-bold uppercase text-sm text-primary text-center">We'll be in touch!</p>
+				<div class="absolute inset-0 flex items-center justify-center">
+					<p class="font-label font-bold uppercase text-sm text-primary text-center">We'll be in touch!</p>
+				</div>
 			{:else}
 				<form
 					onsubmit={(e) => { e.preventDefault(); subscribe(); }}
-					class="flex gap-0"
+					class="flex gap-0 h-full"
 				>
 					<input
 						type="email"
@@ -171,7 +173,7 @@
 					<button
 						type="submit"
 						disabled={emailStatus === 'loading'}
-						class="bg-primary text-on-primary border-4 border-on-surface px-6 py-3 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50"
+						class="bg-primary text-on-primary border-4 border-on-surface px-6 py-3 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50 whitespace-nowrap"
 					>
 						{emailStatus === 'loading' ? '...' : 'Notify Me'}
 					</button>
