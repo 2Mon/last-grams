@@ -103,16 +103,16 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                     <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">1 Ship</div>
-                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant">Official Stickers</div>
+                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">Official Stickers</div>
                     </div>
                     <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">3 Ships</div>
-                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant">Hack Club Filament</div>
+                        <div class="font-label font-bold uppercase text-xs text-on-surface-variant dark:text-background/70">Hack Club Filament</div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col gap-4 shrink-0">
-                <a href="https://forms.hackclub.com" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center rounded-xl">
+                <a href="https://forms.hackclub.com" target="_blank" rel="noopener noreferrer" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center rounded-xl">
                     Share Your Project
                 </a>
                 <a class="font-label font-bold text-sm text-center text-on-primary-container dark:text-background underline decoration-2 underline-offset-4" href="{base}/submission">View Guidelines</a>

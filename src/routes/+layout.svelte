@@ -35,6 +35,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </svelte:head>
 
 <div class="{darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
@@ -91,7 +92,7 @@
 	<div
 		class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex items-center justify-center"
 	>
-		Built by 1Mon for Hack Club 2026
+		Built by 2Mon for Hack Club 2026
 	</div>
 	<div class="flex justify-center gap-6 h-full items-center">
 		<a
@@ -110,7 +111,6 @@
 </footer>
 </div>
 
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 <style>
 	.dot-bg {

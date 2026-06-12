@@ -27,7 +27,7 @@
 
 	<a
 		href="{base}/"
-		class="inline-block bg-primary text-on-primary font-headline font-bold text-lg px-8 py-4 border-3 border-on-surface dark:border-background hard-shadow hover-lift rounded-xl"
+		class="inline-block bg-primary text-on-primary font-headline font-bold text-lg px-8 py-4 border-4 border-on-surface dark:border-background hard-shadow hover-lift rounded-xl"
 	>
 		Take me home 🏠
 	</a>

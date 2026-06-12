@@ -166,6 +166,7 @@
 
 <svelte:head>
 	<title>Wisp — A Hack Club YSWS</title>
+	<meta name="description" content="Design and 3D-print something under 25 grams. Ship it, earn rewards. A Hack Club You Ship We Ship project." />
 </svelte:head>
 
 <svelte:window onkeydown={handleKonami} />
@@ -590,14 +591,14 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes. <a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is
+					Yes. <a href="https://hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Hack Club</a> is
 					a registered 501(c)(3) nonprofit with 50,000+ teen members worldwide, backed by
 					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
 					All programs are completely free. We've shipped
-					<a href="https://infill.hackclub.com" class="underline text-primary">Infill</a>,
-					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>,
-					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>,
-					<a href="https://stasis.hackclub.com" class="underline text-primary">Stasis</a>,
+					<a href="https://infill.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Infill</a>,
+					<a href="https://highway.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Highway</a>,
+					<a href="https://blueprint.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Blueprint</a>,
+					<a href="https://stasis.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Stasis</a>,
 					and more.
 				</p>
 			</div>
