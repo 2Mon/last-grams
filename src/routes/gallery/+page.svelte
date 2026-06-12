@@ -1,5 +1,6 @@
 <script lang="ts">
     import { base } from '$app/paths';
+    import { tilt } from '$lib';
     interface Creation {
         title: string;
         id: string;
@@ -27,7 +28,7 @@
 
     <!-- Header -->
     <header class="mb-16 relative">
-        <div class="border-4 border-on-surface dark:border-background p-8 md:p-12 bg-surface-container-lowest dark:bg-surface-container-highest relative z-10 hard-shadow rounded-2xl">
+        <div class="border-4 border-on-surface dark:border-background p-8 md:p-12 bg-surface-container-lowest dark:bg-dark-container relative z-10 hard-shadow rounded-2xl">
             <div class="flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
                     <h1 class="font-headline font-black text-6xl md:text-8xl tracking-tighter leading-none mb-4 dark:text-background">
@@ -38,11 +39,11 @@
                     </p>
                 </div>
                 <div class="flex gap-4">
-                    <div class="border-4 border-on-surface dark:border-background p-4 bg-primary-container dark:bg-surface-container-highest hard-shadow rounded-xl">
+                    <div class="border-4 border-on-surface dark:border-background p-4 bg-primary-container dark:bg-dark-container hard-shadow rounded-xl">
                         <span class="font-label font-bold uppercase block text-xs dark:text-background/70">Ships</span>
                         <span class="font-headline font-black text-4xl italic dark:text-background">142</span>
                     </div>
-                    <div class="border-4 border-on-surface dark:border-background p-4 bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow rounded-xl">
+                    <div class="border-4 border-on-surface dark:border-background p-4 bg-surface-container-lowest dark:bg-dark-container hard-shadow rounded-xl">
                         <span class="font-label font-bold uppercase block text-xs dark:text-background/70">Lightest</span>
                         <span class="font-headline font-black text-4xl italic text-primary">4g</span>
                     </div>
@@ -55,8 +56,8 @@
     <!-- Gallery Grid -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
         {#each creations as item}
-            <div class="group border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden rounded-xl">
-                <div class="h-64 border-b-4 border-on-surface dark:border-background bg-surface-variant">
+            <div use:tilt class="group border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden rounded-xl">
+                <div class="h-64 border-b-4 border-on-surface dark:border-background bg-surface-variant dark:bg-dark-container-high">
                     <img class="w-full h-full object-cover" alt={item.title} src={item.image}/>
                 </div>
                 <div class="p-6">
@@ -100,11 +101,11 @@
                     Have an idea for a tiny project? We'd love to see what you come up with.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
+                    <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">1 Ship</div>
                         <div class="font-label font-bold uppercase text-xs text-on-surface-variant">Official Stickers</div>
                     </div>
-                    <div class="bg-surface-container-lowest dark:bg-surface-container-highest border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
+                    <div class="bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-4 hard-shadow rounded-xl">
                         <div class="font-headline font-black text-2xl text-primary mb-1">3 Ships</div>
                         <div class="font-label font-bold uppercase text-xs text-on-surface-variant">Hack Club Filament</div>
                     </div>

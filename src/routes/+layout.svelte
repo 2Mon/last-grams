@@ -42,7 +42,7 @@
 
 <!-- Nav -->
 <nav
-	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
+	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background"
 >
 	<div
 		class="text-2xl font-headline font-black italic tracking-tighter text-on-surface dark:text-background"
@@ -66,7 +66,7 @@
 	<div class="flex items-center gap-4">
 		<button
 			onclick={() => (darkMode = !darkMode)}
-			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors rounded-xl"
+			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
 			aria-label="Toggle dark mode"
 		>
 			<span class="material-symbols-outlined text-xl">

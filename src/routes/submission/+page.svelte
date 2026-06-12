@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tilt } from '$lib';
   interface Requirement {
     number: string;
     title: string;
@@ -84,7 +85,7 @@
   <!-- Requirements -->
   <section class="space-y-8">
     {#each requirements as req}
-      <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest hard-shadow hover-lift transition-all rounded-xl overflow-hidden">
+      <div use:tilt class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow hover-lift transition-all rounded-xl overflow-hidden">
 
         <!-- Header bar -->
         <div class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-6 py-5 flex items-center gap-6">
@@ -125,23 +126,23 @@
 
   <!-- How to Submit -->
   <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
-    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest p-6 hard-shadow hover-lift transition-all rounded-xl">
+    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container p-6 hard-shadow hover-lift transition-all rounded-xl">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">1</div>
       <h3 class="font-headline font-black text-xl mb-3 dark:text-background">Join Slack</h3>
       <p class="font-body font-bold text-base text-on-surface-variant dark:text-background/70">Head to <span class="text-primary">#last-grams</span> on the Hack Club Slack. Sign up free at hackclub.com/slack if you're not already there.</p>
     </div>
-    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-surface-container-highest p-6 hard-shadow hover-lift transition-all rounded-xl">
+    <div class="border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container p-6 hard-shadow hover-lift transition-all rounded-xl">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">2</div>
       <h3 class="font-headline font-black text-xl mb-3 dark:text-background">Post Your Ship</h3>
       <p class="font-body font-bold text-base text-on-surface-variant dark:text-background/70">Share your GitHub repo link with all four requirements included. Weight photo must be in the message directly.</p>
     </div>
     <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary hover-lift transition-all rounded-xl">
-      <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">3</div>
+      <div class="w-10 h-10 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">3</div>
       <h3 class="font-headline font-black text-xl mb-3">Submit Model</h3>
       <p class="font-body font-bold text-base">Submit your model to the submission form. Our review team will review each project manually.</p>
     </div>
     <div class="border-4 border-on-surface bg-primary text-on-primary p-6 hard-shadow-primary hover-lift transition-all rounded-xl">
-      <div class="w-10 h-10 bg-on-surface text-surface font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">4</div>
+      <div class="w-10 h-10 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-lg flex items-center justify-center mb-4 rounded-full">4</div>
       <h3 class="font-headline font-black text-xl mb-3">Get Verified</h3>
       <p class="font-body font-bold text-base">A reviewer will check your submission and mark it approved. Once verified, your ship counts toward rewards and joins the gallery.</p>
     </div>

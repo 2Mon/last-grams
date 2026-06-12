@@ -23,6 +23,11 @@
   --color-on-surface: #3d3d3a;
   --color-success-neon: #39ff14;
 
+  --color-dark-surface: #2a2a28;
+  --color-dark-surface-dim: #232321;
+  --color-dark-container: #353533;
+  --color-dark-container-high: #404040;
+
   --font-headline: "Epilogue", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
   --font-label: "Space Grotesk", sans-serif;
@@ -134,12 +139,22 @@
 }
 
 
+@keyframes float-scale {
+	0%,
+	100% {
+		transform: rotate(-10deg) translateY(0);
+	}
+	50% {
+		transform: rotate(10deg) translateY(-20px);
+	}
+}
+
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 .dark .dot-grid {
   background-image: radial-gradient(#F7F6F2 1px, transparent 1px);
-  background-color: #3d3d3a;
+  background-color: #2a2a28;
 }
 
