@@ -6,7 +6,7 @@
 	let loginError = $state('');
 	let loggedIn = $state(false);
 	let loading = $state(false);
-	let subscribers = $state<{ number: number; email: string; createdAt: string }[]>([]);
+	let subscribers = $state<{ userId: number; email: string; createdAt: string }[]>([]);
 
 	async function login() {
 		loginError = '';
@@ -99,7 +99,7 @@
 				<table class="w-full">
 					<thead>
 						<tr class="bg-on-surface text-surface">
-							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">#</th>
+							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">User ID</th>
 							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">Email</th>
 							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">Date</th>
 						</tr>
@@ -107,7 +107,7 @@
 					<tbody>
 						{#each subscribers as sub}
 							<tr class="border-t-2 border-on-surface/20">
-								<td class="px-4 py-3 font-headline font-black text-primary">{sub.number}</td>
+								<td class="px-4 py-3 font-headline font-black text-primary">{sub.userId}</td>
 								<td class="px-4 py-3 font-body font-bold">{sub.email}</td>
 								<td class="px-4 py-3 font-label text-sm text-on-surface-variant">
 									{new Date(sub.createdAt).toLocaleDateString()}

@@ -17,7 +17,7 @@ export const GET: RequestHandler = async ({ cookies }) => {
 	const tableUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`;
 	const headers = { Authorization: `Bearer ${AIRTABLE_API_KEY}` };
 
-	const subscribers: { number: number; email: string; createdAt: string }[] = [];
+	const subscribers: { userId: number; email: string; createdAt: string }[] = [];
 	let offset: string | undefined;
 
 	do {
@@ -38,7 +38,7 @@ export const GET: RequestHandler = async ({ cookies }) => {
 		const data = await res.json();
 		for (const record of data.records) {
 			subscribers.push({
-				number: subscribers.length + 1,
+				userId: subscribers.length + 1,
 				email: record.fields.Email ?? '',
 				createdAt: record.createdTime ?? ''
 			});
