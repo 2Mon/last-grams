@@ -88,7 +88,7 @@
 </script>
 
 <svelte:head>
-	<title>LAST GRAMS | A Hack Club YSWS</title>
+	<title>Last Grams — A Hack Club YSWS</title>
 </svelte:head>
 
 <!-- Nav -->
@@ -148,7 +148,7 @@
 			<a
 				class="font-label font-bold uppercase text-sm text-on-surface dark:text-background underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
 				href="https://forms.hackclub.com"
-				target="_blank">Submit a Project →</a
+				target="_blank" rel="noopener noreferrer">Submit a Project →</a
 			>
 		</div>
 
@@ -188,7 +188,7 @@
 			class="flex items-center gap-3 bg-surface-container dark:bg-surface-container-highest border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow"
 		>
 			<span
-				class="material-symbols-outlined text-primary text-3xl"
+				class="material-symbols-outlined text-primary text-3xl" role="img" aria-label="Scale icon"
 				style="font-variation-settings: 'FILL' 1;">scale</span
 			>
 			<p
@@ -229,6 +229,7 @@
 								alt={p.name}
 								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3"
 								src={p.img}
+								loading="lazy"
 							/>
 							<div class="flex justify-between items-end">
 								<div>
@@ -262,6 +263,7 @@
 								alt={p.name}
 								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3"
 								src={p.img}
+								loading="lazy"
 							/>
 							<div class="flex justify-between items-end">
 								<div>
@@ -633,22 +635,22 @@
 	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-8 gap-4 bg-primary dark:bg-secondary border-t-4 border-on-surface dark:border-background"
 >
 	<div
-		class="font-label font-bold uppercase text-sm text-on-primary border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center"
+		class="font-label font-bold uppercase text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center"
 	>
 		Built by 1Mon for Hack Club 2026
 	</div>
 	<div
-		class="flex justify-center gap-6 border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center"
+		class="flex justify-center gap-6 md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center"
 	>
 		<a
 			class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2"
 			href="https://github.com/2Mon/last-grams"
-			target="_blank">GitHub</a
+			target="_blank" rel="noopener noreferrer">GitHub</a
 		>
 		<a
 			class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2"
 			href="https://hackclub.com"
-			target="_blank">Hack Club HQ</a
+			target="_blank" rel="noopener noreferrer">Hack Club HQ</a
 		>
 	</div>
 </footer>

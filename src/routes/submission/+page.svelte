@@ -74,7 +74,7 @@
     <a class="font-label font-bold uppercase text-sm {isActive('/') ? 'text-primary underline decoration-4 underline-offset-4' : 'text-on-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="{base}/">Home</a>
     <a class="font-label font-bold uppercase text-sm {isActive('/gallery') ? 'text-primary underline decoration-4 underline-offset-4' : 'text-on-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="{base}/gallery">Gallery</a>
   </div>
-  <a href="https://forms.hackclub.com" class="bg-primary text-on-primary border-4 border-on-surface px-6 py-2 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+  <a href="https://forms.hackclub.com" rel="noopener noreferrer" class="bg-primary text-on-primary border-4 border-on-surface px-6 py-2 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
     SUBMIT
   </a>
 </nav>
@@ -141,7 +141,7 @@
   </div>
 
   <!-- How to Submit -->
-  <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     <div class="border-4 border-on-surface bg-surface-container-lowest p-6 hard-shadow">
       <div class="w-10 h-10 bg-primary text-on-primary font-headline font-black text-lg flex items-center justify-center mb-4">1</div>
       <h3 class="font-headline font-black text-xl uppercase mb-3">JOIN SLACK</h3>
@@ -170,7 +170,7 @@
       <h2 class="font-headline font-black text-5xl md:text-6xl uppercase text-surface leading-none tracking-tighter">
         ALL SET?<br/><span class="text-primary italic">LET'S GO.</span>
       </h2>
-      <a href="https://forms.hackclub.com" target="_blank" class="bg-success-neon text-on-surface border-4 border-surface px-12 py-6 text-3xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] transition-all inline-block">
+      <a href="https://forms.hackclub.com" target="_blank" rel="noopener noreferrer" class="bg-success-neon text-on-surface border-4 border-surface px-12 py-6 text-3xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] transition-all inline-block">
         Submission Form
       </a>
     </div>
@@ -180,11 +180,11 @@
 
 <!-- Footer -->
 <footer class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-8 gap-4 bg-primary dark:bg-secondary border-t-4 border-on-surface dark:border-background">
-  <div class="font-label font-bold uppercase text-sm text-on-primary border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center">
+  <div class="font-label font-bold uppercase text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full flex items-center justify-center">
     Built by 1Mon for Hack Club 2026
   </div>
-  <div class="flex justify-center gap-6 border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center">
-    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2" href="https://github.com/2Mon/last-grams" target="_blank">GitHub</a>
-    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2" href="https://hackclub.com" target="_blank">Hack Club HQ</a>
+  <div class="flex justify-center gap-6 md:border-r-4 border-on-surface dark:border-background last:border-r-0 h-full items-center">
+    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2" href="https://github.com/2Mon/last-grams" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="font-label font-bold uppercase text-sm text-on-primary hover:bg-on-surface dark:hover:bg-background transition-colors p-2" href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club HQ</a>
   </div>
 </footer>

@@ -17,13 +17,13 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </svelte:head>
 
 <div class="dot-bg" bind:this={dotBg}></div>
 
 {@render children()}
 
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 <style>
 	.dot-bg {

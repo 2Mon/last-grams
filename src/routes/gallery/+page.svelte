@@ -69,11 +69,11 @@
     </header>
 
     <!-- Gallery Grid -->
-    <section class="grid grid-cols-1 gap-8 mb-24 md:grid-cols-2 lg:grid-cols-3">
+    <section class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {#each creations as item}
             <div class="group border-4 border-on-surface bg-surface-container-lowest transition-all hover:-translate-y-2 hover:scale-[1.02] card-glow overflow-hidden">
                 <div class="h-64 border-b-4 border-on-surface bg-surface-variant">
-                    <img class="object-cover w-full h-full" alt={item.title} src={item.image}/>
+                    <img class="object-cover w-full h-full" alt={item.title} src={item.image} loading="lazy"/>
                 </div>
                 <div class="p-6">
                     <div class="flex items-start justify-between mb-4">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="mb-6">
                         <span class="block mb-1 text-xs uppercase font-label text-on-surface-variant">Printed Weight</span>
-                        <div class="font-black leading-none tracking-tighter font-headline text-7xl text-primary">{item.weight}</div>
+                        <div class="font-black leading-none tracking-tighter font-headline text-5xl md:text-7xl text-primary">{item.weight}</div>
                     </div>
                     <div class="grid grid-cols-2 gap-4 pt-4 border-t-2 border-on-surface">
                         <div>
@@ -142,8 +142,8 @@
   <div class="flex items-center justify-center h-full text-sm font-bold uppercase border-r-4 font-label text-on-primary border-on-surface dark:border-background last:border-r-0">
     Built by 1Mon for Hack Club 2026
   </div>
-  <div class="flex items-center justify-center h-full gap-6 border-r-4 border-on-surface dark:border-background last:border-r-0">
-    <a class="p-2 text-sm font-bold uppercase transition-colors font-label text-on-primary hover:bg-on-surface dark:hover:bg-background" href="https://github.com/2Mon/last-grams" target="_blank">GitHub</a>
-    <a class="p-2 text-sm font-bold uppercase transition-colors font-label text-on-primary hover:bg-on-surface dark:hover:bg-background" href="https://hackclub.com" target="_blank">Hack Club HQ</a>
+  <div class="flex items-center justify-center h-full gap-6 md:border-r-4 border-on-surface dark:border-background last:border-r-0">
+    <a class="p-2 text-sm font-bold uppercase transition-colors font-label text-on-primary hover:bg-on-surface dark:hover:bg-background" href="https://github.com/2Mon/last-grams" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="p-2 text-sm font-bold uppercase transition-colors font-label text-on-primary hover:bg-on-surface dark:hover:bg-background" href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club HQ</a>
   </div>
 </footer>

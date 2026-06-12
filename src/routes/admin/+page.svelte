@@ -119,7 +119,7 @@
 							</tr>
 						{:else}
 							<tr>
-								<td colspan="3" class="px-4 py-8 text-center font-body font-bold text-on-surface-variant">
+								<td colspan="4" class="px-4 py-8 text-center font-body font-bold text-on-surface-variant">
 									No subscribers yet.
 								</td>
 							</tr>

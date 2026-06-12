@@ -127,6 +127,12 @@
   }
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #803F9B;
+  outline-offset: 2px;
+}
+
 @variant dark (&:where(.dark, .dark *));
 
 .material-symbols-outlined {
