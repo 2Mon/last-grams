@@ -6,7 +6,7 @@
 	let loginError = $state('');
 	let loggedIn = $state(false);
 	let loading = $state(false);
-	let subscribers = $state<{ userId: number; email: string; createdAt: string }[]>([]);
+	let subscribers = $state<{ userId: number; email: string; createdAt: string; time: string }[]>([]);
 
 	async function login() {
 		loginError = '';
@@ -102,6 +102,7 @@
 							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">User ID</th>
 							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">Email</th>
 							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">Date</th>
+							<th class="px-4 py-3 text-left font-headline font-black uppercase text-sm tracking-tighter">Time</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -111,6 +112,9 @@
 								<td class="px-4 py-3 font-body font-bold">{sub.email}</td>
 								<td class="px-4 py-3 font-label text-sm text-on-surface-variant">
 									{new Date(sub.createdAt).toLocaleDateString()}
+								</td>
+								<td class="px-4 py-3">
+									{sub.time ? new Date(sub.time).toLocaleString() : "—"}
 								</td>
 							</tr>
 						{:else}

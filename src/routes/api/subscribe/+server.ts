@@ -26,7 +26,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		method: 'POST',
 		headers,
 		body: JSON.stringify({
-			records: [{ fields: { Email: email } }]
+			records: [{ fields: { Email: email, Time: new Date().toISOString() } }]
 		})
 	});
 
