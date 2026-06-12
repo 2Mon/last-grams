@@ -153,6 +153,29 @@
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
+/* Wisp hero title */
+.wisp-title {
+	background: linear-gradient(135deg, #389C47, #2dd4bf, #389C47, #86efac);
+	background-size: 300% 300%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	animation: wisp-shimmer 4s ease infinite;
+	filter: drop-shadow(0 0 24px rgba(56, 156, 71, 0.4));
+	transition: filter 0.3s ease;
+}
+
+.wisp-title:hover {
+	filter: drop-shadow(0 0 40px rgba(56, 156, 71, 0.7));
+	animation-duration: 1.5s;
+}
+
+@keyframes wisp-shimmer {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
 .dark .dot-grid {
   background-image: radial-gradient(#E5CFC9 1px, transparent 1px);
   background-color: #252960;

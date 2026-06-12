@@ -197,9 +197,9 @@
 		<div class="space-y-4">
 			<h1
 				use:inview
-				class="animate-in font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter text-on-surface dark:text-background leading-none"
+				class="animate-in font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter leading-none"
 			>
-				Wisp
+				<span class="wisp-title">Wisp</span>
 			</h1>
 			<p
 				use:inview
