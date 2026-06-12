@@ -162,7 +162,7 @@
 {/if}
 
 <!-- Nav -->
-<div class="transition-transform duration-700 origin-center" style:transform={konamiActive ? 'scale(0.4)' : 'scale(1)'}>
+<div style:zoom={konamiActive ? 0.4 : 1} style:transition="zoom 0.7s ease">
 <nav
 	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-on-surface border-b-4 border-on-surface dark:border-background"
 >
