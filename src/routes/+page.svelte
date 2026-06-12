@@ -410,17 +410,19 @@
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> WHAT IS HACK CLUB?
+				<span class="text-primary">Q:</span> IS THIS LEGIT?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					<a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is a
-					501(c)(3) nonprofit that helps teens learn to code, make, and build. Check out some
-					of our other programs:
+					Yes. <a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is
+					a registered 501(c)(3) nonprofit with 50,000+ teen members worldwide, backed by
+					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
+					All programs are free. We've shipped
 					<a href="https://infill.hackclub.com" class="underline text-primary">Infill</a>,
 					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>,
-					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>, and
-					<a href="https://stasis.hackclub.com" class="underline text-primary">Stasis</a>.
+					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>,
+					<a href="https://stasis.hackclub.com" class="underline text-primary">Stasis</a>,
+					and more.
 				</p>
 			</div>
 		</div>
