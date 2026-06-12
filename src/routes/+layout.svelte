@@ -37,7 +37,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class={darkMode ? 'dark' : ''}>
+<div class="{darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-on-surface transition-colors">
 <div class="dot-bg" bind:this={dotBg}></div>
 
 <!-- Nav -->
