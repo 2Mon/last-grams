@@ -86,7 +86,7 @@
 
 <!-- Footer -->
 <footer
-	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-secondary border-t-4 border-on-surface dark:border-background"
+	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background"
 >
 	<div
 		class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex items-center justify-center"
