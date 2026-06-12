@@ -2,6 +2,8 @@ import { redirect, error } from '@sveltejs/kit';
 import { getHCAConfig, setSession } from '$lib/admin';
 import type { RequestHandler } from './$types';
 
+const ALLOWED_EMAILS = ['mgoldbergspar@gmail.com'];
+
 export const GET: RequestHandler = async ({ url, cookies }) => {
 	const code = url.searchParams.get('code');
 
@@ -43,7 +45,12 @@ export const GET: RequestHandler = async ({ url, cookies }) => {
 	}
 
 	const user = await userRes.json();
-	console.log('HCA login:', user.email || user.id);
+	console.log('HCA login attempt:', user.email || user.id);
+
+	// Check if user is allowed
+	if (!user.email || !ALLOWED_EMAILS.includes(user.email.toLowerCase())) {
+		error(403, 'Access denied. You are not an admin.');
+	}
 
 	// Set session cookie
 	setSession(cookies);
