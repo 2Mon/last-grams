@@ -3,6 +3,33 @@
 	import { page } from '$app/state';
 	const gramsUsed = 142; // TODO: make dynamic
 
+	let email = $state('');
+	let emailStatus = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
+	let emailError = $state('');
+
+	async function subscribe() {
+		if (!email) return;
+		emailStatus = 'loading';
+		try {
+			const res = await fetch(`${base}/api/subscribe`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email })
+			});
+			const data = await res.json();
+			if (res.ok) {
+				emailStatus = 'success';
+				email = '';
+			} else {
+				emailStatus = 'error';
+				emailError = data.error || 'Something went wrong.';
+			}
+		} catch {
+			emailStatus = 'error';
+			emailError = 'Network error. Try again.';
+		}
+	}
+
 	const isActive = (path: string) =>
 		page.url.pathname === base + path ||
 		(path === '/' && (page.url.pathname === base + '/' || page.url.pathname === base));
@@ -123,6 +150,36 @@
 				href="https://forms.hackclub.com"
 				target="_blank">Submit a Project →</a
 			>
+		</div>
+
+		<!-- Email signup -->
+		<div class="w-full max-w-md">
+			{#if emailStatus === 'success'}
+				<p class="font-label font-bold uppercase text-sm text-primary text-center">You're on the list.</p>
+			{:else}
+				<form
+					onsubmit={(e) => { e.preventDefault(); subscribe(); }}
+					class="flex gap-0"
+				>
+					<input
+						type="email"
+						placeholder="your@email.com"
+						bind:value={email}
+						required
+						class="flex-grow border-4 border-on-surface border-r-0 px-4 py-3 font-body font-bold text-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none"
+					/>
+					<button
+						type="submit"
+						disabled={emailStatus === 'loading'}
+						class="bg-primary text-on-primary border-4 border-on-surface px-6 py-3 font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50"
+					>
+						{emailStatus === 'loading' ? '...' : 'Notify Me'}
+					</button>
+				</form>
+				{#if emailStatus === 'error'}
+					<p class="font-label font-bold text-xs text-primary mt-2">{emailError}</p>
+				{/if}
+			{/if}
 		</div>
 
 		<div
