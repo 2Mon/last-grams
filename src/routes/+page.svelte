@@ -135,8 +135,8 @@
 			<p
 				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Make something tiny. 3D prints under 25g, or a miniature hardware project. Think a
-				pocket-sized PCB, a compact gadget. We'll fund your materials and send you rewards.
+				Design something small and creative — a 3D print under 25g, a tiny PCB, a
+				pocket-sized gadget. We'll cover your materials and send you some cool rewards.
 			</p>
 		</div>
 
@@ -203,7 +203,7 @@
 			<h2
 				class="font-headline font-black text-3xl uppercase tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				SHIPPED CREATIONS
+				WHAT PEOPLE HAVE MADE
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -294,10 +294,10 @@
 			class="animate-marquee font-headline font-black text-4xl md:text-5xl uppercase italic tracking-tighter flex"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
-			<span>PRINT IT • WEIGH IT • SHIP IT • </span>
-			<span>PRINT IT • WEIGH IT • SHIP IT • </span>
-			<span aria-hidden="true">PRINT IT • WEIGH IT • SHIP IT • </span>
-			<span aria-hidden="true">PRINT IT • WEIGH IT • SHIP IT • </span>
+			<span>DESIGN • BUILD • SHARE • </span>
+			<span>DESIGN • BUILD • SHARE • </span>
+			<span aria-hidden="true">DESIGN • BUILD • SHARE • </span>
+			<span aria-hidden="true">DESIGN • BUILD • SHARE • </span>
 		</div>
 	</section>
 
@@ -310,7 +310,7 @@
 				REWARDS
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
-				We cover your build costs (filament, PCBs, components) plus bonus rewards for shipping.
+				We'll cover your build costs and send you bonus rewards when your project is approved.
 			</p>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -401,7 +401,7 @@
 					DESIGN YOUR PROJECT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					For prints: design under 25g. For hardware: build the smallest version of your idea.
+					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
 				</p>
 			</div>
 			<div
@@ -433,7 +433,7 @@
 					BUILD IT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Print, solder, assemble. Whatever your project needs. Keep it tiny. No printer? Try #printing-legion on Slack.
+					Print, solder, or assemble — whatever your project needs. Don't have a printer? Check out #printing-legion on Slack.
 				</p>
 			</div>
 			<div
@@ -445,7 +445,7 @@
 				>
 				<h4 class="font-headline font-black text-xl uppercase mt-4">SHIP YOUR PROJECT</h4>
 				<p class="font-body font-bold text-lg mt-4">
-					Submit for review. Once approved, your rewards ship.
+					Submit your project for review. Once it's approved, we'll send your rewards!
 				</p>
 			</div>
 		</div>
@@ -469,14 +469,14 @@
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> IS THIS LEGIT?
+				<span class="text-primary">Q:</span> IS THIS REAL?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
 					Yes. <a href="https://hackclub.com" class="underline text-primary">Hack Club</a> is
 					a registered 501(c)(3) nonprofit with 50,000+ teen members worldwide, backed by
 					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
-					All programs are free. We've shipped
+					All programs are completely free. We've shipped
 					<a href="https://infill.hackclub.com" class="underline text-primary">Infill</a>,
 					<a href="https://highway.hackclub.com" class="underline text-primary">Highway</a>,
 					<a href="https://blueprint.hackclub.com" class="underline text-primary">Blueprint</a>,
@@ -528,7 +528,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes. All of your projects must be made entirely by you.
+					Yes — everything you submit should be your own original work.
 				</p>
 			</div>
 		</div>
@@ -587,11 +587,11 @@
 			<h3
 				class="font-headline font-black text-2xl uppercase flex gap-4 text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> I HAVE A QUESTION!
+				<span class="text-primary">Q:</span> HAVE A QUESTION?
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Find us in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
+					Come say hi in <span class="text-primary font-black">#last-grams</span> on the Hack Club Slack.
 				</p>
 			</div>
 		</div>
@@ -605,7 +605,7 @@
 			<h2
 				class="font-headline font-black text-5xl md:text-7xl uppercase text-surface dark:text-on-surface leading-none tracking-tighter"
 			>
-				READY TO BUILD?
+				LET'S BUILD SOMETHING
 			</h2>
 			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
 				<a

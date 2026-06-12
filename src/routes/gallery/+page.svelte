@@ -47,7 +47,7 @@
             <div class="flex flex-col items-end justify-between gap-6 md:flex-row">
                 <div>
                     <h1 class="mb-4 text-6xl font-black leading-none tracking-tighter uppercase font-headline md:text-8xl">
-                        COMMUNITY<br/>ORIGINAL CREATIONS
+                        COMMUNITY<br/>CREATIONS
                     </h1>
                     <p class="max-w-xl text-xl font-medium font-body text-on-surface-variant">
                         A showcase of tiny projects designed and built by the community.
@@ -110,10 +110,10 @@
         <div class="relative z-10 flex flex-col items-center justify-between gap-12 md:flex-row">
             <div class="max-w-2xl text-center md:text-left">
                 <h2 class="mb-4 text-4xl font-black leading-none tracking-tighter uppercase font-headline md:text-6xl text-on-primary-container">
-                    SMALL PRINTS.<br/>BIG REWARDS.
+                    SMALL BUILDS,<br/>BIG REWARDS
                 </h2>
                 <p class="mb-8 text-xl font-bold font-body text-on-primary-container">
-                    Got an idea for a design that could save the last grams on your spool?
+                    Have an idea for a tiny project? We'd love to see what you come up with.
                 </p>
                 <div class="grid grid-cols-1 gap-6 mb-8 sm:grid-cols-2">
                     <div class="p-4 border-4 bg-surface-container-lowest border-on-surface hard-shadow">
@@ -128,7 +128,7 @@
             </div>
             <div class="flex flex-col gap-4 shrink-0">
                 <a href="https://forms.hackclub.com" class="inline-block px-10 py-6 text-2xl font-black tracking-tighter text-center uppercase transition-all border-4 bg-on-surface text-surface font-headline border-on-surface hover:translate-x-1 hover:translate-y-1 hover:bg-primary active:translate-x-2 active:translate-y-2 hard-shadow">
-                    SUBMIT YOUR BUILD
+                    SHARE YOUR PROJECT
                 </a>
                 <a class="text-sm font-bold text-center underline uppercase font-label text-on-primary-container decoration-2 underline-offset-4" href="{base}/submission">View Guidelines</a>
             </div>

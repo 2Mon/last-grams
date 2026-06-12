@@ -24,7 +24,7 @@
         'No AI-generated designs. You must have made it yourself',
         'Must weigh strictly under 25g, verified in slicer or on a physical scale',
       ],
-      warning: "Anything over 25g won't be approved. Double-check before submitting.",
+      warning: "Projects over 25g can't be approved — please double-check your weight before submitting.",
     },
     {
       number: '02',
@@ -35,7 +35,7 @@
         'Short description of your project and why you made it',
         'Wiring diagram for your full project (if applicable)',
       ],
-      warning: 'NO AI IN READMEs. AI-generated text will be rejected immediately.',
+      warning: 'Please write your README yourself — AI-generated text will be rejected.',
     },
     {
       number: '03',
@@ -47,7 +47,7 @@
         'Photos, screenshots, and sketches are encouraged',
         'Document challenges you hit and how you solved them',
       ],
-      warning: 'AI-generated journal entries will be rejected. Write in your own voice.',
+      warning: 'Write your journal in your own voice — AI-generated entries will be rejected.',
     },
     {
       number: '04',
@@ -87,7 +87,7 @@
       SUBMISSION<br/><span class="text-primary italic">GUIDELINES</span>
     </h1>
     <p class="font-body text-xl font-bold text-on-surface-variant max-w-2xl">
-      Your submission needs all of the following. Missing something? It'll get rejected.
+      Here's everything we need from you. Make sure you have it all before submitting!
     </p>
   </header>
 
@@ -168,7 +168,7 @@
   <section class="bg-on-surface p-12 text-center border-4 border-on-surface">
     <div class="space-y-8">
       <h2 class="font-headline font-black text-5xl md:text-6xl uppercase text-surface leading-none tracking-tighter">
-        READY?<br/><span class="text-primary italic">SHIP IT.</span>
+        ALL SET?<br/><span class="text-primary italic">LET'S GO.</span>
       </h2>
       <a href="https://forms.hackclub.com" target="_blank" class="bg-success-neon text-on-surface border-4 border-surface px-12 py-6 text-3xl font-headline font-black uppercase tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] transition-all inline-block">
         Submission Form
