@@ -107,8 +107,8 @@
 			<p
 				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Got a spool with only a few grams left? Use less than 25g of filament to design and print
-				something original. We'll send you real rewards.
+				Build something that weighs under 25g — a 3D print, a tiny PCB, a small hardware project.
+				Ship it, and we'll send you real rewards.
 			</p>
 		</div>
 
@@ -339,10 +339,10 @@
 				<h4
 					class="font-headline font-black text-xl uppercase mt-4 text-on-surface dark:text-background"
 				>
-					DESIGN A MODEL
+					DESIGN YOUR PROJECT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					CAD something that weighs under 25g when sliced.
+					Design something that weighs under 25g — a print, a PCB, any hardware.
 				</p>
 			</div>
 			<div
@@ -371,10 +371,10 @@
 				<h4
 					class="font-headline font-black text-xl uppercase mt-4 text-on-surface dark:text-background"
 				>
-					SLICE & PRINT
+					BUILD IT
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Slice it, confirm the weight, and print. No printer? Use #printing-legion on Slack.
+					Print, solder, assemble — whatever your project needs. Confirm it's under 25g. No printer? Try #printing-legion on Slack.
 				</p>
 			</div>
 			<div
@@ -435,8 +435,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Last Grams is a Hack Club YSWS — You Ship, We Ship. Design and 3D print an original object
-					using less than 25g of filament, and we’ll send you real prizes.
+					Last Grams is a Hack Club YSWS — You Ship, We Ship. Build an original project
+					under 25g (3D prints, PCBs, small hardware) and we'll send you real prizes.
 				</p>
 			</div>
 		</div>
@@ -482,8 +482,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For design submissions, submit a screenshot of your design in the slicer. For completed
-					builds, upload a picture of your print on a scale showing the weight.
+					For 3D prints, submit a slicer screenshot or a photo on a scale. For PCBs and other
+					hardware, photo on a scale showing the weight.
 				</p>
 			</div>
 		</div>
@@ -498,8 +498,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					PLA, ABS, PETG, TPU, Nylon, resin, etc. Multi-material prints are fine as long as the
-					total is under 25g.
+					For prints: PLA, ABS, PETG, TPU, Nylon, resin, etc. For hardware: PCBs, components, and
+					enclosures all count toward the 25g total.
 				</p>
 			</div>
 		</div>

@@ -16,13 +16,13 @@
   const requirements: Requirement[] = [
     {
       number: '01',
-      title: 'COMPLETE CAD MODEL',
-      description: 'Your entire project in a standard format.',
+      title: 'PROJECT FILES',
+      description: 'Your complete design files in a standard format.',
       items: [
-        'Export your full project as a .STEP file',
+        'For 3D prints: export as .STEP. For PCBs: include Gerbers and schematics',
         'Must be your original design — no downloaded models, no remixes',
-        'No AI-generated geometry — you must have modeled it yourself',
-        'Must weigh strictly under 25g when printed — verified in slicer or on a physical scale',
+        'No AI-generated designs — you must have made it yourself',
+        'Must weigh strictly under 25g — verified in slicer or on a physical scale',
       ],
       warning: '25.01g is an automatic disqualification. No exceptions.',
     },
@@ -31,7 +31,7 @@
       title: 'README.MD',
       description: 'A complete project writeup. No AI writing allowed.',
       items: [
-        'Full image of your completed CAD model',
+        'Full image of your completed project',
         'Short description of your project and why you made it',
         'Wiring diagram for your full project (if applicable)',
       ],
@@ -55,7 +55,7 @@
       description: 'Proof that your project weighs under 25g.',
       items: [
         'Photo of your project on a scale, with the weight clearly visible in grams',
-        'OR a screenshot from your slicer showing the weight in grams',
+        'For 3D prints: a slicer screenshot showing the weight also works',
       ],
     },
   ];
