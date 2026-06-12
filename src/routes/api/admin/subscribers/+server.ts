@@ -38,7 +38,7 @@ export const GET: RequestHandler = async ({ cookies }) => {
 		const data = await res.json();
 		for (const record of data.records) {
 			subscribers.push({
-				userId: subscribers.length + 1,
+				userId: Number(record.fields.UserId) || 0,
 				email: record.fields.Email ?? '',
 				createdAt: record.createdTime ?? '',
 				time: (record.fields.Time as string) ?? ''

@@ -22,11 +22,27 @@ export const POST: RequestHandler = async ({ request }) => {
 		'Content-Type': 'application/json'
 	};
 
+	// Get current max UserId
+	const maxParams = new URLSearchParams({
+		'fields[]': 'UserId',
+		'sort[0][field]': 'UserId',
+		'sort[0][direction]': 'desc',
+		maxRecords: '1'
+	});
+	const maxRes = await fetch(`${tableUrl}?${maxParams}`, { headers });
+	let nextId = 1;
+	if (maxRes.ok) {
+		const maxData = await maxRes.json();
+		if (maxData.records?.length > 0 && maxData.records[0].fields.UserId != null) {
+			nextId = Number(maxData.records[0].fields.UserId) + 1;
+		}
+	}
+
 	const res = await fetch(tableUrl, {
 		method: 'POST',
 		headers,
 		body: JSON.stringify({
-			records: [{ fields: { Email: email, Time: new Date().toISOString() } }]
+			records: [{ fields: { Email: email, Time: new Date().toISOString(), UserId: nextId } }]
 		})
 	});
 
