@@ -35,41 +35,50 @@
 	let konamiProgress = $state(0);
 	let konamiShowBanner = $state(false);
 	let konamiBannerText = $state('');
-	const konamiZoomLevels = [1, 0.5, 0.25, 0.1, 0.05];
-	let konamiLevel = $state(0);
-	let konamiZoom = $derived(konamiZoomLevels[konamiLevel]);
-	const konamiBannerMessages = [
-		'', // level 0 = normal, no message
-		'Everything just got lighter.',
-		'Getting pretty small in here...',
-		'Can you even read this?',
-		'🔬 MOLECULAR SCALE ACHIEVED'
-	];
+	let partyMode = $state(false);
+	let partyEmojis = $state<{ id: number; emoji: string; left: number; delay: number; duration: number }[]>([]);
+	let partyIdCounter = 0;
+	const partyEmojiPool = ['🎉', '🎊', '🪩', '⚖️', '🎵', '🎶', '✨', '🌈', '🦄', '🍕', '🚀', '💜', '🎸', '🕺', '💃'];
 	const konamiCode = [
 		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
 		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
 		'b', 'a'
 	];
 
+	function spawnPartyEmojis() {
+		const batch = Array.from({ length: 15 }, () => ({
+			id: partyIdCounter++,
+			emoji: partyEmojiPool[Math.floor(Math.random() * partyEmojiPool.length)],
+			left: Math.random() * 100,
+			delay: Math.random() * 2,
+			duration: 2.5 + Math.random() * 2
+		}));
+		partyEmojis = [...partyEmojis, ...batch];
+		setTimeout(() => {
+			partyEmojis = partyEmojis.filter((e) => !batch.includes(e));
+		}, 5000);
+	}
+
+	let partyInterval: ReturnType<typeof setInterval> | null = null;
+
 	function handleKonami(e: KeyboardEvent) {
 		if (e.key === konamiCode[konamiProgress]) {
 			konamiProgress++;
 			if (konamiProgress === konamiCode.length) {
-				konamiLevel = (konamiLevel + 1) % konamiZoomLevels.length;
 				konamiProgress = 0;
-				if (konamiLevel !== 0) {
-					konamiBannerText = konamiBannerMessages[konamiLevel];
+				partyMode = !partyMode;
+				if (partyMode) {
+					konamiBannerText = '🪩 PARTY MODE ACTIVATED 🪩';
 					konamiShowBanner = true;
-					confetti({
-						particleCount: 100 + konamiLevel * 50,
-						spread: 160,
-						origin: { y: 0.5 },
-						colors: ['#9b59b6', '#39FF14', '#FF928B']
-					});
-					setTimeout(() => { konamiShowBanner = false; }, 3000);
+					confetti({ particleCount: 200, spread: 180, origin: { y: 0.4 }, colors: ['#9b59b6', '#39FF14', '#FF928B', '#FFD700', '#00BFFF'] });
+					spawnPartyEmojis();
+					partyInterval = setInterval(spawnPartyEmojis, 3000);
+					setTimeout(() => { konamiShowBanner = false; }, 2500);
 				} else {
-					konamiBannerText = 'Back to normal. For now.';
+					konamiBannerText = 'Party\'s over... for now 😴';
 					konamiShowBanner = true;
+					if (partyInterval) { clearInterval(partyInterval); partyInterval = null; }
+					partyEmojis = [];
 					setTimeout(() => { konamiShowBanner = false; }, 2000);
 				}
 			}
@@ -164,14 +173,24 @@
 {#if konamiShowBanner}
 	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
 		<div class="pointer-events-auto bg-on-surface text-surface border-4 border-primary px-8 py-6 hard-shadow text-center rounded-2xl" style="animation: fade-in-up 0.3s ease-out forwards;">
-			<p class="font-headline font-black text-3xl tracking-tighter text-primary">⚖️ {konamiLevel === 0 ? 'Normal' : konamiZoom * 100 + '% Mode'}</p>
-			<p class="font-body font-bold text-lg mt-2">{konamiBannerText}</p>
-			<p class="font-label text-xs uppercase mt-3 text-surface/50">{konamiLevel === 0 ? '' : 'press konami again to go smaller'}</p>
+			<p class="font-headline font-black text-3xl tracking-tighter text-primary">{konamiBannerText}</p>
+			<p class="font-label text-xs uppercase mt-3 text-surface/50">{partyMode ? '↑↑↓↓←→←→BA to stop' : ''}</p>
 		</div>
 	</div>
 {/if}
 
-<div style:zoom={konamiZoom} style:transition="zoom 0.7s ease">
+{#if partyMode}
+	<div class="fixed inset-0 z-[9998] pointer-events-none overflow-hidden">
+		{#each partyEmojis as e (e.id)}
+			<span
+				class="absolute text-4xl party-emoji-fall"
+				style="left: {e.left}%; animation-delay: {e.delay}s; animation-duration: {e.duration}s;"
+			>{e.emoji}</span>
+		{/each}
+	</div>
+{/if}
+
+<div class:party-wiggle={partyMode} class:party-hue={partyMode}>
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 	<!-- Hero -->
 	<section class="flex flex-col items-center text-center space-y-8 py-12">
