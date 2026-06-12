@@ -128,7 +128,7 @@
 		>
 			<span
 				class="material-symbols-outlined text-primary text-3xl"
-				style="font-variation-settings: "FILL" 1;">scale</span
+				style="font-variation-settings: 'FILL' 1;">scale</span
 			>
 			<p
 				class="font-headline font-black text-2xl leading-none text-on-surface dark:text-background"
