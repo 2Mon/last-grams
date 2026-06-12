@@ -108,7 +108,7 @@
 				class="font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
 				Build something that weighs under 25g — a 3D print, a tiny PCB, a small hardware project.
-				Ship it, and we'll send you real rewards.
+				We'll fund your materials and send you rewards on top.
 			</p>
 		</div>
 
@@ -251,7 +251,7 @@
 				REWARDS
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
-				What you get for shipping.
+				We cover your build costs (filament, PCBs, components) plus bonus rewards for shipping.
 			</p>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
