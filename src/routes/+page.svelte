@@ -12,9 +12,12 @@
 	$effect(() => {
 		const handleScroll = () => {
 			if (sparkleField) {
+				sparkleField.style.height = sparkleField.parentElement!.scrollHeight + 'px';
 				sparkleField.style.transform = `translateY(${window.scrollY * -0.08}px)`;
 			}
 		};
+		// Set initial height
+		if (sparkleField) sparkleField.style.height = sparkleField.parentElement!.scrollHeight + 'px';
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
@@ -205,7 +208,7 @@
 
 <div class:party-wiggle={partyMode} class:party-hue={partyMode} style="position: relative;">
 <!-- Full-page sparkle field -->
-<div bind:this={sparkleField} class="absolute top-0 left-0 right-0 pointer-events-none z-0 select-none" style="height: 500%; will-change: transform;" aria-hidden="true">
+<div bind:this={sparkleField} class="absolute top-0 left-0 right-0 pointer-events-none z-0 select-none" style="will-change: transform;" aria-hidden="true">
 	<!-- Yellow sparkles -->
 	<span class="text-success-neon/45 text-xl absolute" style="top: 8%; left: 5%; animation: twinkle 4s ease-in-out infinite;">✦</span>
 	<span class="text-success-neon/40 text-4xl absolute" style="top: 15%; right: 8%; animation: twinkle 5s ease-in-out 1.2s infinite;">★</span>
