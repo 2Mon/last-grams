@@ -273,8 +273,8 @@
 	</section>
 
 	<!-- Marquee -->
-	<section class="space-y-8">
-		<div class="flex items-center gap-4 px-4">
+	<section class="space-y-8 relative" style="width: 100vw; margin-left: calc(-50vw + 50%);">
+		<div class="flex items-center gap-4 px-4 max-w-7xl mx-auto">
 			<h2
 				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
 			>				What People Have Made			</h2>
@@ -365,7 +365,7 @@
 	<!-- SpecBanner -->
 	<section
 		class="w-full bg-on-surface text-surface py-6 relative border-y-4 border-primary"
-		style="overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
+		style="width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
 	>
 		<div
 			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
