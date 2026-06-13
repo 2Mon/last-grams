@@ -38,7 +38,7 @@
 	let partyMode = $state(false);
 	let partyEmojis = $state<{ id: number; emoji: string; left: number; delay: number; duration: number }[]>([]);
 	let partyIdCounter = 0;
-	const partyEmojiPool = ['🎉', '🎊', '🪩', '⚖️', '🎵', '🎶', '✨', '🌈', '🦄', '🍕', '🚀', '💜', '🎸', '🕺', '💃'];
+	const partyEmojiPool = ['•', '◆', '★', '▲', '●', '◇', '✦', '△', '○', '♦', '◈', '▪', '✧', '◉', '⬡'];
 	const konamiCode = [
 		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
 		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
@@ -68,14 +68,14 @@
 				konamiProgress = 0;
 				partyMode = !partyMode;
 				if (partyMode) {
-					konamiBannerText = '🪩 PARTY MODE ACTIVATED 🪩';
+					konamiBannerText = 'PARTY MODE ACTIVATED';
 					konamiShowBanner = true;
 					confetti({ particleCount: 200, spread: 180, origin: { y: 0.4 }, colors: ['#D44D2C', '#DEAF36', '#389C47', '#344680', '#E5CFC9'] });
 					spawnPartyEmojis();
 					partyInterval = setInterval(spawnPartyEmojis, 3000);
 					setTimeout(() => { konamiShowBanner = false; }, 2500);
 				} else {
-					konamiBannerText = 'Party\'s over... for now 😴';
+					konamiBannerText = 'Party\'s over... for now';
 					konamiShowBanner = true;
 					if (partyInterval) { clearInterval(partyInterval); partyInterval = null; }
 					partyEmojis = [];
@@ -276,7 +276,7 @@
 			<h2
 				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				What People Have Made ✨
+				What People Have Made
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -371,10 +371,10 @@
 			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
-			<span>Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
-			<span>Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
-			<span aria-hidden="true">Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
-			<span aria-hidden="true">Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
+			<span>Design Build Share Repeat </span>
+			<span>Design Build Share Repeat </span>
+			<span aria-hidden="true">Design Build Share Repeat </span>
+			<span aria-hidden="true">Design Build Share Repeat </span>
 		</div>
 	</section>
 
@@ -384,7 +384,7 @@
 			<h2
 				class="font-headline font-black text-5xl tracking-tighter leading-none mb-4 text-on-surface dark:text-background"
 			>
-				Rewards 🎁
+				Rewards
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
 				We'll cover your build costs and send you bonus rewards when your project is approved.
@@ -400,7 +400,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					1 Approved Ship 🚢
+					1 Approved Ship
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -432,7 +432,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					2 Approved Ships ⚓
+					2 Approved Ships
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -464,7 +464,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					4 Approved Ships 🏆
+					4 Approved Ships
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -496,7 +496,7 @@
 			<h2
 				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				How It Works 🛠️
+				How It Works
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -512,7 +512,7 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Design Your Project ✏️
+					Design Your Project
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
@@ -529,7 +529,7 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Document Your Work 📝
+					Document Your Work
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					Write a JOURNAL.md in your GitHub repo documenting your process.
@@ -546,7 +546,7 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Build It 🔨
+					Build It
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					Print, solder, or assemble — whatever your project needs. Don't have a printer? Check out #printing-legion on Slack.
@@ -560,7 +560,7 @@
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
 					>04</span
 				>
-				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project 🚀</h4>
+				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
 				<p class="font-body font-bold text-lg mt-4">
 					Submit your project for review. Once it's approved, we'll send your rewards!
 				</p>
@@ -575,7 +575,7 @@
 			<h2
 				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				FAQ 💬
+				FAQ
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -724,30 +724,71 @@
 
 	<!-- Call to Action -->
 	<section
-		class="bg-on-surface dark:bg-background p-6 md:p-12 text-center border-4 border-on-surface dark:border-background relative rounded-2xl overflow-hidden"
+		class="relative p-8 md:p-20 text-center border-4 border-on-surface dark:border-background overflow-hidden"
 	>
+		<!-- Background -->
+		<div class="absolute inset-0 bg-on-surface dark:bg-background"></div>
+
+		<!-- Grid paper effect -->
+		<div
+			class="absolute inset-0 opacity-[0.04]"
+			style="background-image:
+				linear-gradient(rgba(229,207,201,1) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(229,207,201,1) 1px, transparent 1px);
+			background-size: 24px 24px;"
+		></div>
+
+		<!-- Scattered tiny shapes (CSS-only, no emojis) -->
+		<div class="absolute top-8 left-[10%] w-3 h-3 border-2 border-surface/15 dark:border-on-surface/15 rounded-full animate-[spin_12s_linear_infinite]"></div>
+		<div class="absolute top-16 right-[15%] w-4 h-4 border-2 border-primary/20 rotate-45"></div>
+		<div class="absolute bottom-12 left-[20%] w-2 h-2 bg-success-neon/20 rounded-full"></div>
+		<div class="absolute bottom-20 right-[12%] w-3 h-3 border-2 border-success-neon/15 rounded-full animate-[spin_8s_linear_infinite_reverse]"></div>
+		<div class="absolute top-1/3 left-[5%] w-5 h-[2px] bg-primary/15 rotate-[-30deg]"></div>
+		<div class="absolute top-1/4 right-[8%] w-5 h-[2px] bg-success-neon/15 rotate-[20deg]"></div>
+		<div class="absolute bottom-1/3 left-[8%] w-2 h-2 border-2 border-surface/10 dark:border-on-surface/10 rotate-12"></div>
+		<div class="absolute top-12 left-[40%] w-2 h-2 bg-primary/10 rotate-45"></div>
+		<div class="absolute bottom-8 right-[35%] w-[6px] h-[6px] border-2 border-success-neon/10 rounded-full"></div>
+
+		<!-- Floating weight whispers -->
+		<div class="absolute top-6 left-8 font-label text-[10px] text-surface/15 dark:text-on-surface/15 rotate-[-12deg] select-none" style="animation: float-scale 4s ease-in-out infinite;">0.3g</div>
+		<div class="absolute top-14 right-12 font-label text-xs text-surface/10 dark:text-on-surface/10 rotate-[8deg] select-none" style="animation: float-scale 5s ease-in-out 1s infinite;">7g</div>
+		<div class="absolute bottom-12 left-16 font-label text-[10px] text-surface/8 dark:text-on-surface/8 rotate-[15deg] select-none" style="animation: float-scale 6s ease-in-out 2s infinite;">24.9g</div>
+		<div class="absolute bottom-10 right-10 font-label text-xs text-surface/15 dark:text-on-surface/15 rotate-[-6deg] select-none" style="animation: float-scale 4.5s ease-in-out 0.5s infinite;">1.2g</div>
+		<div class="absolute top-1/2 left-6 font-label text-[10px] text-surface/8 dark:text-on-surface/8 rotate-[-20deg] select-none" style="animation: float-scale 5.5s ease-in-out 3s infinite;">18g</div>
+		<div class="absolute top-1/3 right-6 font-label text-[11px] text-surface/10 dark:text-on-surface/10 rotate-[25deg] select-none" style="animation: float-scale 7s ease-in-out 1.5s infinite;">4.7g</div>
+
 		<div class="relative z-10 space-y-8">
-			<h2
-				class="font-headline font-black text-4xl md:text-5xl lg:text-7xl text-surface dark:text-on-surface leading-none tracking-tighter"
-			>
-				Let's Build Something Tiny ⚡
-			</h2>
-			<p class="font-body font-bold text-xl text-surface/70 dark:text-on-surface/70">
-				Your next great idea might weigh less than a pencil. ✏️
+			<p class="font-label font-bold text-sm tracking-[0.25em] uppercase text-surface/40 dark:text-on-surface/40">
+				Under 25 grams. Unlimited potential.
 			</p>
-			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+			<h2 class="font-headline font-black text-5xl md:text-7xl lg:text-[8rem] text-surface dark:text-on-surface leading-[0.8] tracking-tighter">
+				What will<br/>
+				<span class="inline-block" style="animation: gentle-float 3s ease-in-out infinite;">you</span>
+				make?
+			</h2>
+			<div class="flex items-center justify-center gap-3">
+				<div class="w-8 h-[3px] bg-primary rounded-full"></div>
+				<div class="w-3 h-[3px] bg-success-neon rounded-full"></div>
+				<div class="w-1.5 h-[3px] bg-success-neon/50 rounded-full"></div>
+			</div>
+			<div class="flex flex-col sm:flex-row gap-5 justify-center items-center pt-4">
 				<a
 					href="{base}/submission"
-					class="bg-success-neon text-on-surface border-4 border-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-block rounded-xl"
+					class="group relative bg-primary text-white border-4 border-surface dark:border-background px-12 py-5 text-xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-block overflow-hidden"
 				>
-					Read the Guidelines
+					<span class="relative z-10">
+						Start Building
+						<span class="inline-block transition-transform group-hover:translate-x-2 group-hover:scale-110">→</span>
+					</span>
 				</a>
+				<span class="font-label text-surface/30 dark:text-on-surface/30 hidden sm:block">or</span>
 				<a
 					href="https://forms.hackclub.com"
 					target="_blank"
-					class="font-label font-bold text-sm text-surface dark:text-on-surface underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
+					rel="noopener noreferrer"
+					class="font-label font-bold text-sm text-surface/60 dark:text-on-surface/60 underline decoration-2 decoration-primary/40 underline-offset-4 hover:text-primary hover:decoration-primary transition-all"
 				>
-					Submit a Project →
+					Submit a Project
 				</a>
 			</div>
 		</div>

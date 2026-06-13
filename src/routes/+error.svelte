@@ -7,7 +7,7 @@
 	class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 py-16 space-y-8"
 >
 	<div class="text-8xl sm:text-9xl" style="animation: float-scale 3s ease-in-out infinite;">
-		⚖️
+		404
 	</div>
 
 	<div class="space-y-3">
@@ -29,7 +29,7 @@
 		href="{base}/"
 		class="inline-block bg-primary text-on-primary font-headline font-bold text-lg px-8 py-4 border-4 border-on-surface dark:border-background hard-shadow hover-lift rounded-xl"
 	>
-		Take me home 🏠
+		Take me home
 	</a>
 
 	<p class="font-body text-on-surface/40 dark:text-background/40 text-sm animate-pulse">
