@@ -33,8 +33,7 @@
 
 	// Easter egg: Konami code → everything shrinks to 25g size
 	let konamiProgress = $state(0);
-	let konamiShowBanner = $state(false);
-	let konamiBannerText = $state('');
+
 	let partyMode = $state(false);
 	let partyEmojis = $state<{ id: number; emoji: string; left: number; delay: number; duration: number }[]>([]);
 	let partyIdCounter = 0;
@@ -74,18 +73,13 @@
 				konamiProgress = 0;
 				partyMode = !partyMode;
 				if (partyMode) {
-					konamiBannerText = 'PARTY MODE ACTIVATED';
-					konamiShowBanner = true;
+					
 					confetti({ particleCount: 200, spread: 180, origin: { y: 0.4 }, colors: ['#D44D2C', '#DEAF36', '#389C47', '#344680', '#E5CFC9'] });
 					spawnPartyEmojis();
 					partyInterval = setInterval(spawnPartyEmojis, 3000);
-					setTimeout(() => { konamiShowBanner = false; }, 2500);
-				} else {
-					konamiBannerText = 'Party\'s over... for now';
-					konamiShowBanner = true;
+					} else {
 					if (partyInterval) { clearInterval(partyInterval); partyInterval = null; }
 					partyEmojis = [];
-					setTimeout(() => { konamiShowBanner = false; }, 2000);
 				}
 			}
 		} else {
@@ -177,21 +171,13 @@
 
 <svelte:window onkeydown={handleKonami} />
 
-{#if konamiShowBanner}
-	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
-		<div class="px-8 py-6 text-center border-4 pointer-events-auto bg-on-surface dark:bg-dark-container text-surface dark:text-background border-primary dark:border-primary-container hard-shadow rounded-2xl" style="animation: fade-in-up 0.3s ease-out forwards;">
-			<p class="text-3xl font-black tracking-tighter font-headline text-primary">{konamiBannerText}</p>
-			<p class="mt-3 text-xs uppercase font-label text-surface/50">{partyMode ? '↑↑↓↓←→←→BA to stop' : ''}</p>
-		</div>
-	</div>
-{/if}
 
 {#if partyMode}
 	<div class="fixed inset-0 z-[9998] pointer-events-none overflow-hidden">
 		{#each partyEmojis as e (e.id)}
 			<span
 				class="absolute text-4xl party-emoji-fall"
-				style="left: {e.left}%; animation-delay: {e.delay}s; animation-duration: {e.duration}s;"
+				style="left: {e.left}%; top: -10%; animation-delay: {e.delay}s; animation-duration: {e.duration}s;"
 			>{e.emoji}</span>
 		{/each}
 	</div>
