@@ -40,7 +40,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </svelte:head>
 
-<div class="isolate {darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim transition-colors duration-500 ease-in-out">
+<div class="isolate {darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
 <div class="dot-bg"></div>
 
 <div bind:this={sparkleField} class="fixed inset-0 pointer-events-none select-none overflow-hidden" style="z-index: -1; will-change: transform;" aria-hidden="true">
@@ -106,7 +106,7 @@
 
 <!-- Nav -->
 <nav
-	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background transition-colors duration-500"
+	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background"
 >
 	<div
 		class="text-2xl font-headline font-black italic tracking-tighter text-on-surface dark:text-background"
@@ -156,7 +156,7 @@
 
 <!-- Footer -->
 <footer
-	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background transition-colors duration-500"
+	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background"
 >
 	<div
 		class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex items-center justify-center"

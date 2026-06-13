@@ -110,8 +110,12 @@
 
 /* Smooth dark mode transition */
 @layer base {
-  body {
-    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, color, border-color, fill, stroke, box-shadow;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
   }
 }
 
