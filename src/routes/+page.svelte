@@ -278,8 +278,38 @@
 			style="overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
 		>
 			<div
-				class="flex gap-6 animate-marquee-slow hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing py-4"
+				class="flex gap-6 animate-marquee-slow cursor-grab active:cursor-grabbing py-4"
 				style="width: max-content"
+				onmouseenter={(e) => {
+					const anims = e.currentTarget.getAnimations();
+					const slow = () => {
+						let still = false;
+						for (const a of anims) {
+							if (a.playbackRate > 0.01) {
+								a.playbackRate *= 0.85;
+								still = true;
+							} else {
+								a.playbackRate = 0;
+							}
+						}
+						if (still) requestAnimationFrame(slow);
+					};
+					slow();
+				}}
+				onmouseleave={(e) => {
+					const anims = e.currentTarget.getAnimations();
+					const speedUp = () => {
+						let still = false;
+						for (const a of anims) {
+							if (a.playbackRate < 1) {
+								a.playbackRate = Math.min(a.playbackRate * 1.15 + 0.01, 1);
+								still = true;
+							}
+						}
+						if (still) requestAnimationFrame(speedUp);
+					};
+					speedUp();
+				}}
 			>
 				<!-- Original set -->
 				<div class="flex gap-6">
