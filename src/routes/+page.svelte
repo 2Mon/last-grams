@@ -38,7 +38,13 @@
 	let partyMode = $state(false);
 	let partyEmojis = $state<{ id: number; emoji: string; left: number; delay: number; duration: number }[]>([]);
 	let partyIdCounter = 0;
-	const partyEmojiPool = ['•', '◆', '★', '▲', '●', '◇', '✦', '△', '○', '♦', '◈', '▪', '✧', '◉', '⬡'];
+  const partyEmojiPool = [
+    '🎉', '🎊', '✨', '🌟', '💫',
+    '🎈', '🥳', '🎂', '🧁', '🍰',
+    '🍾', '🥂', '🎵', '🎶', '💃',
+    '🕺', '🔥', '🌈', '💖', '💎',
+    '🪩', '🎁', '🍭', '🍬', '⭐'
+  ];
 	const konamiCode = [
 		'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
 		'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
@@ -173,9 +179,9 @@
 
 {#if konamiShowBanner}
 	<div class="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center">
-		<div class="pointer-events-auto bg-on-surface dark:bg-dark-container text-surface dark:text-background border-4 border-primary dark:border-primary-container px-8 py-6 hard-shadow text-center rounded-2xl" style="animation: fade-in-up 0.3s ease-out forwards;">
-			<p class="font-headline font-black text-3xl tracking-tighter text-primary">{konamiBannerText}</p>
-			<p class="font-label text-xs uppercase mt-3 text-surface/50">{partyMode ? '↑↑↓↓←→←→BA to stop' : ''}</p>
+		<div class="px-8 py-6 text-center border-4 pointer-events-auto bg-on-surface dark:bg-dark-container text-surface dark:text-background border-primary dark:border-primary-container hard-shadow rounded-2xl" style="animation: fade-in-up 0.3s ease-out forwards;">
+			<p class="text-3xl font-black tracking-tighter font-headline text-primary">{konamiBannerText}</p>
+			<p class="mt-3 text-xs uppercase font-label text-surface/50">{partyMode ? '↑↑↓↓←→←→BA to stop' : ''}</p>
 		</div>
 	</div>
 {/if}
@@ -194,32 +200,32 @@
 
 <div class:party-wiggle={partyMode} class:party-hue={partyMode} >
 
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+<main class="px-4 py-12 mx-auto space-y-16 max-w-7xl sm:px-6 lg:px-8">
 	<!-- Hero -->
-	<section class="flex flex-col items-center text-center space-y-8 py-12">
+	<section class="flex flex-col items-center py-12 space-y-8 text-center">
 		<div class="space-y-4">
 			<h1
 				use:inview
-				class="animate-in gentle-float font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter leading-none text-on-surface dark:text-background" 
+				class="text-5xl font-black leading-none tracking-tighter animate-in gentle-float font-headline sm:text-7xl md:text-9xl text-on-surface dark:text-background" 
 			>
 				wisp
 			</h1>
 			<p
 				use:inview
-				class="animate-in stagger-1 font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
+				class="max-w-lg mx-auto text-xl font-bold leading-snug animate-in stagger-1 font-body md:text-2xl text-on-surface dark:text-background"
 			>
 				Design something small and creative — a 3D print under 25g, a tiny PCB, a
 				pocket-sized gadget. We'll cover your materials and send you some cool rewards.
 			</p>
 		</div>
 
-		<div use:inview class="animate-in stagger-2 flex flex-col md:flex-row gap-4 items-center">
+		<div use:inview class="flex flex-col items-center gap-4 animate-in stagger-2 md:flex-row">
 			<a
 				class="bg-primary text-on-primary border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
 				href="{base}/submission">Read the Guidelines</a
 			>
 			<a
-				class="font-label font-bold text-sm text-on-surface dark:text-background underline decoration-2 underline-offset-4 hover:text-primary transition-colors"
+				class="text-sm font-bold underline transition-colors font-label text-on-surface dark:text-background decoration-2 underline-offset-4 hover:text-primary"
 				href="https://forms.hackclub.com"
 				target="_blank" rel="noopener noreferrer">Submit a Project →</a
 			>
@@ -229,19 +235,19 @@
 		<div class="w-full max-w-md h-[58px] relative">
 			{#if emailStatus === 'success'}
 				<div class="absolute inset-0 flex items-center justify-center">
-					<p class="font-label font-bold uppercase text-sm text-primary text-center">We'll be in touch!</p>
+					<p class="text-sm font-bold text-center uppercase font-label text-primary">We'll be in touch!</p>
 				</div>
 			{:else}
 				<form
 					onsubmit={(e) => { e.preventDefault(); subscribe(); }}
-					class="flex gap-0 h-full"
+					class="flex h-full gap-0"
 				>
 					<input
 						type="email"
 						placeholder="your@email.com"
 						bind:value={email}
 						required
-						class="flex-grow border-4 border-on-surface border-r-0 px-4 py-3 font-body font-bold text-lg bg-surface-container-lowest dark:bg-dark-container dark:text-background dark:border-background text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none "
+						class="flex-grow px-4 py-3 text-lg font-bold border-4 border-r-0 border-on-surface font-body bg-surface-container-lowest dark:bg-dark-container dark:text-background dark:border-background text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none "
 					/>
 					<button
 						type="submit"
@@ -252,20 +258,20 @@
 					</button>
 				</form>
 				{#if emailStatus === 'error'}
-					<p class="font-label font-bold text-xs text-primary mt-2">{emailError}</p>
+					<p class="mt-2 text-xs font-bold font-label text-primary">{emailError}</p>
 				{/if}
 			{/if}
 		</div>
 
 		<div
-			class="flex items-center gap-3 bg-surface-container dark:bg-dark-container border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow rounded-full"
+			class="flex items-center gap-3 px-4 py-3 border-4 rounded-full bg-surface-container dark:bg-dark-container border-on-surface dark:border-background hard-shadow"
 		>
 			<span
-				class="material-symbols-outlined text-primary text-3xl animate-wiggle" role="img" aria-label="Scale icon"
+				class="text-3xl material-symbols-outlined text-primary animate-wiggle" role="img" aria-label="Scale icon"
 				style="font-variation-settings: 'FILL' 1;">scale</span
 			>
 			<p
-				class="font-headline font-black text-2xl leading-none text-on-surface dark:text-background"
+				class="text-2xl font-black leading-none font-headline text-on-surface dark:text-background"
 			>
 				{gramsUsed}g Shipped
 			</p>
@@ -273,12 +279,12 @@
 	</section>
 
 	<!-- Marquee -->
-	<section class="space-y-8 relative" style="width: 100vw; margin-left: calc(-50vw + 50%);">
-		<div class="flex items-center gap-4 px-4 max-w-7xl mx-auto">
+	<section class="relative space-y-8" style="width: 100vw; margin-left: calc(-50vw + 50%);">
+		<div class="flex items-center gap-4 px-4 mx-auto max-w-7xl">
 			<h2
-				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
+				class="relative text-3xl font-black tracking-tighter font-headline shrink-0 text-on-surface dark:text-background"
 			>				What People Have Made			</h2>
-			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
+			<div class="flex-grow h-1 bg-on-surface dark:bg-background"></div>
 		</div>
 
 		<div
@@ -299,23 +305,23 @@
 						>
 							<img
 								alt={p.name}
-								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3 rounded-lg"
+								class="object-cover w-full h-40 mb-3 border-2 rounded-lg border-on-surface dark:border-background"
 								src={p.img}
 								loading="lazy"
 							/>
-							<div class="flex justify-between items-end">
+							<div class="flex items-end justify-between">
 								<div>
 									<p class="font-label text-[10px] uppercase font-bold text-primary">
 										By @{p.user}
 									</p>
 									<h4
-										class="font-headline font-black text-xl leading-tight text-on-surface dark:text-background"
+										class="text-xl font-black leading-tight font-headline text-on-surface dark:text-background"
 									>
 										{p.name}
 									</h4>
 								</div>
 								<div
-									class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-2 py-1 font-label font-bold text-sm rounded-full"
+									class="px-2 py-1 text-sm font-bold rounded-full bg-on-surface dark:bg-background text-surface dark:text-on-surface font-label"
 								>
 									{p.weight}
 								</div>
@@ -334,23 +340,23 @@
 						>
 							<img
 								alt={p.name}
-								class="w-full h-40 object-cover border-2 border-on-surface dark:border-background mb-3 rounded-lg"
+								class="object-cover w-full h-40 mb-3 border-2 rounded-lg border-on-surface dark:border-background"
 								src={p.img}
 								loading="lazy"
 							/>
-							<div class="flex justify-between items-end">
+							<div class="flex items-end justify-between">
 								<div>
 									<p class="font-label text-[10px] uppercase font-bold text-primary">
 										By @{p.user}
 									</p>
 									<h4
-										class="font-headline font-black text-xl leading-tight text-on-surface dark:text-background"
+										class="text-xl font-black leading-tight font-headline text-on-surface dark:text-background"
 									>
 										{p.name}
 									</h4>
 								</div>
 								<div
-									class="bg-on-surface dark:bg-background text-surface dark:text-on-surface px-2 py-1 font-label font-bold text-sm rounded-full"
+									class="px-2 py-1 text-sm font-bold rounded-full bg-on-surface dark:bg-background text-surface dark:text-on-surface font-label"
 								>
 									{p.weight}
 								</div>
@@ -364,11 +370,11 @@
 
 	<!-- SpecBanner -->
 	<section
-		class="w-full bg-on-surface text-surface py-6 relative border-y-4 border-primary"
+		class="relative w-full py-6 bg-on-surface text-surface border-y-4 border-primary"
 		style="width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
 	>
 		<div
-			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
+			class="flex text-4xl italic font-black tracking-tighter animate-marquee font-headline md:text-5xl"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
 			<span>Design Build Share Repeat </span>
@@ -380,46 +386,46 @@
 
 	<!-- Prizes -->
 	<section class="space-y-12">
-		<div class="text-center md:text-left max-w-2xl">
+		<div class="max-w-2xl text-center md:text-left">
 			<h2
-				class="font-headline font-black text-5xl tracking-tighter leading-none mb-4 text-on-surface dark:text-background"
+				class="mb-4 text-5xl font-black leading-none tracking-tighter font-headline text-on-surface dark:text-background"
 			>
 				Rewards
 			</h2>
-			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
+			<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 				We'll cover your <span class="highlight-yellow">build costs</span> and send you bonus rewards when your project is approved.
 			</p>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
+		<div class="relative grid max-w-5xl grid-cols-1 gap-8 mx-auto md:grid-cols-3">
 			<!-- Scattered sparkles -->			<!-- Tier 1: 1 Ship -->
 			<div
 				use:inview
 				use:tilt
-				class="animate-in stagger-1 hover-lift bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
+				class="relative flex flex-col p-0 overflow-hidden border-4 animate-in stagger-1 hover-lift bg-surface-container-lowest dark:bg-dark-container border-on-surface dark:border-background hard-shadow rounded-xl"
 			>
 				<div
-					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
+					class="px-4 py-2 text-2xl italic font-black tracking-tighter bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 				>
 					1 Approved Ship
 				</div>
-				<div class="p-6 space-y-4 flex-1">
+				<div class="flex-1 p-6 space-y-4">
 					<div>
 						<h3
-							class="font-headline font-black text-3xl leading-none text-on-surface dark:text-background"
+							class="text-3xl font-black leading-none font-headline text-on-surface dark:text-background"
 						>
 							Sticker Pack
 						</h3>
 						<p
-							class="font-body text-lg mt-2 font-bold text-on-surface dark:text-background opacity-80"
+							class="mt-2 text-lg font-bold font-body text-on-surface dark:text-background opacity-80"
 						>
 							Custom Wisp stickers for your projects.
 						</p>
 					</div>
 				</div>
 				<div
-					class="border-t-4 border-on-surface dark:border-background p-4 bg-surface-container dark:bg-dark-container"
+					class="p-4 border-t-4 border-on-surface dark:border-background bg-surface-container dark:bg-dark-container"
 				>
-					<p class="font-label font-bold text-xs uppercase text-primary">Tier 1</p>
+					<p class="text-xs font-bold uppercase font-label text-primary">Tier 1</p>
 				</div>
 			</div>
 
@@ -427,29 +433,29 @@
 			<div
 				use:inview
 				use:tilt
-				class="animate-in stagger-2 hover-lift bg-primary-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
+				class="relative flex flex-col p-0 overflow-hidden border-4 animate-in stagger-2 hover-lift bg-primary-container border-on-surface dark:border-background hard-shadow rounded-xl"
 			>
 				<div
-					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
+					class="px-4 py-2 text-2xl italic font-black tracking-tighter bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 				>
 					2 Approved Ships
 				</div>
-				<div class="p-6 space-y-4 flex-1">
+				<div class="flex-1 p-6 space-y-4">
 					<div>
 						<h3
-							class="font-headline font-black text-3xl leading-none text-on-primary-container"
+							class="text-3xl font-black leading-none font-headline text-on-primary-container"
 						>
 							1kg Hack Club Filament
 						</h3>
-						<p class="font-body text-lg mt-2 font-bold text-on-primary-container">
+						<p class="mt-2 text-lg font-bold font-body text-on-primary-container">
 							Custom Hack Club spool. Red PLA with white glitter.
 						</p>
 					</div>
 				</div>
 				<div
-					class="border-t-4 border-on-surface dark:border-background p-4 bg-on-primary-container/10"
+					class="p-4 border-t-4 border-on-surface dark:border-background bg-on-primary-container/10"
 				>
-					<p class="font-label font-bold text-xs uppercase text-on-primary-container">
+					<p class="text-xs font-bold uppercase font-label text-on-primary-container">
 						Tier 2
 					</p>
 				</div>
@@ -459,31 +465,31 @@
 			<div
 				use:inview
 				use:tilt
-				class="animate-in stagger-3 hover-lift bg-surface-container-lowest dark:bg-dark-container border-4 border-on-surface dark:border-background p-0 hard-shadow flex flex-col relative rounded-xl overflow-hidden"
+				class="relative flex flex-col p-0 overflow-hidden border-4 animate-in stagger-3 hover-lift bg-surface-container-lowest dark:bg-dark-container border-on-surface dark:border-background hard-shadow rounded-xl"
 			>
 				<div
-					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
+					class="px-4 py-2 text-2xl italic font-black tracking-tighter bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 				>
 					4 Approved Ships
 				</div>
-				<div class="p-6 space-y-4 flex-1">
+				<div class="flex-1 p-6 space-y-4">
 					<div>
 						<h3
-							class="font-headline font-black text-3xl leading-none text-on-surface dark:text-background"
+							class="text-3xl font-black leading-none font-headline text-on-surface dark:text-background"
 						>
 							Hack Club Shirt
 						</h3>
 						<p
-							class="font-body text-lg mt-2 font-bold text-on-surface dark:text-background opacity-80"
+							class="mt-2 text-lg font-bold font-body text-on-surface dark:text-background opacity-80"
 						>
 							An exclusive Hack Club t-shirt to rep your builds.
 						</p>
 					</div>
 				</div>
 				<div
-					class="border-t-4 border-on-surface dark:border-background p-4 bg-surface-container dark:bg-dark-container"
+					class="p-4 border-t-4 border-on-surface dark:border-background bg-surface-container dark:bg-dark-container"
 				>
-					<p class="font-label font-bold text-xs uppercase text-primary">Tier 3</p>
+					<p class="text-xs font-bold uppercase font-label text-primary">Tier 3</p>
 				</div>
 			</div>
 		</div>
@@ -492,75 +498,75 @@
 	<!-- How it works -->
 	<section class="space-y-12">
 		<div class="flex items-center gap-4">
-			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
+			<div class="flex-grow h-1 bg-on-surface dark:bg-background"></div>
 			<h2
-				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
+				class="relative text-4xl font-black tracking-tighter font-headline shrink-0 text-on-surface dark:text-background"
 			>				How It Works
 			</h2>
-			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
+			<div class="flex-grow h-1 bg-on-surface dark:bg-background"></div>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 			<div
 				use:inview
-				class="animate-in stagger-1 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow relative"
+				class="relative p-8 border-4 animate-in stagger-1 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
+					class="absolute flex items-center justify-center w-12 h-12 text-2xl font-black rounded-full -top-4 -left-4 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 					>01</span
 				>
 				<h4
-					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
+					class="mt-4 text-xl font-black font-headline text-on-surface dark:text-background"
 				>
 					Design Your Project
 				</h4>
-				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
+				<p class="mt-4 text-lg font-bold font-body text-on-surface-variant dark:text-background/70">
 					For prints, keep it <span class="highlight-yellow">under 25g</span>. For hardware, go as small as you can with your idea.
 				</p>
 			</div>
 			<div
 				use:inview
-				class="animate-in stagger-2 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow relative"
+				class="relative p-8 border-4 animate-in stagger-2 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
+					class="absolute flex items-center justify-center w-12 h-12 text-2xl font-black rounded-full -top-4 -left-4 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 					>02</span
 				>
 				<h4
-					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
+					class="mt-4 text-xl font-black font-headline text-on-surface dark:text-background"
 				>
 					Document Your Work
 				</h4>
-				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
+				<p class="mt-4 text-lg font-bold font-body text-on-surface-variant dark:text-background/70">
 					Write a <span class="highlight-green">JOURNAL.md</span> in your GitHub repo documenting your process.
 				</p>
 			</div>
 			<div
 				use:inview
-				class="animate-in stagger-3 p-8 border-4 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow relative"
+				class="relative p-8 border-4 animate-in stagger-3 border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container hard-shadow"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
+					class="absolute flex items-center justify-center w-12 h-12 text-2xl font-black rounded-full -top-4 -left-4 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 					>03</span
 				>
 				<h4
-					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
+					class="mt-4 text-xl font-black font-headline text-on-surface dark:text-background"
 				>
 					Build It
 				</h4>
-				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
+				<p class="mt-4 text-lg font-bold font-body text-on-surface-variant dark:text-background/70">
 					Print, solder, or assemble — whatever your project needs. Don't have a printer? Check out #printing-legion on Slack.
 				</p>
 			</div>
 			<div
 				use:inview
-				class="animate-in stagger-4 p-8 border-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary relative"
+				class="relative p-8 border-4 animate-in stagger-4 border-on-surface dark:border-background bg-primary text-on-primary hard-shadow-primary"
 			>
 				<span
-					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
+					class="absolute flex items-center justify-center w-12 h-12 text-2xl font-black rounded-full -top-4 -left-4 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline"
 					>04</span
 				>
-				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
-				<p class="font-body font-bold text-lg mt-4">
+				<h4 class="mt-4 text-xl font-black font-headline">Ship Your Project</h4>
+				<p class="mt-4 text-lg font-bold font-body">
 					Submit your project for review. Once it's approved, we'll send your <span class="highlight-yellow">rewards</span>!
 				</p>
 			</div>
@@ -570,24 +576,24 @@
 	<!-- FAQ -->
 	<section id="faq" class="space-y-6">
 		<div class="flex items-center gap-4">
-			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
+			<div class="flex-grow h-1 bg-on-surface dark:bg-background"></div>
 			<h2
-				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
+				class="relative text-4xl font-black tracking-tighter font-headline shrink-0 text-on-surface dark:text-background"
 			>				FAQ			</h2>
-			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
+			<div class="flex-grow h-1 bg-on-surface dark:bg-background"></div>
 		</div>
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> Is This Real?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					Yes. <a href="https://hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Hack Club</a> is
 					a registered <span class="highlight-green">501(c)(3) nonprofit</span> with 50,000+ teen members worldwide, backed by
 					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
@@ -603,15 +609,15 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> What Is Wisp?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					Wisp is a Hack Club (You Ship, We Ship) program. Build an <span class="highlight-green">original project
 					under 25g</span>, or a miniature hardware project. We'll send you <span class="highlight-yellow">real prizes</span>.
 				</p>
@@ -620,15 +626,15 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> Who Can Participate?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					<span class="highlight-green">Teens aged 13–18</span> of all experience levels can participate in Wisp! Guided projects
 					are available.
 				</p>
@@ -637,15 +643,15 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> Does My Design Have to Be Original?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					Yes — everything you submit should be your own <span class="highlight-yellow">original work</span>.
 				</p>
 			</div>
@@ -653,15 +659,15 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> How Do I Prove My Weight?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					For 3D prints, submit a slicer screenshot or a photo on a scale. For PCBs and other
 					hardware, photo on a scale showing the weight.
 				</p>
@@ -670,15 +676,15 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> What Materials Are Allowed?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all <span class="highlight-yellow">under 25g</span>. For hardware:
 					PCBs, components, enclosures. Just keep the whole thing small and compact.
 				</p>
@@ -687,15 +693,15 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> Can I Submit More Than Once?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					Yes! Every unique original design is a new ship. At <span class="highlight-green">2 approved ships</span> you unlock custom
 					Hack Club filament, and at <span class="highlight-yellow">4</span> you get an exclusive Hack Club shirt.
 				</p>
@@ -704,16 +710,16 @@
 
 		<div
 			use:inview
-			class="animate-in border-4 border-on-surface dark:border-background p-8 bg-surface-container-lowest dark:bg-dark-container rounded-xl"
+			class="p-8 border-4 animate-in border-on-surface dark:border-background bg-surface-container-lowest dark:bg-dark-container rounded-xl"
 		>
 			<h3
-				class="font-headline font-black text-2xl flex gap-4 text-on-surface dark:text-background"
+				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
 				<span class="text-primary">Q:</span> Have a Question?
 			</h3>
-			<div class="mt-4 pl-10 border-l-4 border-primary">
-				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Come say hi in <span class="text-primary font-black">#wisp</span> on the Hack Club Slack.
+			<div class="pl-10 mt-4 border-l-4 border-primary">
+				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
+					Come say hi in <span class="font-black text-primary">#wisp</span> on the Hack Club Slack.
 				</p>
 			</div>
 		</div>
@@ -721,7 +727,7 @@
 
 	<!-- Call to Action -->
 	<section
-		class="relative p-8 md:p-20 text-center border-4 border-on-surface dark:border-background overflow-hidden"
+		class="relative p-8 overflow-hidden text-center border-4 md:p-20 border-on-surface dark:border-background"
 	>
 		<!-- Background -->
 		<div class="absolute inset-0 bg-on-surface dark:bg-background"></div>
@@ -768,7 +774,7 @@
 				<div class="w-3 h-[3px] bg-success-neon rounded-full"></div>
 				<div class="w-1.5 h-[3px] bg-success-neon/50 rounded-full"></div>
 			</div>
-			<div class="flex flex-col sm:flex-row gap-5 justify-center items-center pt-4">
+			<div class="flex flex-col items-center justify-center gap-5 pt-4 sm:flex-row">
 				<a
 					href="{base}/submission"
 					class="group relative bg-primary text-white border-4 border-surface dark:border-background px-12 py-5 text-xl font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all inline-block overflow-hidden"
@@ -778,12 +784,12 @@
 						<span class="inline-block transition-transform group-hover:translate-x-2 group-hover:scale-110">→</span>
 					</span>
 				</a>
-				<span class="font-label text-surface/30 dark:text-on-surface/30 hidden sm:block">or</span>
+				<span class="hidden font-label text-surface/30 dark:text-on-surface/30 sm:block">or</span>
 				<a
 					href="https://forms.hackclub.com"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="font-label font-bold text-sm text-surface/60 dark:text-on-surface/60 underline decoration-2 decoration-primary/40 underline-offset-4 hover:text-primary hover:decoration-primary transition-all"
+					class="text-sm font-bold underline transition-all font-label text-surface/60 dark:text-on-surface/60 decoration-2 decoration-primary/40 underline-offset-4 hover:text-primary hover:decoration-primary"
 				>
 					Submit a Project
 				</a>
