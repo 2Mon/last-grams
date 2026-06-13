@@ -418,7 +418,7 @@
 				Rewards
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
-				We'll cover your build costs and send you bonus rewards when your project is approved.
+				We'll cover your <span class="highlight-yellow">build costs</span> and send you bonus rewards when your project is approved.
 			</p>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
@@ -545,7 +545,7 @@
 					Design Your Project
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
+					For prints, keep it <span class="highlight-yellow">under 25g</span>. For hardware, go as small as you can with your idea.
 				</p>
 			</div>
 			<div
@@ -562,7 +562,7 @@
 					Document Your Work
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Write a JOURNAL.md in your GitHub repo documenting your process.
+					Write a <span class="highlight-green">JOURNAL.md</span> in your GitHub repo documenting your process.
 				</p>
 			</div>
 			<div
@@ -592,7 +592,7 @@
 				>
 				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
 				<p class="font-body font-bold text-lg mt-4">
-					Submit your project for review. Once it's approved, we'll send your rewards!
+					Submit your project for review. Once it's approved, we'll send your <span class="highlight-yellow">rewards</span>!
 				</p>
 			</div>
 		</div>
@@ -620,9 +620,9 @@
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
 					Yes. <a href="https://hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Hack Club</a> is
-					a registered 501(c)(3) nonprofit with 50,000+ teen members worldwide, backed by
+					a registered <span class="highlight-green">501(c)(3) nonprofit</span> with 50,000+ teen members worldwide, backed by
 					GitHub founder Tom Preston-Werner, Dell founder Michael Dell, and others.
-					All programs are completely free. We've shipped
+					All programs are <span class="highlight-yellow">completely free</span>. We've shipped
 					<a href="https://infill.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Infill</a>,
 					<a href="https://highway.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Highway</a>,
 					<a href="https://blueprint.hackclub.com" class="underline text-primary" target="_blank" rel="noopener noreferrer">Blueprint</a>,
@@ -643,8 +643,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Wisp is a Hack Club (You Ship, We Ship) program. Build an original project
-					under 25g, or a miniature hardware project. We'll send you real prizes.
+					Wisp is a Hack Club (You Ship, We Ship) program. Build an <span class="highlight-green">original project
+					under 25g</span>, or a miniature hardware project. We'll send you <span class="highlight-yellow">real prizes</span>.
 				</p>
 			</div>
 		</div>
@@ -660,7 +660,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Teens aged 13–18 of all experience levels can participate in Wisp! Guided projects
+					<span class="highlight-green">Teens aged 13–18</span> of all experience levels can participate in Wisp! Guided projects
 					are available.
 				</p>
 			</div>
@@ -677,7 +677,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes — everything you submit should be your own original work.
+					Yes — everything you submit should be your own <span class="highlight-yellow">original work</span>.
 				</p>
 			</div>
 		</div>
@@ -710,7 +710,7 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all under 25g. For hardware:
+					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all <span class="highlight-yellow">under 25g</span>. For hardware:
 					PCBs, components, enclosures. Just keep the whole thing small and compact.
 				</p>
 			</div>
@@ -727,8 +727,8 @@
 			</h3>
 			<div class="mt-4 pl-10 border-l-4 border-primary">
 				<p class="font-body font-bold text-xl text-on-surface dark:text-background">
-					Yes! Every unique original design is a new ship. At 2 approved ships you unlock custom
-					Hack Club filament, and at 4 you get an exclusive Hack Club shirt.
+					Yes! Every unique original design is a new ship. At <span class="highlight-green">2 approved ships</span> you unlock custom
+					Hack Club filament, and at <span class="highlight-yellow">4</span> you get an exclusive Hack Club shirt.
 				</p>
 			</div>
 		</div>
