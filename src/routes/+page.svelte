@@ -12,7 +12,7 @@
 	$effect(() => {
 		const handleScroll = () => {
 			if (sparkleField) {
-				sparkleField.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+				sparkleField.style.transform = `translateY(${window.scrollY * -0.3}px)`;
 			}
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
