@@ -26,7 +26,7 @@
 
 		const handleScroll = (): void => {
 			dotBg.style.transform = `translateY(${window.scrollY * -0.3}px)`;
-			if (sparkleField) sparkleField.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+			if (sparkleField) sparkleField.style.transform = `translateY(${window.scrollY * -0.15}px)`;
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		return (): void => window.removeEventListener('scroll', handleScroll);
@@ -45,7 +45,7 @@
 <div class="{darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
 <div class="dot-bg" bind:this={dotBg}></div>
 
-<div bind:this={sparkleField} class="fixed inset-0 pointer-events-none select-none overflow-hidden" style="z-index: 1; will-change: transform;" aria-hidden="true">
+<div bind:this={sparkleField} class="fixed inset-0 pointer-events-none select-none overflow-hidden" style="z-index: -1; will-change: transform;" aria-hidden="true">
 <!-- Full-page sparkle field -->
 	<!-- Yellow sparkles -->
 	<span class="text-success-neon/45 text-xl absolute" style="top: 8%; left: 5%; animation: twinkle 4s ease-in-out infinite;">✦</span>
