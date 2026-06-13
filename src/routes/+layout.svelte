@@ -9,9 +9,11 @@
 	let dotBg: HTMLDivElement;
 	let darkMode = $state(false);
 
-	const isActive = (path: string) =>
-		page.url.pathname === base + path ||
-		(path === '/' && (page.url.pathname === base + '/' || page.url.pathname === base));
+	const isActive = (path: string) => {
+		const current = page.url.pathname.replace(/\/$/, '') || '/';
+		const target = (base + path).replace(/\/$/, '') || '/';
+		return current === target;
+	};
 
 	onMount((): (() => void) => {
 		const stored = localStorage.getItem('darkMode');
@@ -62,6 +64,12 @@
 				? 'text-primary underline decoration-4 underline-offset-4'
 				: 'text-on-background dark:text-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
 			href="{base}/gallery">Gallery</a
+		>
+		<a
+			class="font-label font-bold text-sm {isActive('/submission')
+				? 'text-primary underline decoration-4 underline-offset-4'
+				: 'text-on-background dark:text-background'} hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+			href="{base}/submission">Guidelines</a
 		>
 	</div>
 	<div class="flex items-center gap-4">

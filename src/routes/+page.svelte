@@ -3,10 +3,17 @@
 	import { inview, tilt } from '$lib';
 	import confetti from 'canvas-confetti';
 	const gramsUsed = 142; // TODO: make dynamic
+	let sparkleOffset = $state(0);
 
 	let email = $state('');
 	let emailStatus = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
 	let emailError = $state('');
+
+	$effect(() => {
+		const handleScroll = () => { sparkleOffset = window.scrollY * 0.15; };
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
 
 	function fireConfetti() {
 		const duration = 2000;
@@ -192,8 +199,9 @@
 {/if}
 
 
+<div class:party-wiggle={partyMode} class:party-hue={partyMode} style="position: relative;">
 <!-- Full-page sparkle field -->
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none" aria-hidden="true">
+<div class="absolute top-0 left-0 right-0 pointer-events-none z-0 overflow-hidden select-none" style="height: 300vh; transform: translateY(-{sparkleOffset}px);" aria-hidden="true">
 	<!-- Yellow sparkles -->
 	<span class="text-success-neon/45 text-xl absolute" style="top: 8%; left: 5%; animation: twinkle 4s ease-in-out infinite;">✦</span>
 	<span class="text-success-neon/40 text-4xl absolute" style="top: 15%; right: 8%; animation: twinkle 5s ease-in-out 1.2s infinite;">★</span>
@@ -224,7 +232,7 @@
 	<span class="text-success-neon/30 text-4xl absolute" style="top: 78%; right: 30%; animation: drift 7s ease-in-out 4s infinite;">◆</span>
 	<span class="text-secondary/30 text-4xl absolute" style="top: 95%; left: 40%; animation: twinkle 4.5s ease-in-out 1.3s infinite;">✦</span>
 </div>
-<div class:party-wiggle={partyMode} class:party-hue={partyMode}>
+
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 	<!-- Hero -->
 	<section class="flex flex-col items-center text-center space-y-8 py-12">
