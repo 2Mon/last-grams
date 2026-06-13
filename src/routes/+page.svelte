@@ -233,12 +233,12 @@
 						placeholder="your@email.com"
 						bind:value={email}
 						required
-						class="flex-grow px-4 py-3 text-lg font-bold border-4 border-r-0 border-on-surface font-body bg-surface-container-lowest dark:bg-dark-container dark:text-background dark:border-background text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none "
+						class="flex-grow px-4 py-3 text-lg font-bold border-4 border-r-0 border-on-surface font-body bg-surface-container-lowest dark:bg-dark-container dark:text-background dark:border-background text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none rounded-l-xl"
 					/>
 					<button
 						type="submit"
 						disabled={emailStatus === 'loading'}
-						class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-3 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50 whitespace-nowrap "
+						class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-3 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50 whitespace-nowrap rounded-r-xl"
 					>
 						{emailStatus === 'loading' ? '...' : 'Notify Me'}
 					</button>
