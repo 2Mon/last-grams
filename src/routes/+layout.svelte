@@ -42,7 +42,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </svelte:head>
 
-<div class="{darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
+<div class="isolate {darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
 <div class="dot-bg" bind:this={dotBg}></div>
 
 <div bind:this={sparkleField} class="fixed inset-0 pointer-events-none select-none overflow-hidden" style="z-index: -1; will-change: transform;" aria-hidden="true">
