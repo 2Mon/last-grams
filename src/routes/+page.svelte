@@ -206,8 +206,8 @@
 				use:inview
 				class="animate-in stagger-1 font-body font-bold text-xl md:text-2xl max-w-lg mx-auto text-on-surface dark:text-background leading-snug"
 			>
-				Design something small and creative — a 3D print under 25g, a tiny PCB, a
-				pocket-sized gadget. We'll cover your materials and send you some cool rewards.
+				Design something small and creative — a 3D print <span class="highlight-yellow">under 25g</span>, a tiny PCB, a
+				pocket-sized gadget. We'll cover your materials and send you some <span class="highlight-green">cool rewards</span>.
 			</p>
 		</div>
 
@@ -274,9 +274,11 @@
 	<section class="space-y-8">
 		<div class="flex items-center gap-4 px-4">
 			<h2
-				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background"
+				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
 			>
+				<span class="sparkle sparkle-star text-success-neon/40 text-xs -top-3 -left-2" style="animation: twinkle 3s ease-in-out infinite;"></span>
 				What People Have Made
+				<span class="sparkle text-success-neon/30 text-[10px] -top-2 -right-4" style="animation: twinkle 2.5s ease-in-out 0.5s infinite;"></span>
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -371,12 +373,19 @@
 			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
-			<span>Design Build Share Repeat </span>
-			<span>Design Build Share Repeat </span>
-			<span aria-hidden="true">Design Build Share Repeat </span>
-			<span aria-hidden="true">Design Build Share Repeat </span>
+			<span><span class="highlight-yellow">Design</span> Build <span class="highlight-green">Share</span> Repeat </span>
+			<span><span class="highlight-yellow">Design</span> Build <span class="highlight-green">Share</span> Repeat </span>
+			<span aria-hidden="true"><span class="highlight-yellow">Design</span> Build <span class="highlight-green">Share</span> Repeat </span>
+			<span aria-hidden="true"><span class="highlight-yellow">Design</span> Build <span class="highlight-green">Share</span> Repeat </span>
 		</div>
 	</section>
+
+	<!-- Section sparkle divider -->
+	<div class="flex justify-center gap-6 py-2 select-none" aria-hidden="true">
+		<span class="text-success-neon/30 text-xs" style="animation: twinkle 3s ease-in-out infinite;">✦</span>
+		<span class="text-success-neon/20 text-sm" style="animation: twinkle 2.5s ease-in-out 0.4s infinite;">★</span>
+		<span class="text-success-neon/30 text-xs" style="animation: twinkle 4s ease-in-out 0.8s infinite;">✦</span>
+	</div>
 
 	<!-- Prizes -->
 	<section class="space-y-12">
@@ -387,10 +396,15 @@
 				Rewards
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
-				We'll cover your build costs and send you bonus rewards when your project is approved.
+				We'll cover your <span class="highlight-yellow">build costs</span> and send you bonus rewards when your project is approved.
 			</p>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
+			<!-- Scattered sparkles -->
+			<span class="sparkle text-success-neon/25 text-lg hidden md:block" style="top: -12px; right: 40px; animation: twinkle 4s ease-in-out infinite;"></span>
+			<span class="sparkle sparkle-star text-success-neon/20 text-sm hidden md:block" style="bottom: -8px; left: 30%; animation: twinkle 3.5s ease-in-out 1s infinite;"></span>
+			<span class="sparkle sparkle-cross text-success-neon/15 text-xs hidden md:block" style="top: 50%; right: -10px; animation: drift 5s ease-in-out infinite;"></span>
+			<span class="sparkle sparkle-diamond text-success-neon/20 text-[10px] hidden md:block" style="top: 30%; left: -12px; animation: twinkle 5s ease-in-out 2s infinite;"></span>
 			<!-- Tier 1: 1 Ship -->
 			<div
 				use:inview
@@ -489,13 +503,22 @@
 		</div>
 	</section>
 
+	<!-- Section sparkle divider -->
+	<div class="flex justify-center gap-8 py-2 select-none" aria-hidden="true">
+		<span class="text-success-neon/25 text-[10px]" style="animation: drift 5s ease-in-out infinite;">★</span>
+		<span class="text-success-neon/15 text-xs" style="animation: twinkle 3.5s ease-in-out 0.6s infinite;">◆</span>
+		<span class="text-success-neon/30 text-[10px]" style="animation: drift 4s ease-in-out 1.2s infinite;">✦</span>
+		<span class="text-success-neon/20 text-xs" style="animation: twinkle 4.5s ease-in-out 0.2s infinite;">★</span>
+	</div>
+
 	<!-- How it works -->
 	<section class="space-y-12">
 		<div class="flex items-center gap-4">
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 			<h2
-				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
+				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
 			>
+				<span class="sparkle sparkle-star text-success-neon/30 text-sm -top-3 -right-6" style="animation: twinkle 3s ease-in-out 0.3s infinite;"></span>
 				How It Works
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
@@ -515,7 +538,7 @@
 					Design Your Project
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
+					For prints, keep it <span class="highlight-yellow">under 25g</span>. For hardware, go as small as you can with your idea.
 				</p>
 			</div>
 			<div
@@ -532,7 +555,7 @@
 					Document Your Work
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
-					Write a JOURNAL.md in your GitHub repo documenting your process.
+					Write a <span class="highlight-green">JOURNAL.md</span> in your GitHub repo documenting your process.
 				</p>
 			</div>
 			<div
@@ -562,7 +585,7 @@
 				>
 				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
 				<p class="font-body font-bold text-lg mt-4">
-					Submit your project for review. Once it's approved, we'll send your rewards!
+					Submit your project for review. Once it's approved, we'll send your <span class="highlight-yellow">rewards</span>!
 				</p>
 			</div>
 		</div>
@@ -573,9 +596,11 @@
 		<div class="flex items-center gap-4">
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 			<h2
-				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
+				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background relative"
 			>
+				<span class="sparkle text-success-neon/25 text-xs -top-2 -left-4" style="animation: twinkle 4s ease-in-out 1s infinite;"></span>
 				FAQ
+				<span class="sparkle sparkle-diamond text-success-neon/20 text-[8px] -bottom-1 -right-3" style="animation: drift 6s ease-in-out infinite;"></span>
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>

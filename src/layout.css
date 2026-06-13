@@ -181,3 +181,64 @@
   background-color: #252960;
 }
 
+
+/* Whimsy: sparkle/star decorations */
+@keyframes twinkle {
+	0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+	50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+}
+
+@keyframes drift {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	33% { transform: translateY(-6px) rotate(8deg); }
+	66% { transform: translateY(3px) rotate(-5deg); }
+}
+
+.sparkle {
+	position: absolute;
+	pointer-events: none;
+	user-select: none;
+}
+
+.sparkle::before {
+	content: '✦';
+	display: block;
+}
+
+.sparkle-star::before {
+	content: '★';
+}
+
+.sparkle-dot::before {
+	content: '●';
+}
+
+.sparkle-diamond::before {
+	content: '◆';
+}
+
+.sparkle-cross::before {
+	content: '+';
+	font-weight: 900;
+}
+
+/* Highlighted text — marker pen effect */
+.highlight-yellow {
+	background: linear-gradient(180deg, transparent 50%, rgba(222, 175, 54, 0.35) 50%, rgba(222, 175, 54, 0.35) 85%, transparent 85%);
+	padding: 0 4px;
+	margin: 0 -4px;
+}
+
+.highlight-green {
+	background: linear-gradient(180deg, transparent 50%, rgba(56, 156, 71, 0.3) 50%, rgba(56, 156, 71, 0.3) 85%, transparent 85%);
+	padding: 0 4px;
+	margin: 0 -4px;
+}
+
+.dark .highlight-yellow {
+	background: linear-gradient(180deg, transparent 50%, rgba(222, 175, 54, 0.25) 50%, rgba(222, 175, 54, 0.25) 85%, transparent 85%);
+}
+
+.dark .highlight-green {
+	background: linear-gradient(180deg, transparent 50%, rgba(56, 156, 71, 0.2) 50%, rgba(56, 156, 71, 0.2) 85%, transparent 85%);
+}
