@@ -195,34 +195,34 @@
 <!-- Full-page sparkle field -->
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none" aria-hidden="true">
 	<!-- Yellow sparkles -->
-	<span class="text-success-neon/20 text-xs absolute" style="top: 8%; left: 5%; animation: twinkle 4s ease-in-out infinite;">✦</span>
-	<span class="text-success-neon/15 text-sm absolute" style="top: 15%; right: 8%; animation: twinkle 5s ease-in-out 1.2s infinite;">★</span>
-	<span class="text-success-neon/10 text-xs absolute" style="top: 25%; left: 12%; animation: drift 6s ease-in-out 0.5s infinite;">✦</span>
-	<span class="text-success-neon/20 text-[10px] absolute" style="top: 35%; right: 4%; animation: twinkle 3.5s ease-in-out 2s infinite;">◆</span>
-	<span class="text-success-neon/15 text-xs absolute" style="top: 45%; left: 3%; animation: twinkle 4.5s ease-in-out 0.8s infinite;">★</span>
-	<span class="text-success-neon/10 text-sm absolute" style="top: 55%; right: 10%; animation: drift 7s ease-in-out 1.5s infinite;">✦</span>
-	<span class="text-success-neon/20 text-[10px] absolute" style="top: 65%; left: 7%; animation: twinkle 5.5s ease-in-out 3s infinite;">★</span>
-	<span class="text-success-neon/15 text-xs absolute" style="top: 75%; right: 6%; animation: twinkle 3s ease-in-out 0.3s infinite;">✦</span>
-	<span class="text-success-neon/10 text-xs absolute" style="top: 85%; left: 9%; animation: drift 5s ease-in-out 2.5s infinite;">◆</span>
-	<span class="text-success-neon/20 text-sm absolute" style="top: 92%; right: 12%; animation: twinkle 4s ease-in-out 1s infinite;">★</span>
+	<span class="text-success-neon/45 text-xs absolute" style="top: 8%; left: 5%; animation: twinkle 4s ease-in-out infinite;">✦</span>
+	<span class="text-success-neon/40 text-sm absolute" style="top: 15%; right: 8%; animation: twinkle 5s ease-in-out 1.2s infinite;">★</span>
+	<span class="text-success-neon/35 text-xs absolute" style="top: 25%; left: 12%; animation: drift 6s ease-in-out 0.5s infinite;">✦</span>
+	<span class="text-success-neon/45 text-[10px] absolute" style="top: 35%; right: 4%; animation: twinkle 3.5s ease-in-out 2s infinite;">◆</span>
+	<span class="text-success-neon/40 text-xs absolute" style="top: 45%; left: 3%; animation: twinkle 4.5s ease-in-out 0.8s infinite;">★</span>
+	<span class="text-success-neon/35 text-sm absolute" style="top: 55%; right: 10%; animation: drift 7s ease-in-out 1.5s infinite;">✦</span>
+	<span class="text-success-neon/45 text-[10px] absolute" style="top: 65%; left: 7%; animation: twinkle 5.5s ease-in-out 3s infinite;">★</span>
+	<span class="text-success-neon/40 text-xs absolute" style="top: 75%; right: 6%; animation: twinkle 3s ease-in-out 0.3s infinite;">✦</span>
+	<span class="text-success-neon/35 text-xs absolute" style="top: 85%; left: 9%; animation: drift 5s ease-in-out 2.5s infinite;">◆</span>
+	<span class="text-success-neon/45 text-sm absolute" style="top: 92%; right: 12%; animation: twinkle 4s ease-in-out 1s infinite;">★</span>
 	<!-- Green sparkles -->
-	<span class="text-secondary/15 text-xs absolute" style="top: 5%; left: 45%; animation: twinkle 5s ease-in-out 0.7s infinite;">✦</span>
-	<span class="text-secondary/10 text-sm absolute" style="top: 12%; right: 35%; animation: drift 6s ease-in-out 2s infinite;">★</span>
-	<span class="text-secondary/20 text-[10px] absolute" style="top: 22%; left: 85%; animation: twinkle 4s ease-in-out 1.5s infinite;">◆</span>
-	<span class="text-secondary/10 text-xs absolute" style="top: 32%; right: 45%; animation: twinkle 3.5s ease-in-out 3s infinite;">✦</span>
-	<span class="text-secondary/15 text-sm absolute" style="top: 42%; left: 92%; animation: drift 5.5s ease-in-out infinite;">★</span>
-	<span class="text-secondary/10 text-[10px] absolute" style="top: 52%; right: 25%; animation: twinkle 6s ease-in-out 0.4s infinite;">✦</span>
-	<span class="text-secondary/20 text-xs absolute" style="top: 62%; left: 55%; animation: twinkle 4.5s ease-in-out 2.2s infinite;">◆</span>
-	<span class="text-secondary/15 text-xs absolute" style="top: 72%; right: 40%; animation: drift 7s ease-in-out 1s infinite;">★</span>
-	<span class="text-secondary/10 text-sm absolute" style="top: 82%; left: 70%; animation: twinkle 5s ease-in-out 0.9s infinite;">✦</span>
-	<span class="text-secondary/20 text-[10px] absolute" style="top: 90%; right: 55%; animation: twinkle 3.5s ease-in-out 1.8s infinite;">★</span>
+	<span class="text-secondary/40 text-xs absolute" style="top: 5%; left: 45%; animation: twinkle 5s ease-in-out 0.7s infinite;">✦</span>
+	<span class="text-secondary/35 text-sm absolute" style="top: 12%; right: 35%; animation: drift 6s ease-in-out 2s infinite;">★</span>
+	<span class="text-secondary/45 text-[10px] absolute" style="top: 22%; left: 85%; animation: twinkle 4s ease-in-out 1.5s infinite;">◆</span>
+	<span class="text-secondary/35 text-xs absolute" style="top: 32%; right: 45%; animation: twinkle 3.5s ease-in-out 3s infinite;">✦</span>
+	<span class="text-secondary/40 text-sm absolute" style="top: 42%; left: 92%; animation: drift 5.5s ease-in-out infinite;">★</span>
+	<span class="text-secondary/35 text-[10px] absolute" style="top: 52%; right: 25%; animation: twinkle 6s ease-in-out 0.4s infinite;">✦</span>
+	<span class="text-secondary/45 text-xs absolute" style="top: 62%; left: 55%; animation: twinkle 4.5s ease-in-out 2.2s infinite;">◆</span>
+	<span class="text-secondary/40 text-xs absolute" style="top: 72%; right: 40%; animation: drift 7s ease-in-out 1s infinite;">★</span>
+	<span class="text-secondary/35 text-sm absolute" style="top: 82%; left: 70%; animation: twinkle 5s ease-in-out 0.9s infinite;">✦</span>
+	<span class="text-secondary/45 text-[10px] absolute" style="top: 90%; right: 55%; animation: twinkle 3.5s ease-in-out 1.8s infinite;">★</span>
 	<!-- Mixed accents deeper in -->
-	<span class="text-success-neon/8 text-lg absolute" style="top: 18%; left: 30%; animation: drift 8s ease-in-out 1s infinite;">★</span>
-	<span class="text-secondary/8 text-lg absolute" style="top: 48%; right: 20%; animation: drift 9s ease-in-out 2s infinite;">✦</span>
-	<span class="text-success-neon/12 text-xs absolute" style="top: 58%; left: 25%; animation: twinkle 6s ease-in-out 3.5s infinite;">+</span>
-	<span class="text-secondary/12 text-xs absolute" style="top: 38%; left: 60%; animation: twinkle 5s ease-in-out 0.2s infinite;">+</span>
-	<span class="text-success-neon/8 text-sm absolute" style="top: 78%; right: 30%; animation: drift 7s ease-in-out 4s infinite;">◆</span>
-	<span class="text-secondary/8 text-sm absolute" style="top: 95%; left: 40%; animation: twinkle 4.5s ease-in-out 1.3s infinite;">✦</span>
+	<span class="text-success-neon/30 text-lg absolute" style="top: 18%; left: 30%; animation: drift 8s ease-in-out 1s infinite;">★</span>
+	<span class="text-secondary/30 text-lg absolute" style="top: 48%; right: 20%; animation: drift 9s ease-in-out 2s infinite;">✦</span>
+	<span class="text-success-neon/35 text-xs absolute" style="top: 58%; left: 25%; animation: twinkle 6s ease-in-out 3.5s infinite;">+</span>
+	<span class="text-secondary/35 text-xs absolute" style="top: 38%; left: 60%; animation: twinkle 5s ease-in-out 0.2s infinite;">+</span>
+	<span class="text-success-neon/30 text-sm absolute" style="top: 78%; right: 30%; animation: drift 7s ease-in-out 4s infinite;">◆</span>
+	<span class="text-secondary/30 text-sm absolute" style="top: 95%; left: 40%; animation: twinkle 4.5s ease-in-out 1.3s infinite;">✦</span>
 </div>
 <div class:party-wiggle={partyMode} class:party-hue={partyMode}>
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
