@@ -198,7 +198,7 @@
 		<div class="space-y-4">
 			<h1
 				use:inview
-				class="animate-in font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter leading-none text-on-surface dark:text-background" 
+				class="animate-in gentle-float font-headline font-black text-5xl sm:text-7xl md:text-9xl tracking-tighter leading-none text-on-surface dark:text-background" 
 			>
 				wisp
 			</h1>
@@ -259,7 +259,7 @@
 			class="flex items-center gap-3 bg-surface-container dark:bg-dark-container border-4 border-on-surface dark:border-background px-4 py-3 hard-shadow rounded-full"
 		>
 			<span
-				class="material-symbols-outlined text-primary text-3xl" role="img" aria-label="Scale icon"
+				class="material-symbols-outlined text-primary text-3xl animate-wiggle" role="img" aria-label="Scale icon"
 				style="font-variation-settings: 'FILL' 1;">scale</span
 			>
 			<p
@@ -276,7 +276,7 @@
 			<h2
 				class="font-headline font-black text-3xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				What People Have Made
+				What People Have Made ✨
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -371,10 +371,10 @@
 			class="animate-marquee font-headline font-black text-4xl md:text-5xl italic tracking-tighter flex"
 			style="width: max-content; white-space: nowrap; gap: 3rem;"
 		>
-			<span>Design • Build • Share • </span>
-			<span>Design • Build • Share • </span>
-			<span aria-hidden="true">Design • Build • Share • </span>
-			<span aria-hidden="true">Design • Build • Share • </span>
+			<span>Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
+			<span>Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
+			<span aria-hidden="true">Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
+			<span aria-hidden="true">Design ✏️ Build 🔧 Share 🚀 Repeat 🔄 </span>
 		</div>
 	</section>
 
@@ -384,7 +384,7 @@
 			<h2
 				class="font-headline font-black text-5xl tracking-tighter leading-none mb-4 text-on-surface dark:text-background"
 			>
-				Rewards
+				Rewards 🎁
 			</h2>
 			<p class="font-body text-xl font-bold text-on-surface dark:text-background">
 				We'll cover your build costs and send you bonus rewards when your project is approved.
@@ -400,7 +400,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					1 Approved Ship
+					1 Approved Ship 🚢
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -432,7 +432,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					2 Approved Ships
+					2 Approved Ships ⚓
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -464,7 +464,7 @@
 				<div
 					class="bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl px-4 py-2 italic tracking-tighter"
 				>
-					4 Approved Ships
+					4 Approved Ships 🏆
 				</div>
 				<div class="p-6 space-y-4 flex-1">
 					<div>
@@ -496,7 +496,7 @@
 			<h2
 				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				How It Works
+				How It Works 🛠️
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -512,7 +512,7 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Design Your Project
+					Design Your Project ✏️
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					For prints, keep it under 25g. For hardware, go as small as you can with your idea.
@@ -529,7 +529,7 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Document Your Work
+					Document Your Work 📝
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					Write a JOURNAL.md in your GitHub repo documenting your process.
@@ -546,7 +546,7 @@
 				<h4
 					class="font-headline font-black text-xl mt-4 text-on-surface dark:text-background"
 				>
-					Build It
+					Build It 🔨
 				</h4>
 				<p class="font-body font-bold text-lg mt-4 text-on-surface-variant dark:text-background/70">
 					Print, solder, or assemble — whatever your project needs. Don't have a printer? Check out #printing-legion on Slack.
@@ -560,7 +560,7 @@
 					class="absolute -top-4 -left-4 w-12 h-12 bg-on-surface dark:bg-background text-surface dark:text-on-surface font-headline font-black text-2xl flex items-center justify-center rounded-full"
 					>04</span
 				>
-				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project</h4>
+				<h4 class="font-headline font-black text-xl mt-4">Ship Your Project 🚀</h4>
 				<p class="font-body font-bold text-lg mt-4">
 					Submit your project for review. Once it's approved, we'll send your rewards!
 				</p>
@@ -575,7 +575,7 @@
 			<h2
 				class="font-headline font-black text-4xl tracking-tighter shrink-0 text-on-surface dark:text-background"
 			>
-				FAQ
+				FAQ 💬
 			</h2>
 			<div class="h-1 bg-on-surface dark:bg-background flex-grow"></div>
 		</div>
@@ -730,8 +730,11 @@
 			<h2
 				class="font-headline font-black text-4xl md:text-5xl lg:text-7xl text-surface dark:text-on-surface leading-none tracking-tighter"
 			>
-				Let's Build Something
+				Let's Build Something Tiny ⚡
 			</h2>
+			<p class="font-body font-bold text-xl text-surface/70 dark:text-on-surface/70">
+				Your next great idea might weigh less than a pencil. ✏️
+			</p>
 			<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
 				<a
 					href="{base}/submission"
