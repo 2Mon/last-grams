@@ -108,6 +108,13 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+/* Smooth dark mode transition */
+@layer base {
+  body {
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  }
+}
+
 /* Konami party mode */
 @keyframes party-fall {
   0% { top: -10%; opacity: 1; transform: rotate(0deg) scale(1); }

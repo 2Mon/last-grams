@@ -6,7 +6,6 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
-	let dotBg: HTMLDivElement;
 	let sparkleField: HTMLDivElement;
 	let darkMode = $state(false);
 
@@ -25,7 +24,6 @@
 		}
 
 		const handleScroll = (): void => {
-			dotBg.style.transform = `translateY(${window.scrollY * -0.3}px)`;
 			if (sparkleField) sparkleField.style.transform = `translateY(${window.scrollY * -0.15}px)`;
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
@@ -42,8 +40,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </svelte:head>
 
-<div class="isolate {darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
-<div class="dot-bg" bind:this={dotBg}></div>
+<div class="isolate {darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim transition-colors duration-500 ease-in-out">
+<div class="dot-bg"></div>
 
 <div bind:this={sparkleField} class="fixed inset-0 pointer-events-none select-none overflow-hidden" style="z-index: -1; will-change: transform;" aria-hidden="true">
 <!-- Full-page sparkle field -->
@@ -108,7 +106,7 @@
 
 <!-- Nav -->
 <nav
-	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background"
+	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background transition-colors duration-500"
 >
 	<div
 		class="text-2xl font-headline font-black italic tracking-tighter text-on-surface dark:text-background"
@@ -158,7 +156,7 @@
 
 <!-- Footer -->
 <footer
-	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background"
+	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background transition-colors duration-500"
 >
 	<div
 		class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex items-center justify-center"
@@ -186,12 +184,13 @@
 <style>
 	.dot-bg {
 		position: fixed;
-		inset: -30%;
+		inset: 0;
 		z-index: -1;
 		opacity: 0.2;
 		pointer-events: none;
 		background-image: radial-gradient(#344680 1.5px, transparent 1.5px);
 		background-size: 28px 28px;
+		transition: opacity 0.3s ease-in-out;
 	}
 
 	:global(.dark) .dot-bg {
