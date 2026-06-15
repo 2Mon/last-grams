@@ -31,7 +31,7 @@
 		})();
 	}
 
-	// Easter egg: Konami code → everything shrinks to 25g size
+	// Easter egg: Konami code → falling emojis
 	let konamiProgress = $state(0);
 
 	let partyMode = $state(false);
@@ -278,7 +278,7 @@
 			style="overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
 		>
 			<div
-				class="flex gap-6 animate-marquee-slow cursor-grab active:cursor-grabbing py-4"
+				class="flex gap-6 py-4 animate-marquee-slow cursor-grab active:cursor-grabbing"
 				style="width: max-content"
 				onmouseenter={(e) => {
 					const anims = e.currentTarget.getAnimations();
@@ -680,7 +680,7 @@
 			<h3
 				class="flex gap-4 text-2xl font-black font-headline text-on-surface dark:text-background"
 			>
-				<span class="text-primary">Q:</span> How Do I Prove My Weight?
+				<span class="text-primary">Q:</span> How Do I Prove My Project Is Under 25g?
 			</h3>
 			<div class="pl-10 mt-4 border-l-4 border-primary">
 				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
@@ -777,9 +777,6 @@
 		<div class="absolute top-1/3 right-6 font-label text-[11px] text-surface/10 dark:text-on-surface/10 rotate-[25deg] select-none" style="animation: float-scale 7s ease-in-out 1.5s infinite;">4.7g</div>
 
 		<div class="relative z-10 space-y-8">
-			<p class="font-label font-bold text-sm tracking-[0.25em] uppercase text-surface/40 dark:text-on-surface/40">
-				Under 25 grams. Unlimited potential.
-			</p>
 			<h2 class="font-headline font-black text-5xl md:text-7xl lg:text-[8rem] text-surface dark:text-on-surface leading-[0.8] tracking-tighter">
 				What will<br/>
 				<span class="inline-block" style="animation: gentle-float 3s ease-in-out infinite;">you</span>
