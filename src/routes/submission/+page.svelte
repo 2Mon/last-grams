@@ -64,8 +64,9 @@
 
   <!-- Header -->
   <header class="space-y-6">
-    <div class="inline-block bg-success-neon dark:bg-success-neon border-4 border-on-surface px-4 py-2 hard-shadow rotate-[-1deg] rounded-full">
-      <p class="text-xs font-bold uppercase font-label text-on-surface">Ready to Ship?</p>
+    <div class="inline-flex items-center gap-3 rotate-[-1deg]">
+      <span class="w-8 h-1.5 rounded-full bg-success-neon"></span>
+      <p class="text-xs font-black uppercase tracking-widest font-label text-on-surface dark:text-background">Ready to Ship?</p>
     </div>
     <h1 class="text-6xl font-black leading-none tracking-tighter font-headline md:text-8xl dark:text-background">
       Submission<br/><span class="italic text-primary">Guidelines</span>

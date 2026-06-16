@@ -49,6 +49,35 @@
 		})();
 	}
 
+	// Easter egg: click the "wisp" title 3x for a celebration
+	let wispClicks = $state(0);
+	let wispCelebrate = $state(false);
+	let wispResetTimer: ReturnType<typeof setTimeout>;
+
+	function pokeWisp(e: MouseEvent) {
+		const colors = ['#D44D2C', '#DEAF36', '#389C47', '#344680', '#E5CFC9'];
+		wispClicks++;
+		clearTimeout(wispResetTimer);
+		wispResetTimer = setTimeout(() => (wispClicks = 0), 1500);
+
+		// little puff on every click
+		confetti({
+			particleCount: 30,
+			spread: 70,
+			startVelocity: 22,
+			origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+			colors
+		});
+
+		if (wispClicks >= 3) {
+			wispClicks = 0;
+			confetti({ particleCount: 180, spread: 160, origin: { y: 0.35 }, colors });
+			spawnPartyEmojis();
+			wispCelebrate = true;
+			setTimeout(() => (wispCelebrate = false), 700);
+		}
+	}
+
 	// Easter egg: Konami code → falling emojis
 	let konamiProgress = $state(0);
 
@@ -221,7 +250,7 @@
 <svelte:window onkeydown={handleKonami} />
 
 
-{#if partyMode}
+{#if partyMode || partyEmojis.length}
 	<div class="fixed inset-0 z-[9998] pointer-events-none overflow-hidden">
 		{#each partyEmojis as e (e.id)}
 			<span
@@ -239,11 +268,14 @@
 	<!-- Hero -->
 	<section class="flex flex-col items-center py-12 space-y-8 text-center">
 		<div class="space-y-4">
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 			<h1
 				use:inview
-				class="text-5xl font-black leading-none tracking-tighter animate-in gentle-float font-headline sm:text-7xl md:text-9xl text-on-surface dark:text-background group cursor-default select-none"
+				onclick={pokeWisp}
+				class="text-5xl font-black leading-none tracking-tighter animate-in gentle-float font-headline sm:text-7xl md:text-9xl text-on-surface dark:text-background group cursor-pointer select-none {wispCelebrate ? 'wisp-celebrate' : ''}"
 			>
-				<span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:-translate-x-3 group-hover:-translate-y-4 group-hover:-rotate-12 group-hover:text-secondary group-hover:[-webkit-text-stroke:10px_#344680]">w</span><span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:translate-y-3 group-hover:rotate-[8deg] group-hover:text-success-neon group-hover:[-webkit-text-stroke:10px_#344680]">i</span><span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:-translate-y-3 group-hover:-rotate-6 group-hover:text-primary group-hover:[-webkit-text-stroke:10px_#344680]">s</span><span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:translate-x-3 group-hover:-translate-y-2 group-hover:rotate-[14deg] group-hover:text-secondary group-hover:[-webkit-text-stroke:10px_#344680]">p</span>
+				<span class="inline-block [paint-order:stroke] transition-all duration-300 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:drop-shadow-[5px_5px_0px_rgba(52,70,128,0.25)] group-hover:-translate-x-3 group-hover:-translate-y-4 group-hover:-rotate-12 group-hover:text-secondary group-hover:[-webkit-text-stroke:10px_#344680]">w</span><span class="inline-block [paint-order:stroke] transition-all duration-300 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:drop-shadow-[5px_5px_0px_rgba(52,70,128,0.25)] group-hover:translate-y-3 group-hover:rotate-[8deg] group-hover:text-success-neon group-hover:[-webkit-text-stroke:10px_#344680]">i</span><span class="inline-block [paint-order:stroke] transition-all duration-300 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:drop-shadow-[5px_5px_0px_rgba(52,70,128,0.25)] group-hover:-translate-y-3 group-hover:-rotate-6 group-hover:text-primary group-hover:[-webkit-text-stroke:10px_#344680]">s</span><span class="inline-block [paint-order:stroke] transition-all duration-300 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:drop-shadow-[5px_5px_0px_rgba(52,70,128,0.25)] group-hover:translate-x-3 group-hover:-translate-y-2 group-hover:rotate-[14deg] group-hover:text-secondary group-hover:[-webkit-text-stroke:10px_#344680]">p</span>
 			</h1>
 			<p
 				use:inview

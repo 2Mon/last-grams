@@ -205,6 +205,19 @@
 	display: inline-block;
 }
 
+/* Whimsy: wisp title celebration wobble (click 3x) */
+@keyframes wisp-celebrate {
+	0% { transform: scale(1) rotate(0deg); }
+	25% { transform: scale(1.15) rotate(-3deg); }
+	50% { transform: scale(0.94) rotate(3deg); }
+	75% { transform: scale(1.08) rotate(-2deg); }
+	100% { transform: scale(1) rotate(0deg); }
+}
+
+.wisp-celebrate {
+	animation: wisp-celebrate 0.7s ease-in-out;
+}
+
 /* Whimsy: toast rocks back and forth */
 @keyframes toast-rock {
 	0%, 100% { transform: rotate(-4deg); }

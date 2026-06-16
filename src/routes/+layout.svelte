@@ -83,7 +83,7 @@
 	href="https://hackclub.com/"
 	target="_blank"
 	rel="noopener noreferrer"
-	class="fixed top-24 left-0 z-[60] transition-transform hover:translate-x-1"
+	class="fixed top-24 left-0 z-[60] transition-transform hover:translate-x-1 {menuOpen ? 'hidden' : ''}"
 	aria-label="Hack Club"
 >
 	<img
@@ -186,7 +186,7 @@
 	<div class="flex items-center gap-4">
 		<button
 			onclick={() => (reduceMotion = !reduceMotion)}
-			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
+			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-lg"
 			aria-label="Reduce animations"
 			aria-pressed={reduceMotion}
 			title={reduceMotion ? 'Animations off' : 'Reduce animations'}
@@ -197,7 +197,7 @@
 		</button>
 		<button
 			onclick={() => (darkMode = !darkMode)}
-			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
+			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-lg"
 			aria-label="Toggle dark mode"
 		>
 			<span class="material-symbols-outlined text-xl">
@@ -205,14 +205,14 @@
 			</span>
 		</button>
 		<a
-			class="hidden sm:inline-block bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
+			class="hidden sm:inline-block bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-lg"
 			href="{base}/submission"
 		>
 			Submit
 		</a>
 		<button
 			onclick={() => (menuOpen = !menuOpen)}
-			class="md:hidden w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
+			class="md:hidden w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-lg"
 			aria-label="Toggle menu"
 			aria-expanded={menuOpen}
 		>
