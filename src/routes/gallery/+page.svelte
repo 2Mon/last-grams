@@ -1,6 +1,6 @@
 <script lang="ts">
     import { base } from '$app/paths';
-    import { tilt } from '$lib';
+    import { tilt, notOpenYet } from '$lib';
     interface Creation {
         title: string;
         id: string;
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="flex flex-col gap-4 shrink-0">
-                <a href="https://forms.hackclub.com" target="_blank" rel="noopener noreferrer" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center rounded-xl">
+                <a href="https://forms.hackclub.com" onclick={notOpenYet} target="_blank" rel="noopener noreferrer" class="bg-on-surface text-surface px-10 py-6 font-headline font-black text-2xl tracking-tighter border-4 border-on-surface dark:border-background hover:translate-x-1 hover:translate-y-1 hover:bg-primary transition-all active:translate-x-2 active:translate-y-2 hard-shadow inline-block text-center rounded-xl">
                     Share Your Project
                 </a>
                 <a class="font-label font-bold text-sm text-center text-on-primary-container dark:text-background underline decoration-2 underline-offset-4" href="{base}/submission">View Guidelines</a>

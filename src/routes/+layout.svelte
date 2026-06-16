@@ -4,10 +4,34 @@
 	import { page } from '$app/state';
 	import '../layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import { toastMessage } from '$lib';
+	import { backOut, cubicIn } from 'svelte/easing';
+	import { slide } from 'svelte/transition';
+
+	function popIn(_node: HTMLElement, { duration = 500 } = {}) {
+		return {
+			duration,
+			easing: backOut,
+			css: (t: number) =>
+				`transform: translateY(${(1 - t) * 40}px) scale(${0.7 + t * 0.3}); opacity: ${t};`
+		};
+	}
+
+	function shootUp(_node: HTMLElement, { duration = 550 } = {}) {
+		const dist = typeof window !== 'undefined' ? window.innerHeight + 100 : 900;
+		return {
+			duration,
+			easing: cubicIn,
+			css: (t: number, u: number) =>
+				`transform: translateY(${-u * dist}px) scale(${0.5 + t * 0.5}); opacity: ${t};`
+		};
+	}
 
 	let { children } = $props();
 	let sparkleField: HTMLDivElement;
 	let darkMode = $state(false);
+	let reduceMotion = $state(false);
+	let menuOpen = $state(false);
 
 	const isActive = (path: string) => {
 		const current = page.url.pathname.replace(/\/$/, '') || '/';
@@ -23,6 +47,13 @@
 			darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		}
 
+		const storedMotion = localStorage.getItem('reduceMotion');
+		if (storedMotion !== null) {
+			reduceMotion = storedMotion === 'true';
+		} else {
+			reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		}
+
 		const handleScroll = (): void => {
 			if (sparkleField) sparkleField.style.transform = `translateY(${window.scrollY * -0.15}px)`;
 		};
@@ -33,6 +64,10 @@
 	$effect(() => {
 		localStorage.setItem('darkMode', String(darkMode));
 	});
+
+	$effect(() => {
+		localStorage.setItem('reduceMotion', String(reduceMotion));
+	});
 </script>
 
 <svelte:head>
@@ -40,8 +75,23 @@
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </svelte:head>
 
-<div class="isolate {darkMode ? 'dark' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
+<div class="isolate {darkMode ? 'dark' : ''} {reduceMotion ? 'reduce-motion' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
 <div class="dot-bg"></div>
+
+<!-- Hack Club flag -->
+<a
+	href="https://hackclub.com/"
+	target="_blank"
+	rel="noopener noreferrer"
+	class="fixed top-24 left-0 z-[60] transition-transform hover:translate-x-1"
+	aria-label="Hack Club"
+>
+	<img
+		src="https://assets.hackclub.com/flag-orpheus-left.svg"
+		alt="Hack Club"
+		class="w-24 md:w-32 drop-shadow-md"
+	/>
+</a>
 
 <div bind:this={sparkleField} class="fixed inset-0 pointer-events-none select-none overflow-hidden" style="z-index: -1; will-change: transform;" aria-hidden="true">
 <!-- Full-page sparkle field -->
@@ -106,7 +156,7 @@
 
 <!-- Nav -->
 <nav
-	class="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background"
+	class="sticky top-0 z-50 relative flex justify-between items-center px-6 py-4 bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background"
 >
 	<div
 		class="text-2xl font-headline font-black italic tracking-tighter text-on-surface dark:text-background"
@@ -135,6 +185,17 @@
 	</div>
 	<div class="flex items-center gap-4">
 		<button
+			onclick={() => (reduceMotion = !reduceMotion)}
+			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
+			aria-label="Reduce animations"
+			aria-pressed={reduceMotion}
+			title={reduceMotion ? 'Animations off' : 'Reduce animations'}
+		>
+			<span class="material-symbols-outlined text-lg">
+				{reduceMotion ? 'motion_photos_off' : 'motion_photos_on'}
+			</span>
+		</button>
+		<button
 			onclick={() => (darkMode = !darkMode)}
 			class="w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
 			aria-label="Toggle dark mode"
@@ -144,38 +205,84 @@
 			</span>
 		</button>
 		<a
-			class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
+			class="hidden sm:inline-block bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-2 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all rounded-xl"
 			href="{base}/submission"
 		>
 			Submit
 		</a>
+		<button
+			onclick={() => (menuOpen = !menuOpen)}
+			class="md:hidden w-10 h-10 flex items-center justify-center border-4 border-on-surface dark:border-background text-on-surface dark:text-background hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors rounded-xl"
+			aria-label="Toggle menu"
+			aria-expanded={menuOpen}
+		>
+			<span class="material-symbols-outlined text-xl">
+				{menuOpen ? 'close' : 'menu'}
+			</span>
+		</button>
 	</div>
+
+	<!-- Mobile menu -->
+	{#if menuOpen}
+		<div
+			transition:slide
+			class="md:hidden absolute top-full left-0 right-0 flex flex-col bg-background dark:bg-dark-surface-dim border-b-4 border-on-surface dark:border-background"
+		>
+			{#each [{ path: '/', label: 'Home' }, { path: '/gallery', label: 'Gallery' }, { path: '/submission', label: 'Guidelines' }] as link}
+				<a
+					href="{base}{link.path}"
+					onclick={() => (menuOpen = false)}
+					class="px-6 py-4 font-label font-bold text-base border-t-4 border-on-surface/10 dark:border-background/10 {isActive(link.path)
+						? 'text-primary bg-surface-container dark:bg-dark-container'
+						: 'text-on-background dark:text-background'} hover:bg-surface-container dark:hover:bg-dark-container-high transition-colors"
+				>
+					{link.label}
+				</a>
+			{/each}
+		</div>
+	{/if}
 </nav>
 
 {@render children()}
 
+<!-- Toast -->
+{#if $toastMessage}
+	<div class="fixed bottom-6 left-0 right-0 z-[70] flex justify-center px-4 pointer-events-none">
+		<div in:popIn out:shootUp>
+			<div
+				class="toast-rock bg-surface-container-lowest dark:bg-dark-container text-on-surface dark:text-background font-headline font-black tracking-tight px-5 py-4 border-4 border-on-surface dark:border-background hard-shadow rounded-2xl max-w-[90vw] text-center"
+				role="status"
+			>
+				{$toastMessage}
+			</div>
+		</div>
+	</div>
+{/if}
+
 <!-- Footer -->
 <footer
-	class="w-full grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4 bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background"
+	class="w-full bg-primary dark:bg-on-surface border-t-4 border-on-surface dark:border-background"
 >
-	<div
-		class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex items-center justify-center"
-	>
-		Built by 1Mon for Hack Club 2026
-	</div>
-	<div class="flex justify-center gap-6 h-full items-center">
-		<a
-			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
-			href="https://github.com/2Mon/wisp"
-			target="_blank"
-			rel="noopener noreferrer">GitHub</a
+	<div class="grid grid-cols-1 md:grid-cols-2 items-center text-center p-4 md:p-8 gap-4">
+		<div
+			class="font-label font-bold text-sm text-on-primary md:border-r-4 border-on-surface dark:border-background h-full flex flex-wrap items-center justify-center gap-3"
 		>
-		<a
-			class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
-			href="https://hackclub.com"
-			target="_blank"
-			rel="noopener noreferrer">Hack Club HQ</a
-		>
+			Built by 1Mon for Hack Club 2026
+		</div>
+		<div class="flex justify-center gap-6 h-full items-center">
+			<a
+				class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
+				href="https://github.com/2Mon/wisp"
+				target="_blank"
+				rel="noopener noreferrer">GitHub</a
+			>
+			<a
+				class="font-label font-bold text-sm text-on-primary hover:bg-on-surface hover:text-surface dark:hover:bg-background dark:hover:text-on-surface transition-colors p-2 rounded-lg"
+				href="https://hackclub.com"
+				target="_blank"
+				rel="noopener noreferrer">Hack Club HQ</a
+			>
+		</div>
 	</div>
 </footer>
 </div>

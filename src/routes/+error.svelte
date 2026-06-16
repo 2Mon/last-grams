@@ -6,8 +6,10 @@
 <main
 	class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 py-16 space-y-8"
 >
-	<div class="text-8xl sm:text-9xl" style="animation: float-scale 3s ease-in-out infinite;">
-		404
+	<div
+		class="font-headline font-black text-8xl sm:text-9xl text-primary tracking-tighter gentle-float"
+	>
+		{page.status ?? 404}
 	</div>
 
 	<div class="space-y-3">

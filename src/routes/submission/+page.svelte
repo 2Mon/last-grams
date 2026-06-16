@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tilt } from '$lib';
+  import { tilt, notOpenYet } from '$lib';
   interface Requirement {
     number: string;
     title: string;
@@ -152,7 +152,7 @@
   <div class="space-y-4 text-center">
     <p class="text-lg font-bold font-body text-on-surface-variant dark:text-background/70">
       Got everything? Submit your project on the
-      <a href="https://forms.hackclub.com" target="_blank" class="px-1 underline transition-colors rounded text-primary decoration-4 underline-offset-4 hover:bg-primary hover:text-on-primary">Submission Form</a>.
+      <a href="https://forms.hackclub.com" onclick={notOpenYet} target="_blank" class="px-1 underline transition-colors rounded text-primary decoration-4 underline-offset-4 hover:bg-primary hover:text-on-primary">Submission Form</a>.
     </p>
   </div>
 

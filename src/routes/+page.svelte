@@ -1,8 +1,26 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { inview, tilt } from '$lib';
+	import { onMount } from 'svelte';
+	import { inview, tilt, notOpenYet } from '$lib';
 	import confetti from 'canvas-confetti';
-	const gramsUsed = 142; // TODO: make dynamic
+	const launchDate = new Date('2026-06-22T10:00:00-05:00');
+
+	function getTimeLeft() {
+		const diff = launchDate.getTime() - Date.now();
+		if (diff <= 0) return null;
+		return {
+			days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+			hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+			minutes: Math.floor((diff / (1000 * 60)) % 60),
+			seconds: Math.floor((diff / 1000) % 60),
+		};
+	}
+
+	let timeLeft = $state(getTimeLeft());
+	$effect(() => {
+		const id = setInterval(() => { timeLeft = getTimeLeft(); }, 1000);
+		return () => clearInterval(id);
+	});
 
 	let email = $state('');
 	let emailStatus = $state<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -87,8 +105,38 @@
 		}
 	}
 
+	onMount(() => {
+		if (localStorage.getItem('rsvped') === 'true') {
+			emailStatus = 'success';
+		}
+	});
+
+	// Easter egg: poke the countdown label 5x to make it explode
+	let labelClicks = $state(0);
+	let labelExploded = $state(false);
+
+	function pokeLabel(e: MouseEvent) {
+		if (labelExploded) return;
+		labelClicks++;
+		if (labelClicks >= 5) {
+			labelExploded = true;
+			const colors = ['#D44D2C', '#DEAF36', '#389C47', '#344680', '#E5CFC9'];
+			confetti({
+				particleCount: 70,
+				spread: 360,
+				startVelocity: 28,
+				origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+				colors
+			});
+			setTimeout(() => {
+				labelExploded = false;
+				labelClicks = 0;
+			}, 900);
+		}
+	}
+
 	async function subscribe() {
-		if (!email) return;
+		if (!email || emailStatus === 'loading' || emailStatus === 'success') return;
 		emailStatus = 'loading';
 		try {
 			const res = await fetch(`${base}/api/subscribe`, {
@@ -100,6 +148,7 @@
 			if (res.ok) {
 				emailStatus = 'success';
 				email = '';
+				localStorage.setItem('rsvped', 'true');
 				fireConfetti();
 			} else {
 				emailStatus = 'error';
@@ -165,7 +214,7 @@
 </script>
 
 <svelte:head>
-	<title>Wisp — A Hack Club YSWS</title>
+	<title>Wisp</title>
 	<meta name="description" content="Design and 3D-print something under 25 grams. Ship it, earn rewards. A Hack Club You Ship We Ship project." />
 </svelte:head>
 
@@ -192,9 +241,9 @@
 		<div class="space-y-4">
 			<h1
 				use:inview
-				class="text-5xl font-black leading-none tracking-tighter animate-in gentle-float font-headline sm:text-7xl md:text-9xl text-on-surface dark:text-background" 
+				class="text-5xl font-black leading-none tracking-tighter animate-in gentle-float font-headline sm:text-7xl md:text-9xl text-on-surface dark:text-background group cursor-default select-none"
 			>
-				wisp
+				<span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:-translate-x-3 group-hover:-translate-y-4 group-hover:-rotate-12 group-hover:text-secondary group-hover:[-webkit-text-stroke:10px_#344680]">w</span><span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:translate-y-3 group-hover:rotate-[8deg] group-hover:text-success-neon group-hover:[-webkit-text-stroke:10px_#344680]">i</span><span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:-translate-y-3 group-hover:-rotate-6 group-hover:text-primary group-hover:[-webkit-text-stroke:10px_#344680]">s</span><span class="inline-block [paint-order:stroke] transition-all duration-300 ease-out group-hover:translate-x-3 group-hover:-translate-y-2 group-hover:rotate-[14deg] group-hover:text-secondary group-hover:[-webkit-text-stroke:10px_#344680]">p</span>
 			</h1>
 			<p
 				use:inview
@@ -213,6 +262,7 @@
 			<a
 				class="text-sm font-bold underline transition-colors font-label text-on-surface dark:text-background decoration-2 underline-offset-4 hover:text-primary"
 				href="https://forms.hackclub.com"
+				onclick={notOpenYet}
 				target="_blank" rel="noopener noreferrer">Submit a Project →</a
 			>
 		</div>
@@ -221,7 +271,7 @@
 		<div class="w-full max-w-md h-[58px] relative">
 			{#if emailStatus === 'success'}
 				<div class="absolute inset-0 flex items-center justify-center">
-					<p class="text-sm font-bold text-center uppercase font-label text-primary">We'll be in touch!</p>
+					<p class="text-sm font-bold text-center uppercase font-label text-primary">You're in! See you at launch.</p>
 				</div>
 			{:else}
 				<form
@@ -240,7 +290,7 @@
 						disabled={emailStatus === 'loading'}
 						class="bg-primary text-on-primary border-4 border-on-surface dark:border-background px-6 py-3 font-headline font-black tracking-tighter hard-shadow active-press hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all disabled:opacity-50 whitespace-nowrap rounded-r-xl"
 					>
-						{emailStatus === 'loading' ? '...' : 'Notify Me'}
+						{emailStatus === 'loading' ? '...' : 'RSVP Now'}
 					</button>
 				</form>
 				{#if emailStatus === 'error'}
@@ -249,19 +299,23 @@
 			{/if}
 		</div>
 
-		<div
-			class="flex items-center gap-3 px-4 py-3 border-4 rounded-full bg-surface-container dark:bg-dark-container border-on-surface dark:border-background hard-shadow"
-		>
-			<span
-				class="text-3xl material-symbols-outlined text-primary animate-wiggle" role="img" aria-label="Scale icon"
-				style="font-variation-settings: 'FILL' 1;">scale</span
-			>
-			<p
-				class="text-2xl font-black leading-none font-headline text-on-surface dark:text-background"
-			>
-				{gramsUsed}g Shipped
-			</p>
-		</div>
+		{#if timeLeft}
+			<div class="flex flex-col items-center gap-1 px-6 py-3 border-4 rounded-2xl bg-surface-container dark:bg-dark-container border-on-surface dark:border-background hard-shadow rotate-[-1.5deg]">
+				<button
+					type="button"
+					onclick={pokeLabel}
+					class="text-xs font-black uppercase tracking-widest font-label text-primary cursor-pointer {labelExploded ? 'explode-out' : 'soft-bob'}"
+				>launching in...</button>
+				<p class="text-2xl font-black leading-none font-headline text-on-surface dark:text-background tabular-nums">
+					{timeLeft.days}d {String(timeLeft.hours).padStart(2, '0')}h {String(timeLeft.minutes).padStart(2, '0')}m {#key timeLeft.seconds}<span class="tick-pop">{String(timeLeft.seconds).padStart(2, '0')}</span>{/key}s
+				</p>
+			</div>
+		{:else}
+			<div class="flex items-center gap-3 px-5 py-3 border-4 rounded-full bg-success-neon border-on-surface hard-shadow">
+				<span class="w-3 h-3 rounded-full bg-on-surface animate-pulse"></span>
+				<p class="text-2xl font-black leading-none font-headline text-on-surface">Submissions Open</p>
+			</div>
+		{/if}
 	</section>
 
 	<!-- Marquee -->
@@ -799,6 +853,7 @@
 				<span class="hidden font-label text-surface/30 dark:text-on-surface/30 sm:block">or</span>
 				<a
 					href="https://forms.hackclub.com"
+					onclick={notOpenYet}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-sm font-bold underline transition-all font-label text-surface/60 dark:text-on-surface/60 decoration-2 decoration-primary/40 underline-offset-4 hover:text-primary hover:decoration-primary"

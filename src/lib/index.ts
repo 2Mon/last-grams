@@ -1,5 +1,21 @@
 // place files you want to import through the `$lib` alias in this folder.
 
+import { writable } from 'svelte/store';
+
+export const toastMessage = writable<string | null>(null);
+let toastTimer: ReturnType<typeof setTimeout>;
+
+export function showToast(message: string, duration = 3000) {
+	toastMessage.set(message);
+	clearTimeout(toastTimer);
+	toastTimer = setTimeout(() => toastMessage.set(null), duration);
+}
+
+export function notOpenYet(e: Event) {
+	e.preventDefault();
+	showToast("Submissions aren't open yet — see you at launch!");
+}
+
 export function inview(node: HTMLElement) {
 	const observer = new IntersectionObserver(
 		([entry]) => {
