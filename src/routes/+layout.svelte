@@ -73,6 +73,29 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+	<!-- Open Graph / social defaults (pages may override title & description) -->
+	<meta property="og:site_name" content="Wisp" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Wisp — design something under 25 grams" />
+	<meta
+		property="og:description"
+		content="A Hack Club You Ship, We Ship program. Design a 3D print or tiny hardware project under 25g, ship it, earn rewards."
+	/>
+	<meta property="og:url" content="https://wisp.hackclub.com/" />
+	<meta property="og:image" content="https://wisp.hackclub.com/og-image.png" />
+	<meta property="og:image:width" content="1242" />
+	<meta property="og:image:height" content="678" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Wisp — design something under 25 grams" />
+	<meta
+		name="twitter:description"
+		content="A Hack Club You Ship, We Ship program. Design a 3D print or tiny hardware project under 25g, ship it, earn rewards."
+	/>
+	<meta name="twitter:image" content="https://wisp.hackclub.com/og-image.png" />
+
+	<meta name="theme-color" content="#D44D2C" />
 </svelte:head>
 
 <div class="isolate {darkMode ? 'dark' : ''} {reduceMotion ? 'reduce-motion' : ''} min-h-screen bg-background dark:bg-dark-surface-dim">
