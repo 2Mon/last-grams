@@ -2,17 +2,17 @@ You are an experienced, pragmatic software engineering AI agent. Do not over-eng
 
 # Last Grams
 
-A Hack Club YSWS (You Ship, We Ship) website where users submit 3D-printable designs under 25 grams to earn rewards. Static site deployed to GitHub Pages.
+A Hack Club YSWS (You Ship, We Ship) website where users submit 3D-printable designs under 25 grams to earn rewards. Deployed via GitHub Pages (CI) and also Dockerized for Node server hosting.
 
 ## Technology
 
 - **Framework**: SvelteKit 2 with Svelte 5 (runes mode enabled)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4 (via Vite plugin, not PostCSS)
-- **Build**: Vite 7, static adapter (`@sveltejs/adapter-static`) → output in `build/`
+- **Build**: Vite 7, Node adapter (`@sveltejs/adapter-node`) → output in `build/`
 - **Package manager**: npm (bun.lock also present; CI uses npm)
 - **Formatting**: Prettier with `prettier-plugin-svelte`
-- **Deployment**: GitHub Pages via `.github/workflows/static.yml` on `master` branch
+- **Deployment**: GitHub Pages via `.github/workflows/static.yml` on `master` branch; also a `Dockerfile` that runs `node build` on port 3000
 
 ## Project Structure
 
@@ -25,13 +25,15 @@ src/
 │   ├── index.ts          # Shared library exports
 │   └── assets/           # Static assets (favicon)
 ├── routes/
-│   ├── +layout.svelte    # Root layout
-│   ├── +layout.ts        # Layout config (prerender, trailing slash)
-│   ├── +page.svelte      # Home page (hero, project showcase)
+│   ├── +error.svelte           # Error page
+│   ├── +layout.svelte          # Root layout
+│   ├── +layout.ts              # Layout config (prerender, trailing slash)
+│   ├── +page.svelte            # Home page (hero, project showcase)
+│   ├── api/subscribe/+server.ts  # POST endpoint — saves email to Airtable
 │   ├── gallery/+page.svelte    # Gallery of submissions
 │   └── submission/+page.svelte # Submission form
 static/                   # Served as-is (robots.txt)
-svelte.config.js          # SvelteKit config (static adapter, base path)
+svelte.config.js          # SvelteKit config (node adapter, relative: false)
 ```
 
 ## Essential Commands
@@ -49,9 +51,11 @@ npx prettier --write .          # Fix formatting
 
 ## Reference
 
-- **Base path**: In production, the app is served under `/last-grams`. Use `import { base } from '$app/paths'` and prefix all `href` values with `{base}`.
+- **No base path**: `svelte.config.js` sets `paths.relative: false` but no `base` path. Do not use `$app/paths` base prefixes.
 - **Svelte 5 runes**: All components use runes mode (`$state`, `$derived`, `$effect`). Do not use legacy Svelte 4 reactive syntax (`$:`, `export let`).
-- **Static site**: All pages are prerendered. There is no server-side code. `+layout.ts` sets `export const prerender = true`.
+- **Mostly prerendered**: `+layout.ts` sets `export const prerender = true`. The `api/subscribe` route is server-side only and not prerendered.
+- **Airtable integration**: The subscribe API requires env vars `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, and `AIRTABLE_TABLE_NAME` (see `.env.example`).
+- **canvas-confetti**: Used as a runtime dependency for confetti animations.
 
 ## Patterns
 
@@ -69,6 +73,6 @@ npx prettier --write .          # Fix formatting
 
 1. Run `npm run check` and fix any type errors before committing.
 2. Run `npx prettier --check .` and fix formatting issues.
-3. Run `npm run build` to verify the static build succeeds.
+3. Run `npm run build` to verify the build succeeds.
 4. Commit messages: `type: message` (e.g., `fix: correct base path on gallery link`).
 5. PR descriptions should summarize what changed and why.

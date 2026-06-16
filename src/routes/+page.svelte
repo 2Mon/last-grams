@@ -498,7 +498,7 @@
 						<p
 							class="mt-2 text-lg font-bold font-body text-on-surface dark:text-background opacity-80"
 						>
-							An exclusive Hack Club t-shirt to rep your builds.
+							An exclusive Hack Club t-shirt.
 						</p>
 					</div>
 				</div>
@@ -651,8 +651,7 @@
 			</h3>
 			<div class="pl-10 mt-4 border-l-4 border-primary">
 				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
-					<span class="highlight-green">Teens aged 13–18</span> of all experience levels can participate in Wisp! Guided projects
-					are available.
+					<span class="highlight-green">Teens aged 13–18</span> can join. No experience required.
 				</p>
 			</div>
 		</div>
@@ -702,7 +701,7 @@
 			<div class="pl-10 mt-4 border-l-4 border-primary">
 				<p class="text-xl font-bold font-body text-on-surface dark:text-background">
 					For prints: PLA, ABS, PETG, TPU, Nylon, resin, all <span class="highlight-yellow">under 25g</span>. For hardware:
-					PCBs, components, enclosures. Just keep the whole thing small and compact.
+					PCBs, components, enclosures. Just keep it small.
 				</p>
 			</div>
 		</div>
