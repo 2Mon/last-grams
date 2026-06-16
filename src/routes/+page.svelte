@@ -438,22 +438,6 @@
 		</div>
 	</section>
 
-	<!-- SpecBanner -->
-	<section
-		class="relative w-full py-6 bg-on-surface text-surface border-y-4 border-primary"
-		style="width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);"
-	>
-		<div
-			class="flex text-4xl italic font-black tracking-tighter animate-marquee font-headline md:text-5xl"
-			style="width: max-content; white-space: nowrap; gap: 3rem;"
-		>
-			<span>Design Build Share Repeat </span>
-			<span>Design Build Share Repeat </span>
-			<span aria-hidden="true">Design Build Share Repeat </span>
-			<span aria-hidden="true">Design Build Share Repeat </span>
-		</div>
-	</section>
-
 	<!-- Prizes -->
 	<section class="space-y-12">
 		<div class="max-w-2xl text-center md:text-left">
